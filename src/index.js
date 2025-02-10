@@ -6,6 +6,8 @@ import App from './App';
 import Home from './pages/Home';
 import Works from './pages/Works';
 import NotFound from './pages/NotFound';
+import { ParallaxApiProvider } from './context/ParallaxApiContext';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -23,6 +25,8 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ParallaxApiProvider>
+      <RouterProvider router={router} />
+    </ParallaxApiProvider>
   </React.StrictMode>
 );
