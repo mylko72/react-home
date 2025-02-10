@@ -14,7 +14,6 @@ export default function LenisAPI() {
     
     useEffect(() => {
         requestAnimationFrame(raf);
-        console.log('call lenis...');
     });
 
     return null;

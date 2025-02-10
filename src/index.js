@@ -24,9 +24,9 @@ const router = createBrowserRouter([
 ])
 
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <ParallaxApiProvider>
       <RouterProvider router={router} />
     </ParallaxApiProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

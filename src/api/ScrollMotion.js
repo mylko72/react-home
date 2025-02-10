@@ -41,14 +41,6 @@ export default class ScrollMotion {
     render(){
         this.setDataSet(this.motionSelector);        
 
-        const svgElements = document.querySelectorAll('svg .path');
-        svgElements.length && [...svgElements].forEach((svg) => {
-            const outlineLength = svg.getTotalLength();
-            svg.style.strokeDasharray = outlineLength;
-            svg.style.strokeDashoffset = outlineLength;
-            svg.dataset.callCnt = 0;
-        });
-
         const splitText = document.querySelectorAll('[data-split-txt]');   
         splitText.length && this.splitMessage(splitText);
 
@@ -59,17 +51,7 @@ export default class ScrollMotion {
             if(section.dataset.type === 'sticky'){
                 const scrollHeight = JSON.parse(section.dataset.heightnum) * window.innerHeight;
                 section.style.height = `${scrollHeight}px`;
-
-                if(section.querySelector('.monthly__scroll-x')){
-                    section.querySelector('.monthly__scroll-x').style.width = `${scrollHeight}px`;
-                    section.querySelector('.monthly__scroll-x').dataset.width = scrollHeight;
-                }
             }  
-        });
-
-        [...getAllElements('.monthly__obj-content')].forEach((objContent, idx) => {
-            const resizeHeight = objContent.clientHeight;
-            getAllElements('.monthly__obj-sticky')[idx].style.height = `${resizeHeight}px`;
         });
 
         this.yOffset = this.currentIndex > 0 ? window.scrollY + this.defaults.threshold : window.scrollY;
@@ -89,7 +71,7 @@ export default class ScrollMotion {
             const yOffset = this.currentIndex > 0 ? this.yOffset - this.defaults.threshold : this.yOffset;
             this.defaults.yDirection = yOffset > window.scrollY ? 'up' : 'down';
             this.yOffset = this.currentIndex > 0 ? window.scrollY + this.defaults.threshold : window.scrollY;
-
+            // console.log('direction', this.defaults.yDirection);
             this.setActiveScene();
         });
     }
@@ -192,18 +174,6 @@ export default class ScrollMotion {
             }    
             if(this.currentIndex === '9'){
                 console.log(`Section 10 모션 시작...`);
-                // const rectTop = this.currentScene.querySelector('.boxItems').getBoundingClientRect().top;
-                const boxElement = this.currentScene.querySelector('.boxItems .box1');
-
-                this.setAnimationQueue()(() => {
-                    boxElement.style.transform = 'translate(200%, 0)';
-                })(1000)(() => {
-                    boxElement.style.transform = 'translate(200%, 200%)';
-                })(1000)(() => {
-                    boxElement.style.transform = 'translate(0, 200%)';
-                })(1000)(() => {
-                    boxElement.style.transform = 'translate(0, 0)';
-                })();
             }                
             if(this.currentIndex === '11'){
                 console.log(`Section 12 모션 시작...`);
@@ -256,21 +226,23 @@ export default class ScrollMotion {
     }
 
     playAniSequence(target){
-        const elements = target.querySelectorAll('.monthly__cover-img');
+        const elements = target.querySelectorAll('.app__cover-img, .app__message-tit');
 
         this.setAnimationQueue()(() => {
+            if(!elements[0]) return;
             console.log('processing Queue1...')
-
             elements[0].style.transitionDuration = `${elements[0].dataset.duration}`;
             elements[0].style.transitionTimingFunction = `${elements[0].dataset.timingFunction}`;
             this.addShow(elements[0]);
         })(`${parseFloat(elements[0].dataset.duration)*1000}`)(() => {
+            if(!elements[1]) return;
             console.log('processing Queue2...')
 
             elements[1].style.transitionDuration = `${elements[1].dataset.duration}`;
             elements[1].style.transitionTimingFunction = `${elements[1].dataset.timingFunction}`;
             this.addShow(elements[1]);
         })(`${parseFloat(elements[1].dataset.duration)*1000}`)(() => {
+            if(!elements[2]) return;
             console.log('processing Queue3...')
 
             elements[2].style.transitionDuration = `${elements[2].dataset.duration}`;
@@ -346,16 +318,16 @@ export default class ScrollMotion {
             splitArr.forEach((char, i) => {
                 let spanEl = document.createElement('span');
                 spanEl.setAttribute('data-effect', '');
-                spanEl.className = 'monthly__mask';
+                spanEl.className = 'app__mask';
                 spanEl.ariaHidden = 'true';
-                spanEl.innerHTML = `<span class="monthly__message-tit ${el.tagName.toLowerCase()}-txt ${effect}" data-effect style="display:inline-block; transition-duration:.8s; transition-delay: ${sec*i}s">${char}</span>`;
+                spanEl.innerHTML = `<span class="app__message-tit ${el.tagName.toLowerCase()}-txt ${effect}" data-effect style="display:inline-block; transition-duration:.8s; transition-delay: ${sec*i}s">${char}</span>`;
                 el.parentElement.append(spanEl);
             });
 
             [...el.parentElement.querySelectorAll('.span-txt')].forEach((span) => {
                 span.addEventListener('transitionend', () => {
                     console.log('transition end...');
-                    span.closest('.monthly__mask').style.overflow = 'visible';
+                    span.closest('.app__mask').style.overflow = 'visible';
                 });
             });
         });
@@ -368,7 +340,7 @@ export default class ScrollMotion {
             const size = el.clientWidth / number;
             const { splitEffect: effect, duration } = el.dataset
             const effectWrap = document.createElement('div');
-            effectWrap.className = 'monthly__mask';
+            effectWrap.className = 'app__mask';
             !!duration && (sec = duration);
 
             for(let i = 0; i < number; i++){
@@ -398,7 +370,9 @@ export default class ScrollMotion {
     addShow(target){
         let that = this;
         let { slideWidth, slideHeight, sec} = target.dataset;
-        let time = !!sec ? parseFloat(sec)*1000 : 0;
+        let time = !!sec ? parseFloat(sec)*1000 : 1000;
+
+        console.log('time', time);
 
         if(!!slideWidth || !!slideHeight){
             target = this.slideEffect(target);

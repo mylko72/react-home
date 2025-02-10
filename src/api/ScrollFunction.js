@@ -33,7 +33,7 @@ function callByObserver(params) {
 
     let callback = (entries, observer) => {
         entries.forEach(entry => {
-            const { intersectionRatio: currentRatio, isIntersecting } = entry;
+            const { intersectionRatio: isIntersecting } = entry;
 
             if(isIntersecting){
                 if(showCallback && typeof showCallback == 'function'){

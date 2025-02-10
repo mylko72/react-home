@@ -8,12 +8,12 @@ function App() {
   const appRef = useRef(null);
 
   useEffect(() => {
-    scrollIndex.init('.my__app-container', '.content__scroll-section', '[data-effect]', { threshold: 0.95 });
+    scrollIndex.init('.app__container', '.app__scroll-section', '[data-effect]', { threshold: 0.95 });
     console.log('scrollIndex', scrollIndex);
   });
 
   return (
-    <div ref={appRef} className='my__app-container'>
+    <div ref={appRef} className='app__container'>
       <LenisAPI />
       <Outlet />
     </div>
