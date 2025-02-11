@@ -69,6 +69,10 @@ export default class ScrollIndex {
                     stickyEl.style.borderRadius = `${this.scrollMotion.calcValues(stickyBorderRadius, currentYOffset)}vw`
                     stickyEl.style.willChange = 'transform, width, height';
                     stickyEl.style.transformStyle = 'preserve-3d';
+                }else{
+                    stickyEl.style.width = '100%';
+                    stickyEl.style.height = '100vh';
+                    stickyEl.style.borderRadius = '0';
                 }
 
                 if(stickyEl.style.height === '100vh'){
@@ -77,6 +81,11 @@ export default class ScrollIndex {
                     stickyEl.classList.remove('!fixed');
                 }
             }else if(currentIndex === 1){
+                const stickyEl = this.scrollMotion.scrollSection[currentIndex-1].querySelector('.app__cover-img');
+                stickyEl.style.width = '100%';
+                stickyEl.style.height = '100vh';
+                stickyEl.style.borderRadius = '0';
+
                 console.log(`Section 1 모션 진행중...`);
             
             }else if(currentIndex === 2){

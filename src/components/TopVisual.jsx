@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function TopVisual() {
+
+    useEffect(() => {
+        window.scrollBy(0, 10);
+    });
+
     return (
         <div id="scroll-section-0" className='app__scroll-section'>
             <div className="app__main-message flex flex-wrap justify-start">
@@ -23,7 +28,7 @@ export default function TopVisual() {
                 </div>
             </div>
             <div className="app__cover-sticky">
-                <div className="app__cover-img" data-border-radius='[5, 0, { "start": "0.4", "end": "0.8" }]' data-scale-width='[80, 100, { "start": "0.4", "end": "0.8" }]' data-scale-height='[80, 100, { "start": "0.4", "end": "0.8" }]'>
+                <div className="app__cover-img" data-border-radius='[5, 0, { "start": "0.4", "end": "0.8" }]' data-scale-width='[70, 100, { "start": "0.4", "end": "0.8" }]' data-scale-height='[70, 100, { "start": "0.4", "end": "0.8" }]'>
                         {/* <img src="/images/img_top_visual.jpg" alt='' /> */}
                 </div>
             </div>
