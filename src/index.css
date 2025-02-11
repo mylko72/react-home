@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --main-point-color: #FF6447;
+  --swier-item-pad: 16px;
+}
+
 html.lenis {height: auto}
 .lenis.lenis-smooth {scroll-behavior: auto}
 
@@ -55,9 +60,418 @@ body {
 .app__scroll-section {position:relative; width:100%; padding:0 20px; min-height:100vh;}
 .app__scroll-section.active .monthly__sticky-elem {display:block; will-change:transform, opacity;}
 
-#scroll-section-0 {max-width:100%; height: 330vh; padding:80vh 0 0}
-#scroll-section-0 .app__main-message {position:fixed; left: 50%; top: 50%; z-index: 10; width: max-content; transform: translate(-50%, -50%); padding: 0; text-align:center;}
-#scroll-section-0 .app__message-tit {font-size: 5vw; font-weight: 800;}
+.txt-point {color: var(--main-point-color);}
+
+#scroll-section-0 {max-width:100%; height: 200vh; padding:80vh 0 0}
+#scroll-section-0 .app__main-message {position:fixed; left: 7vw; top: 50%; z-index: 10; width: max-content; transform: translateY(-50%); padding: 0; text-align:center;}
+#scroll-section-0 .app__message-tit {font-size: 3vw; font-weight: 800; text-align: left;}
 #scroll-section-0 .app__cover-sticky {position: relative; display:flex; justify-content: center; align-items: flex-start; height: 150vh;}
-#scroll-section-0 .app__cover-img {position: sticky; top: 0; width: 80%; height: 80vh; border-radius: 5vw; overflow: hidden;}
+#scroll-section-0 .app__cover-img {position: sticky; top: 0; width: 80%; height: 80vh; border-radius: 5vw; overflow: hidden; background-image: url(../public/images/img_top_visual.jpg); background-size: cover;}
 #scroll-section-0 .app__cover-img img {width:100%; height:100%; object-position:top; object-fit:cover; border-radius: 0;}
+
+#scroll-section-1 {position: relative; z-index: 20; max-width:100%; height: 200vh; padding:12vw 0 0; background-color: #fff;}
+#scroll-section-1 .app__main-message {width: auto; margin-left: 3vw;}
+
+
+
+
+/* Swiper 가로형 (s) ********************************************/
+
+.app__main-swiper {
+  position: relative;
+  width: 1400px;
+  margin-right: 3vw;
+  --areaWidth: 1400;
+}
+
+.app__main-swiper .swiper {
+  margin: 0 -20px 0;
+  padding: 0 20px;
+}
+
+.app__main-swiper .swiper > .swiper-button-prev.hover {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(20px, -200%);
+}
+
+.app__main-swiper .swiper > .swiper-button-next.hover {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(-20px, -200%);
+}
+
+.app__main-swiper .swiper > .swiper-button-prev.hover.fade-in,
+.app__main-swiper .swiper > .swiper-button-next.hover.fade-in {
+  transform: translate(0, -200%);
+}
+
+.app__main-swiper .swiper-slide ~ .swiper-slide {
+  margin-left: 20px;
+}
+
+.app__main-swiper .swiper-button-control {
+  margin-top: 0;
+}
+
+.app__main-swiper iframe {
+  pointer-events: none;
+}
+
+.app__main-swiper .photo-list {
+  padding-top: calc(100% * 0.922);
+}
+
+.app__main-swiper .photo-list > ul {
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  top: 0;
+  display: flex;
+  flex-flow: wrap;
+  /*width:100%;*/
+  height: 100%;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.app__main-swiper .photo-list > ul.column {
+  flex-flow: column wrap;
+}
+
+.app__main-swiper .photo-list > ul > li:nth-child(odd) .photo-img {
+  max-height: 456px;
+}
+
+.app__main-swiper .photo-list > ul > li:nth-child(even) .photo-img {
+  max-height: 608px;
+}
+
+.app__main-swiper .photo-list > ul > li:nth-child(3n) {
+  padding-right: 0;
+}
+
+.app__main-swiper .photo-list > ul > li:nth-child(2n).mov {
+  position: relative;
+  height: calc(681*100% / 1290);
+}
+
+.app__main-swiper .photo-list > ul > li:nth-child(odd).mov {
+  position: relative;
+  height: calc(529*100% / 1290);
+}
+
+.app__main-swiper .photo-list > ul > li:nth-child(n+4) {
+  align-self: end;
+}
+
+.app__main-swiper .photo-list > ul > li:nth-child(odd) .photo-img,
+.app__main-swiper .photo-list > ul > li:nth-child(odd) .videoPlayer,
+.app__main-swiper .photo-list > ul > li:nth-child(odd) .video {
+  padding-top: 100%;
+}
+
+.app__main-swiper .photo-list > ul > li:nth-child(even) .photo-img,
+.app__main-swiper .photo-list > ul > li:nth-child(even) .videoPlayer,
+.app__main-swiper .photo-list > ul > li:nth-child(even) .video {
+  padding-top: 133.3333333%;
+}
+
+.app__main-swiper .photo-list > ul .photo-item {
+  display: flex;
+  flex-direction: column;
+  width: calc(33.333333333% - var(--swier-item-pad));
+  padding: 0 8px 40px 8px;
+  /*width:calc(456*100%/var(--areaWidth) - var(--pad)); flex:auto; padding-right:var(--pad); padding-bottom:40px;*/
+}
+
+.app__main-swiper .photo-list > ul .photo-item.mov > a {
+  /*flex:auto*/
+  height: 100%;
+}
+
+.app__main-swiper .photo-list > ul .photo-item.mov .videoPlayer,
+.app__main-swiper .photo-list > ul .photo-item.mov .video {
+  position: relative;
+  height: auto;
+  /*height:calc(100% - 73px); max-height:608px*/
+}
+
+.app__main-swiper .photo-list > ul .photo-item.mov .videoPlayer video,
+.app__main-swiper .photo-list > ul .photo-item.mov .video .youtube {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  object-fit: cover;
+  max-height: 608px;
+  overflow: hidden;
+}
+
+.app__main-swiper .photo-list > ul .photo-img {
+  display: block;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.app__main-swiper .photo-list > ul .photo-img img {
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+}
+
+.app__main-swiper .photo-list > ul .photo-desc {
+  flex: auto;
+  width: 100%;
+  height: 73px;
+  padding-top: 10px;
+  padding-right: 120px;
+  overflow: hidden;
+  font-size: var(--fontD);
+  line-height: var(--fontDL);
+  color: var(--gray900);
+  box-sizing: border-box;
+}
+
+.app__main-swiper .photo-list > ul .photo-desc .tit {
+  height: 21px;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.app__main-swiper .photo-list > ul .photo-desc .desc {
+  height: 42px;
+  overflow: hidden;
+  word-wrap: break-word;
+  font-weight: normal;
+}
+
+@media only all and (max-width:1440px) {
+  /* .app__main-swiper .photo-list {padding-top:100%} */
+}
+
+/* Swiper 가로형 (e) ********************************************/
+
+/* swiper 공통 (s) *****************************************************/
+
+/*swiper default */
+
+.swiper {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.swiper-vertical > .swiper-wrapper {
+  flex-direction: column;
+}
+
+.swiper-android .swiper-slide,
+.swiper-wrapper {
+  transform: translate3d(0px, 0, 0);
+}
+
+.swiper-pointer-events {
+  touch-action: pan-y;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+}
+
+.swiper-slide-invisible-blank {
+  visibility: hidden;
+}
+
+/* Auto Height */
+
+.swiper-autoheight,
+.swiper-autoheight .swiper-slide {
+  height: auto;
+}
+
+.swiper-autoheight .swiper-wrapper {
+  align-items: flex-start;
+  transition-property: transform, height;
+}
+
+.swiper-backface-hidden .swiper-slide {
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* a11y */
+
+.swiper .swiper-notification {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1000;
+}
+
+.swiper-fade.swiper-free-mode .swiper-slide {
+  transition-timing-function: ease-out;
+}
+
+.swiper-fade .swiper-slide {
+  pointer-events: none;
+  transition-property: opacity;
+}
+
+.swiper-fade .swiper-slide .swiper-slide {
+  pointer-events: none;
+}
+
+.swiper-fade .swiper-slide-active,
+.swiper-fade .swiper-slide-active .swiper-slide-active {
+  pointer-events: auto;
+}
+
+.swiper-container-fade .swiper-slide-active {
+  z-index: 2;
+}
+
+/* #185017 추가 */
+
+.swiper-button-next,
+.swiper-button-prev {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-button-next.hide,
+.swiper-button-prev.hide {
+  display: none !important;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  opacity: .35;
+  cursor: auto;
+  /*pointer-events:none*/
+}
+
+.swiper-button-next.swiper-button-hidden,
+.swiper-button-prev.swiper-button-hidden {
+  opacity: 0;
+  cursor: auto;
+  pointer-events: none;
+}
+
+.swiper-navigation-disabled .swiper-button-next,
+.swiper-navigation-disabled .swiper-button-prev {
+  display: none!important;
+}
+
+.swiper > .swiper-button-prev.hover {
+  display: none;
+  opacity: 0;
+  transform: translate(20px, -50%);
+  transition: all .2s ease-out;
+  z-index: 50;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  /* background: rgba(0,0,0,.4) url("./images/chevron-left-44-white.svg") no-repeat center/44px auto; */
+}
+
+.swiper > .swiper-button-next.hover {
+  display: none;
+  opacity: 0;
+  transform: translate(-20px, -50%);
+  transition: all .2s ease-out;
+  z-index: 50;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  /* background: rgba(0,0,0,.4) url("./images/chevron-right-44-white.svg") no-repeat center/44px auto; */
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {display:none}
+
+
+.swiper > .swiper-button-prev.hover.show-in,
+.swiper > .swiper-button-next.hover.show-in {
+  display: block;
+}
+
+.swiper > .swiper-button-prev.hover.fade-in,
+.swiper > .swiper-button-next.hover.fade-in {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.swiper > .swiper-button-prev.hover.swiper-button-disabled.fade-in,
+.swiper > .swiper-button-next.swiper-button-disabled.fade-in {
+  opacity: .35;
+}
+
+.swiper-button-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  box-sizing: border-box;
+}
+
+.swiper-button-control.hide {
+  display: none !important;
+}
+
+.swiper-button-control .swiper-button-prev {
+  position: static;
+  width: 16px;
+  height: 16px;
+  transform: translateY(0);
+  /* background: url("./images/chevron-left-16.svg") no-repeat center/16px auto; */
+}
+
+.swiper-button-control .swiper-button-next {
+  position: static;
+  width: 16px;
+  height: 16px;
+  transform: translateY(0);
+  /* background: url("./images/chevron-right-16.svg") no-repeat center/16px auto; */
+  transform: translateY(0);
+}
+
+.swiper-button-control .swiper-pagination {
+  position:static;
+  left:unset;
+  width: 46px;
+  margin: -25px 12px 0;
+  font-size: var(--fontC);
+  line-height: var(--fontCL);
+  color: var(--gray900);
+  text-align: center;
+}
+
+/* swiper 공통 (e) *****************************************************/

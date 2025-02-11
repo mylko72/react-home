@@ -51,7 +51,7 @@ export default class ScrollIndex {
                 const stickyScaleHeight = JSON.parse(stickyEl.dataset.scaleHeight);
                 const stickyBorderRadius = JSON.parse(stickyEl.dataset.borderRadius);
 
-                console.log(`Section 1 모션 진행중...`);
+                console.log(`Section 0 모션 진행중...`);
 
                 if(!this.absTop){
                     this.absTop = this.scrollMotion.yOffset + this.scrollMotion.currentScene.getBoundingClientRect().top;
@@ -69,8 +69,15 @@ export default class ScrollIndex {
                     stickyEl.style.borderRadius = `${this.scrollMotion.calcValues(stickyBorderRadius, currentYOffset)}vw`
                     stickyEl.style.willChange = 'transform, width, height';
                     stickyEl.style.transformStyle = 'preserve-3d';
-                }    
+                }
+
+                if(stickyEl.style.height === '100vh'){
+                    stickyEl.classList.add('!fixed');
+                } else{
+                    stickyEl.classList.remove('!fixed');
+                }
             }else if(currentIndex === 1){
+                console.log(`Section 1 모션 진행중...`);
             
             }else if(currentIndex === 2){
     

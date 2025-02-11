@@ -370,7 +370,7 @@ export default class ScrollMotion {
     addShow(target){
         let that = this;
         let { slideWidth, slideHeight, sec} = target.dataset;
-        let time = !!sec ? parseFloat(sec)*1000 : 1000;
+        let time = !!sec ? parseFloat(sec)*1000 : 0;
 
         console.log('time', time);
 
