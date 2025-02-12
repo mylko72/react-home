@@ -2,7 +2,7 @@ import SwiperItem from "./SwiperItem";
 
 export default function MyWork() {
   return (
-    <div id="scroll-section-1" className='app__scroll-section flex flex-col items-center 2xl:flex-row 2xl:justify-between'>
+    <div id="scroll-section-1" className='app__scroll-section flex flex-col items-center 2xl:flex-row 2xl:justify-between 2xl:items-start'>
       <div>
         <svg className="line-curved">
           <linearGradient id="grad-red" x1="0" y1="100" x2="100%" y2="100">
@@ -18,15 +18,15 @@ export default function MyWork() {
         </svg>
       </div>      
 
-      <div className="app__main-message flex flex-row 2xl:flex-col 2xl:justify-start items-center gap-3 mb-5 2xl:ml-10">
+      <div className="app__main-message flex flex-row items-center gap-3 mb-5 2xl:flex-col 2xl:justify-end 2xl:items-end 2xl:ml-10">
         <div className="app__mask" data-effect>
-            <p className="app__message-tit" data-effect="slide-up">무엇을 했나요</p>
+            <p className="app__message-tit text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">무엇을 했나요</p>
         </div>
         <div className="app__mask" data-effect>
-            <p className="app__message-desc" data-effect="slide-down">My Works</p>
+            <p className="app__message-desc text-4l md:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">My Works</p>
         </div>
       </div>
-      <div className="app__main-swiper">
+      <div className="app__main-swiper size-3/4 lg:size-3/4 2xl:size-3/5 2xl:mr-24">
         <SwiperItem />
       </div>
     </div>

@@ -59,8 +59,8 @@ body {
 .app__mask {position: static; display:inline-block; opacity:1; overflow: hidden;}
 
 .app__main-message {position:relative; width:50%; padding:50px 35px; color:#1e1e1e}
-.app__main-message .app__message-tit {font-size: var(--main-text-size); line-height: 1.2; font-weight: 800}
-.app__main-message .app__message-desc {font-size: var(--desc-text-size); color: var(--desc-text-color); font-weight: 800}
+.app__main-message .app__message-tit {line-height: 1.2; font-weight: 800}
+.app__main-message .app__message-desc {color: var(--desc-text-color); font-weight: 800}
 
 .app__scroll-section {position:relative; width:100%; padding:0 20px; min-height:100vh;}
 .app__sticky-elem {position: fixed;	left: 0; width: 100%;}
@@ -183,7 +183,8 @@ body {
 .app__main-swiper {
   position: relative;
   flex: auto;
-  width: 72vw;
+  /* width: 72vw; */
+  height: auto !important;
   overflow: hidden;
   @apply flex-none;
 }

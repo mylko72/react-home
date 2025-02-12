@@ -9,7 +9,7 @@ export default function TopVisual() {
     return (
         <div id="scroll-section-0" className='app__scroll-section' data-type="sticky" data-heightnum="2">
             <div className="app__sticky-elem app__main-message flex flex-wrap justify-start">
-                <div className='flex w-full flex-100'>
+                <div className='flex w-full flex-100 text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl'>
                     <div className="app__mask flex-none" data-effect>
                         <p className="app__message-tit" data-effect="slide-right">인연</p>
                     </div>
@@ -19,11 +19,10 @@ export default function TopVisual() {
                     </div>
                     <p className="app__message-tit"data-effect="text-blur" data-delay="1s">로,</p>
                 </div>
-                {/* <p className="app__message-tit w-full flex-100" data-effect="slide-right">인연을 기회로,</p> */}
-                <div className="app__mask flex-none" data-effect>
+                <div className="app__mask flex-auto md:flex-none text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl" data-effect>
                     <p className="app__message-tit" data-effect="slide-up" data-delay="1s" data-sec="1">노력을 <span className='txt-point'>실력</span>으로, </p>
                 </div>
-                <div className="app__mask flex-none" data-effect>
+                <div className="app__mask w-full flex-auto md:flex-none md:w-auto text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl" data-effect>
                     <p className="app__message-tit" data-effect="slide-down" data-delay="1s" data-sec="1">최선을 <span className='txt-point'>결과</span>로!</p>
                 </div>
             </div>
