@@ -47,15 +47,22 @@ export default class ScrollMotion {
         const splitElement = document.querySelectorAll('[data-split-effect]');
         splitElement.length && this.splitEffect(splitElement);
 
+        // 스크롤섹션을 순회하며 섹션마다 스크롤 높이를 설정
         [...this.scrollSection].forEach((section, index) => {
             if(section.dataset.type === 'sticky'){
-                const scrollHeight = JSON.parse(section.dataset.heightnum) * window.innerHeight;
+                const scrollHeight = JSON.parse(section.dataset?.heightnum) * window.innerHeight;
                 section.style.height = `${scrollHeight}px`;
-            }  
+            } else {
+                // more...와 같이 동적으로 높이가 변할 수 있으므로 height값을 설정하지 않는다.            
+                // const scrollHeight = section.offsetHeight + window.innerHeight * 0.5;    
+                // section.style.height = `${scrollHeight}px`;
+            } 
         });
 
         this.yOffset = this.currentIndex > 0 ? window.scrollY + this.defaults.threshold : window.scrollY;
 
+        // 화면 로딩시 현재 스크롤 값보다 각 섹션을 더한 스크롤높이가 큰 경우
+        // 현재 활성화된 스크롤섹션이므로 i를 currentIndex로 설정
         let totalScrollHeight = 0;
         for(let i=0; i<this.scrollSection.length; i++){
            totalScrollHeight += this.scrollSection[i].scrollHeight;
@@ -126,6 +133,7 @@ export default class ScrollMotion {
     setActiveScene(){
         this.defaults.prevScrollHeight = 0;
 
+        // 스크롤 이벤트가 발생할 때 마다 현재 활성화된 섹션과 인덱스를 가져온다.
         this.scrollSection.forEach((section, idx) => {
             let offsetY = section.getBoundingClientRect().top;
             section.dataset.index = idx;
@@ -135,16 +143,18 @@ export default class ScrollMotion {
             }
         });
 
+        // 스크롤 이벤트가 발생할 때 이전 스크롤높이의 합을 가져온다.
         [...this.scrollSection].filter((scene, i) => {
             if(i < this.currentIndex){
-               this.defaults.prevScrollHeight += scene.scrollHeight;
+               return this.defaults.prevScrollHeight += scene.scrollHeight;
             }
+            return false;
         });
 
         if(!this.currentScene) return false;
 
         if(!this.currentScene.classList.contains('active')){
-
+            // 현재 섹션이 active될 때 한번 실행 
             if(this.currentIndex === '0'){
                 console.log(`Section 1 모션 시작...`);
             }
@@ -179,6 +189,7 @@ export default class ScrollMotion {
                 console.log(`Section 12 모션 시작...`);
             }                
         } else {
+            // active된 현재 섹션의 모션 구현
             this.playAnimation(this.currentIndex);
         }
 
@@ -368,7 +379,6 @@ export default class ScrollMotion {
     }
 
     addShow(target){
-        let that = this;
         let { slideWidth, slideHeight, sec} = target.dataset;
         let time = !!sec ? parseFloat(sec)*1000 : 0;
 

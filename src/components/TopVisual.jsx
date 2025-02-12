@@ -7,8 +7,8 @@ export default function TopVisual() {
     });
 
     return (
-        <div id="scroll-section-0" className='app__scroll-section'>
-            <div className="app__main-message flex flex-wrap justify-start">
+        <div id="scroll-section-0" className='app__scroll-section' data-type="sticky" data-heightnum="2">
+            <div className="app__sticky-elem app__main-message flex flex-wrap justify-start">
                 <div className='flex w-full flex-100'>
                     <div className="app__mask flex-none" data-effect>
                         <p className="app__message-tit" data-effect="slide-right">인연</p>
@@ -32,6 +32,23 @@ export default function TopVisual() {
                         {/* <img src="/images/img_top_visual.jpg" alt='' /> */}
                 </div>
             </div>
+            <svg
+                className="line-wave"
+                preserveAspectRatio="none"
+                viewBox="0 0 340 160"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <g>
+                    <path d="M0 80  C 30 10, 55 10, 85 80 S 140 150, 170 80 C 200 10, 225 10, 255 80 S 310 150, 340 80" />
+                </g>
+                <g>
+                    <path d="M0 80  C 30 10, 55 10, 85 80 S 140 150, 170 80 C 200 10, 225 10, 255 80 S 310 150, 340 80" />
+                </g>
+                <g>
+                    <path d="M0 80  C 30 10, 55 10, 85 80 S 140 150, 170 80 C 200 10, 225 10, 255 80 S 310 150, 340 80" />
+                </g>
+            </svg>            
         </div>       
     );
 }
