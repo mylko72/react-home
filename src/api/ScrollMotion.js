@@ -48,17 +48,19 @@ export default class ScrollMotion {
         splitElement.length && this.splitEffect(splitElement);
 
         // 스크롤섹션을 순회하며 섹션마다 스크롤 높이를 설정
-        [...this.scrollSection].forEach((section, index) => {
-            if(section.dataset.type === 'sticky'){
-                const scrollHeight = JSON.parse(section.dataset?.heightnum) * window.innerHeight;
-                section.style.height = `${scrollHeight}px`;
-            } else {
-                // more...와 같이 동적으로 높이가 변할 수 있으므로 height값을 설정하지 않는다.            
-                // const scrollHeight = section.offsetHeight + window.innerHeight * 0.5;    
-                // section.style.height = `${scrollHeight}px`;
-            } 
-        });
+        // [...this.scrollSection].forEach((section, index) => {
+        //     if(section.dataset.type === 'sticky'){
+        //         const scrollHeight = JSON.parse(section.dataset?.heightnum) * window.innerHeight;
+        //         section.style.height = `${scrollHeight}px`;
+        //     } else {
+        //         const scrollHeight = section.offsetHeight + window.innerHeight * 0.5;    
+        //         section.style.height = `${scrollHeight}px`;
+        //     } 
+        // });
+        this.updateHeight();
+    }
 
+    updateHeight(){
         this.yOffset = this.currentIndex > 0 ? window.scrollY + this.defaults.threshold : window.scrollY;
 
         // 화면 로딩시 현재 스크롤 값보다 각 섹션을 더한 스크롤높이가 큰 경우
@@ -71,6 +73,7 @@ export default class ScrollMotion {
               break;
            }
         }
+        console.log('totalScrollHeight', totalScrollHeight);
     }
 
     attachEvents(){
@@ -381,8 +384,6 @@ export default class ScrollMotion {
     addShow(target){
         let { slideWidth, slideHeight, sec} = target.dataset;
         let time = !!sec ? parseFloat(sec)*1000 : 0;
-
-        console.log('time', time);
 
         if(!!slideWidth || !!slideHeight){
             target = this.slideEffect(target);

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { GrPrevious, GrNext } from "react-icons/gr";
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import SlideNextButton from './SlideNextButton';
+import SlidePrevButton from './SlidePrevButton';
 
 export default function SwiperItem() {
+    const [hover, setHover] = useState(false);
 
     const initSwiper = (swiper) => {
         fnMansory(swiper);
@@ -11,18 +16,18 @@ export default function SwiperItem() {
         window.addEventListener('resize', function(){
           fnMansory(swiper);
         });
-      }
+    }
       
-      const fnMansory = (swiper) => {
+    const fnMansory = (swiper) => {
           Array.prototype.slice.call(swiper.slides).forEach(function(slide){
               const photoItemLists = slide.querySelectorAll('.work-item');
               if(photoItemLists.length < 4) return false;
             //   console.log('photoItemLists', photoItemLists);
               Masonry(photoItemLists)
           });
-      }
+    }
     
-      const Masonry = (photoItemLists) => {
+    const Masonry = (photoItemLists) => {
           const diffValue = getDiff([photoItemLists[0].querySelector('.work-img').clientHeight, photoItemLists[1].querySelector('.work-img').clientHeight]);
           const idxArr = [3, 5];
           console.log('diffValue', diffValue);
@@ -31,18 +36,23 @@ export default function SwiperItem() {
                   item.style.marginTop = '-' + diffValue + 'px';
               }
           });
-      }
+    }
     
-      const getDiff = (arr) => {
+    const getDiff = (arr) => {
           return arr.reduce(function (a, b) {
               return a > b ? a - b : b - a;
           });
-      }
+    }
     
     return (
         <Swiper
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => initSwiper(swiper)}
+            // install Swiper modules
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
+            onSlideChange={() => console.log('slide change')}
+            onSwiper={(swiper) => initSwiper(swiper)}
+            onMouseOver={() => (setHover(true))}
+            className={ hover ? 'active' : '' }
         >
           <SwiperSlide>
             <div className="work-list">
@@ -140,13 +150,8 @@ export default function SwiperItem() {
               </ul>
             </div>
           </SwiperSlide>
-          <div className="swiper-button-prev hover"><GrPrevious className='text-white text-2xl' /></div>
-          <div className="swiper-button-next hover"><GrNext className='text-white text-2xl' /></div>
-          <div className="swiper-button-control">
-            <div className="swiper-button-prev"></div>
-            <div className="swiper-pagination"></div>
-            <div className="swiper-button-next"></div>
-          </div>
+          <SlidePrevButton />
+          <SlideNextButton />
         </Swiper>
     );
 }

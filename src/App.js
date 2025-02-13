@@ -9,7 +9,6 @@ function App() {
 
   useEffect(() => {
     scrollIndex.init('.app__main-container', '.app__scroll-section', '[data-effect]', { threshold: 0.95 });
-    console.log('scrollIndex', scrollIndex);
   });
 
   return (

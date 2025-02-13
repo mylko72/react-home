@@ -38,7 +38,6 @@ export default class ScrollIndex {
     }
 
     render(){
-
         this.scrollMotion.setAnimationListener((currentIndex) => {
             let currentYOffset = this.scrollMotion.yOffset - this.scrollMotion.defaults.prevScrollHeight;
             let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[currentIndex].scrollHeight;
@@ -100,6 +99,11 @@ export default class ScrollIndex {
             }else if(currentIndex === 9){
             }
         });
+    }
+    
+    setLayout(section, heightNum){
+        const scrollHeight = heightNum * window.innerHeight;
+        section.style.height = `${scrollHeight}px`;
     }
 
     attachEvents(){

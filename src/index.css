@@ -192,30 +192,30 @@ body {
 .app__main-swiper .swiper {
   height: 100%;
   margin: 0 -20px 0;
-  padding: 0 20px;
+  padding: 0 20px 50px;
 }
 
-.app__main-swiper .swiper > .swiper-button-prev.hover {
+.app__main-swiper .swiper .swiper-button-prev {
   display: block;
   position: absolute;
   top: 50%;
   left: 10px;
   z-index: 20;
   transform: translate(20px, -50%);
-  @apply flex justify-center items-center bg-slate-300 opacity-100;
+  @apply flex justify-center items-center w-14 h-14 bg-slate-300 opacity-80;
 }
 
-.app__main-swiper .swiper > .swiper-button-next.hover {
+.app__main-swiper .swiper .swiper-button-next {
   display: block;
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translate(-20px, -50%);
-  @apply flex justify-center items-center bg-slate-300 opacity-100;
+  @apply flex justify-center items-center w-14 h-14 bg-slate-300 opacity-80;
 }
 
-.app__main-swiper .swiper > .swiper-button-prev.hover.fade-in,
-.app__main-swiper .swiper > .swiper-button-next.hover.fade-in {
+.app__main-swiper .swiper .swiper-button-prev.hover.fade-in,
+.app__main-swiper .swiper .swiper-button-next.hover.fade-in {
   transform: translate(0, -200%);
 }
 
@@ -244,7 +244,7 @@ body {
   display: flex;
   flex-flow: wrap;
   /*width:100%;*/
-  height: 100%;
+  /* height: 100%; */
   justify-content: flex-start;
   align-content: flex-start;
 }

@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useParallaxApiContext } from '../context/ParallaxApiContext';
 
-export default function TopVisual() {
-
+export default function TopVisual({type, heightNum}) {
+    const sectionRef = useRef(null);
+    const { scrollIndex } = useParallaxApiContext();  
+    
     useEffect(() => {
+        scrollIndex.setLayout(sectionRef.current, heightNum);
         window.scrollBy(0, 10);
     });
 
     return (
-        <div id="scroll-section-0" className='app__scroll-section' data-type="sticky" data-heightnum="2">
+        <div ref={sectionRef} id="scroll-section-0" className='app__scroll-section'>
             <div className="app__sticky-elem app__main-message flex flex-wrap justify-start">
                 <div className='flex w-full flex-100 text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl'>
                     <div className="app__mask flex-none" data-effect>
