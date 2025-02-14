@@ -1,6 +1,16 @@
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 import SwiperItem from "./SwiperItem";
 
-export default function MyWork() {
+export default function MyWork({ size }) {
+  const {isLoading, error, data: works} = useQuery({
+    queryKey: ['works', size],
+    queryFn: async () => {
+      console.log('fetching....');
+      return axios.get('/data/works.json').then(res => res.data.works)
+    },
+  });
+
   return (
     <div id="scroll-section-1" className='app__scroll-section flex flex-col items-center 2xl:flex-row 2xl:justify-between 2xl:items-start'>
       <div>
@@ -27,7 +37,9 @@ export default function MyWork() {
         </div>
       </div>
       <div className="app__main-swiper size-3/4 lg:size-3/4 2xl:size-3/5 2xl:mr-24">
-        <SwiperItem />
+        { isLoading && <p>Loading...</p>}
+        { error && <p>Something is wrong</p>}
+        { works && <SwiperItem works={works} size={size} />}
       </div>
     </div>
   );

@@ -329,7 +329,9 @@ body {
   display: block;
   width: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: top center;
+  background-repeat: no-repeat;
+  border: 1px solid #eee;
 }
 
 .app__main-swiper .work-list > ul .work-img img {

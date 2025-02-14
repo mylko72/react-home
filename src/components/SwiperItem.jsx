@@ -7,8 +7,11 @@ import 'swiper/css/pagination';
 import SlideNextButton from './SlideNextButton';
 import SlidePrevButton from './SlidePrevButton';
 
-export default function SwiperItem() {
+export default function SwiperItem({ works, size }) {
     const [hover, setHover] = useState(false);
+    const slideNum = Array(size/6);
+    const perView = size/2;
+    console.log('works', works);
 
     const initSwiper = (swiper) => {
         fnMansory(swiper);
@@ -30,7 +33,6 @@ export default function SwiperItem() {
     const Masonry = (photoItemLists) => {
           const diffValue = getDiff([photoItemLists[0].querySelector('.work-img').clientHeight, photoItemLists[1].querySelector('.work-img').clientHeight]);
           const idxArr = [3, 5];
-          console.log('diffValue', diffValue);
           photoItemLists.forEach(function(item, i){
               if(i === idxArr[0] || i === idxArr[1]){
                   item.style.marginTop = '-' + diffValue + 'px';
@@ -54,7 +56,64 @@ export default function SwiperItem() {
             onMouseOver={() => (setHover(true))}
             className={ hover ? 'active' : '' }
         >
-          <SwiperSlide>
+            {[0, 1].map((slide, index) => (
+              <SwiperSlide key={slide} virtualIndex={index}>
+                <div className="work-list"> 
+                  <ul>
+                    {                      
+                      works.map((work, i) => {
+                        if(i >= perView) return false;
+                        return (
+                          <li className="work-item" key={i}>
+                              <div className="work-img" style={{ backgroundImage: `url(${work.thumbnail})`}}></div>
+                              <div className="work-desc">
+                                <p className="tit line-clamp-2">{ work.project }</p>
+                                <p className="desc">{ work.date }</p>
+                              </div>
+                          </li>
+                        )
+                      })
+                    }                        
+                    {/* <li className="work-item">
+                        <div className="work-img" style={{ backgroundImage: 'url(https://img.ssfshop.com/display/category/THM/A30/A16/contents/22463_243297_12_KOR_20221216154612.jpg)'}} alt=''></div>
+                        <div className="work-desc">
+                          <p className="tit line-clamp-2">2023 Spring 1st Drop <br />Now Release </p>
+                          <p className="desc">Beanpole Ladies</p>
+                        </div>
+                    </li>
+                    <li className="work-item">
+                        <div className="work-img" style={{ backgroundImage: 'url(https://img.ssfshop.com/display/category/THM/A30/A16/contents/22463_243297_43_KOR_20221221145740.jpg)'}} alt=''></div>
+                        <div className="work-desc">
+                          <p className="tit line-clamp-2">버버리/프라다 등: 클래식브랜드 ~71%</p>
+                          <p className="desc">Luxury</p>
+                        </div>
+                    </li>
+                    <li className="work-item">
+                        <div className="work-img" style={{ backgroundImage: 'url(https://img.ssfshop.com/display/category/THM/A30/A16/contents/22463_243297_42_KOR_20221220170230.jpg)'}} alt=''></div>
+                        <div className="work-desc">
+                          <p className="tit line-clamp-2">HOLIDAY GIFT COLLECTION</p>
+                          <p className="desc">LEMAIRE</p>
+                        </div>
+                    </li>
+                    <li className="work-item">
+                        <div className="work-img" style={{ backgroundImage: 'url(https://img.ssfshop.com/display/category/THM/A30/A16/contents/22463_243297_41_KOR_20221222151759.jpg)'}} alt=''></div>
+                        <div className="work-desc">
+                          <p className="tit line-clamp-2">Most Loved Must-Haves</p>
+                          <p className="desc">kuho plus</p>
+                        </div>
+                    </li>
+                    <li className="work-item">
+                        <div className="work-img" style={{ backgroundImage: 'url(https://img.ssfshop.com/display/category/THM/A30/A16/contents/22463_243297_31_KOR_20221222105715.jpg)'}} alt=''></div>
+                        <div className="work-desc">
+                          <p className="tit line-clamp-2">23 S/S 신상 리뷰쓰고 10만 금액권 받아가세요</p>
+                          <p className="desc">STUDIO NICHOLSON</p>
+                        </div>
+                    </li> */}
+                  </ul>
+                </div>
+              </SwiperSlide>  
+            ))}
+          {/* <SwiperSlide>
             <div className="work-list">
               <ul>
                 <li className="work-item">
@@ -149,7 +208,7 @@ export default function SwiperItem() {
                 </li>
               </ul>
             </div>
-          </SwiperSlide>
+          </SwiperSlide> */}
           <SlidePrevButton />
           <SlideNextButton />
         </Swiper>

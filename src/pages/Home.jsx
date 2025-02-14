@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <>
             <TopVisual type="sticky" heightNum="2" />
-            <MyWork />
+            <MyWork size="12" />
         </>
     );
 }
