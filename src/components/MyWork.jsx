@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
-import SwiperItem from "./SwiperItem";
+import SwiperLists from "./SwiperLists";
+import WorkLists from './WorkLists';
 
-export default function MyWork({ size }) {
+export default function MyWork() {
+  const _SIZE = 12;
   const {isLoading, error, data: works} = useQuery({
-    queryKey: ['works', size],
+    queryKey: ['works', _SIZE],
     queryFn: async () => {
       console.log('fetching....');
       return axios.get('/data/works.json').then(res => res.data.works)
@@ -39,7 +41,11 @@ export default function MyWork({ size }) {
       <div className="app__main-swiper size-3/4 lg:size-3/4 2xl:size-3/5 2xl:mr-24">
         { isLoading && <p>Loading...</p>}
         { error && <p>Something is wrong</p>}
-        { works && <SwiperItem works={works} size={size} />}
+        { works && <SwiperLists works={works} slideNum={2} size={_SIZE} />}
+      </div>
+      <div className='my-20'>
+        { works && <WorkLists works={works} size={_SIZE} />}
+        <button className='lg:text-4xl font-bold'>More...</button>
       </div>
     </div>
   );
