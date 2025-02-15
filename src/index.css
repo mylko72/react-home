@@ -348,9 +348,6 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   overflow: hidden;
-  font-size: var(--fontD);
-  line-height: var(--fontDL);
-  color: var(--gray900);
   box-sizing: initial;
 }
 
@@ -371,6 +368,36 @@ body {
   /* .app__main-swiper .work-list {padding-top:100%} */
 }
 
+.more-list > ul .work-item {
+  @apply flex flex-col
+}
+
+.more-list > ul .work-img {
+  border: 1px solid #eee;
+}
+
+.more-list > ul .work-desc {
+  flex: none;
+  width: 100%;
+  height: 82px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  box-sizing: initial;
+}
+
+.more-list > ul .work-desc .tit {
+  /* height: 21px; */
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.more-list > ul .work-desc .desc {
+  /* height: 42px; */
+  overflow: hidden;
+  word-wrap: break-word;
+  font-weight: normal;
+}
 /* Swiper 가로형 (e) ********************************************/
 
 /* swiper 공통 (s) *****************************************************/
@@ -584,9 +611,6 @@ body {
   left:unset;
   width: 46px;
   margin: -25px 12px 0;
-  font-size: var(--fontC);
-  line-height: var(--fontCL);
-  color: var(--gray900);
   text-align: center;
 }
 

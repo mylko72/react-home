@@ -43,7 +43,7 @@ export default function MyWork() {
         { error && <p>Something is wrong</p>}
         { works && <SwiperLists works={works} slideNum={2} size={_SIZE} />}
       </div>
-      <div className='my-20'>
+      <div className='size-3/4 lg:size-3/4 2xl:size-3/5 2xl:mr-24 my-20'>
         { works && <WorkLists works={works} size={_SIZE} />}
         <button className='lg:text-4xl font-bold'>More...</button>
       </div>
