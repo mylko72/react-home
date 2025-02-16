@@ -8,9 +8,9 @@ export default function WorkLists({ works, size }) {
                     works.map((work, index) => {
                         if(index >= size){
                             return (
-                                <li className="work-item flex flex-col" key={index}>
-                                    <div className='work-img flex items-start w-full'>
-                                        <img className="object-cover w-full h-80 lg:h-64 xl:h-72 2xl:h-80" src={work.thumbnail} alt={work.project} />
+                                <li className="work-item flex flex-col cursor-pointer" key={index}>
+                                    <div className='work-img flex items-start w-full h-80 lg:h-64 xl:h-72 2xl:h-80 overflow-hidden'>
+                                        <img className="object-cover w-full h-full" data-src={work.thumbnail} alt={work.project} data-transform="translate(0, 30px)" data-duration="1s" data-effect="slide-up" />
                                     </div>
                                     <div className="work-desc">
                                         <p className="tit text-md md:text-base 2xl:text-xl line-clamp-2">{ work.project }</p>

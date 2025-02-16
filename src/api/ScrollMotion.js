@@ -22,13 +22,12 @@ export default class ScrollMotion {
     queueInterval = null;
     executeQueue = true;
 
-    constructor(sceneElem, motionElem, options={threshold: 0}){
+    // constructor(){
+    // }
+
+    init(sceneElem, motionElem, options){
         this.scrollSection = document.querySelectorAll(sceneElem);
         this.motionSelector = document.querySelectorAll(motionElem);        
-        this.init(options);
-    }
-
-    init(options){
         this.defaults = {...this.defaults, ...options};
         this.defaults.threshold = window.innerHeight * options.threshold;
 
@@ -105,7 +104,8 @@ export default class ScrollMotion {
     }
 
     setDataSet(selectors){
-        selectors.length && [...selectors].forEach((selector) => {
+        this.motionSelector = selectors ?? getAllElements('[data-effect]');
+        this.motionSelector.length && [...this.motionSelector].forEach((selector) => {
             const { effect, transform: translate, delay, duration, timingFunction } = selector.dataset;
 
             !!effect && selector.classList.add(effect);
@@ -119,6 +119,7 @@ export default class ScrollMotion {
     setObserver(){
         // 인터렉션 관찰
         this.motionSelector = getAllElements('[data-effect]');
+        console.log('motionSelector', this.motionSelector);
         this.motionSelector.length && [...this.motionSelector].forEach((selector) => {
             let opt = !!selector.dataset.options && JSON.parse(selector.dataset.options);
             let marginGap = window.innerWidth > 768 ? window.innerHeight * 0 : window.innerHeight * 0;

@@ -1,4 +1,4 @@
-import ScrollMotion from "./ScrollMotion.js";
+// import ScrollMotion from "./ScrollMotion.js";
 import { isMobile, isDesktop, getAllElements, callByObserver } from "./ScrollFunction.js";
 
 export default class ScrollIndex {
@@ -13,14 +13,14 @@ export default class ScrollIndex {
     absTop;
     absTop2;
 
-    // constructor(){
-    // }
+    constructor(scrollMotion){
+        this.scrollMotion = scrollMotion;
+    }
     
     init(el, sceneElem, motionElem, options){
         this.defaults = {...this.defaults, ...options};
         this.el = el;
         this.container = document.querySelector(this.el);
-        this.imgSelector = document.querySelectorAll('[data-src]');
         this.defaults.threshold = window.innerHeight * options.threshold;
         
         if (isDesktop()) {
@@ -31,7 +31,8 @@ export default class ScrollIndex {
             this.mobileFlag = true;
         }
         
-        this.scrollMotion = new ScrollMotion(sceneElem, motionElem, options);
+        // this.scrollMotion = new ScrollMotion(sceneElem, motionElem, options);
+        this.scrollMotion.init(sceneElem, motionElem, options);
         this.render();
         this.attachEvents();
         this.setObserver();
@@ -125,6 +126,7 @@ export default class ScrollIndex {
 
     setObserver(){  
         // 레이지로드 관찰
+        this.imgSelector = document.querySelectorAll('[data-src]');
         this.imgSelector.length && [...this.imgSelector].forEach((selector) => {
             let config = {
                 rootMargin: `0px 0px ${window.innerHeight}px 0px`, 

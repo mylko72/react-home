@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import { useParallaxApiContext } from '../context/ParallaxApiContext';
 import SwiperLists from "./SwiperLists";
 import WorkLists from './WorkLists';
+import { useEffect } from 'react';
 
 export default function MyWork() {
   const _SIZE = 12;
+  const { scrollIndex } = useParallaxApiContext();
   const {isLoading, error, data: works} = useQuery({
     queryKey: ['works', _SIZE],
     queryFn: async () => {
@@ -12,6 +15,12 @@ export default function MyWork() {
       return axios.get('/data/works.json').then(res => res.data.works)
     },
   });
+
+  useEffect(() => {
+    scrollIndex.setObserver();
+    scrollIndex.scrollMotion.setDataSet(); 
+    scrollIndex.scrollMotion.setObserver();
+  })
 
   return (
     <div id="scroll-section-1" className='app__scroll-section flex flex-col items-center 2xl:flex-row 2xl:justify-between 2xl:items-start'>
@@ -46,7 +55,9 @@ export default function MyWork() {
         </div>
         <div className='my-20'>
           { works && <WorkLists works={works} size={_SIZE} />}
-          <button className='lg:text-4xl font-bold'>More...</button>
+          <div className='text-center'>
+            <button className='lg:text-4xl font-bold'>More...</button>
+          </div>
         </div>
       </div>
     </div>

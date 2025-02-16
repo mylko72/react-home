@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SlideItem from './SlideItem';
@@ -9,7 +9,9 @@ import 'swiper/css/pagination';
 
 export default function SwiperLists({ works, slideNum, size }) {
     const [hover, setHover] = useState(false);
+    const [ratio, setRatio] = useState(null);
     const itemsPerView = size/slideNum;
+    const listRef = useRef(null);
 
     console.log('works', works);
 
@@ -18,6 +20,7 @@ export default function SwiperLists({ works, slideNum, size }) {
     
         window.addEventListener('resize', function(){
           fnMansory(swiper);
+          setRatio(paddingRatio());
         });
     }
       
@@ -45,6 +48,15 @@ export default function SwiperLists({ works, slideNum, size }) {
               return a > b ? a - b : b - a;
           });
     }
+
+    const paddingRatio = () => {
+      const listNode = listRef.current.querySelectorAll('ul');
+      return 100 * (listNode[0].clientHeight/listNode[0].clientWidth);
+    }
+
+    useEffect(() => {
+      setRatio(paddingRatio());
+    }, []);
     
     return (
         <Swiper
@@ -58,7 +70,7 @@ export default function SwiperLists({ works, slideNum, size }) {
         >
             {[...new Array(slideNum)].map((_, index) => (
               <SwiperSlide key={index} virtualIndex={index}>
-                <div className="work-list"> 
+                <div ref={listRef} className="work-list" style={{ paddingTop: `${ratio}%`}}>
                   <ul>
                     {                      
                       works.map((work, i) => {
