@@ -11,8 +11,8 @@ function getAllElements(className) {
 }
 
 function setPxToVw(value){
-    const deviceWidth = window.innerWidth > 768 ? 1920 : 360;
-    const rate = deviceWidth / 100;
+    // const deviceWidth = window.innerWidth > 768 ? 1920 : 360;
+    const rate = window.innerWidth / 100;
     return value / rate;
 }
 

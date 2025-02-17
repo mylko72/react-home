@@ -119,7 +119,7 @@ export default class ScrollMotion {
     setObserver(){
         // 인터렉션 관찰
         this.motionSelector = getAllElements('[data-effect]');
-        console.log('motionSelector', this.motionSelector);
+        // console.log('motionSelector', this.motionSelector);
         this.motionSelector.length && [...this.motionSelector].forEach((selector) => {
             let opt = !!selector.dataset.options && JSON.parse(selector.dataset.options);
             let marginGap = window.innerWidth > 768 ? window.innerHeight * 0 : window.innerHeight * 0;
@@ -241,28 +241,49 @@ export default class ScrollMotion {
     }
 
     playAniSequence(target){
-        const elements = target.querySelectorAll('.app__cover-img, .app__message-tit');
-
+        const elements = target.querySelectorAll('.work-img');
+        console.log('elements', elements[0]);
         this.setAnimationQueue()(() => {
             if(!elements[0]) return;
             console.log('processing Queue1...')
             elements[0].style.transitionDuration = `${elements[0].dataset.duration}`;
             elements[0].style.transitionTimingFunction = `${elements[0].dataset.timingFunction}`;
             this.addShow(elements[0]);
-        })(`${parseFloat(elements[0].dataset.duration)*1000}`)(() => {
+        })(`${parseFloat(elements[0].dataset.duration)*500}`)(() => {
             if(!elements[1]) return;
             console.log('processing Queue2...')
 
             elements[1].style.transitionDuration = `${elements[1].dataset.duration}`;
             elements[1].style.transitionTimingFunction = `${elements[1].dataset.timingFunction}`;
             this.addShow(elements[1]);
-        })(`${parseFloat(elements[1].dataset.duration)*1000}`)(() => {
+        })(`${parseFloat(elements[1].dataset.duration)*500}`)(() => {
             if(!elements[2]) return;
             console.log('processing Queue3...')
 
             elements[2].style.transitionDuration = `${elements[2].dataset.duration}`;
             elements[2].style.transitionTimingFunction = `${elements[2].dataset.timingFunction}`;
             this.addShow(elements[2]);
+        })(`${parseFloat(elements[2].dataset.duration)*500}`)(() => {
+            if(!elements[3]) return;
+            console.log('processing Queue3...')
+
+            elements[3].style.transitionDuration = `${elements[2].dataset.duration}`;
+            elements[3].style.transitionTimingFunction = `${elements[2].dataset.timingFunction}`;
+            this.addShow(elements[3]);
+        })(`${parseFloat(elements[3].dataset.duration)*500}`)(() => {
+            if(!elements[4]) return;
+            console.log('processing Queue3...')
+
+            elements[4].style.transitionDuration = `${elements[2].dataset.duration}`;
+            elements[4].style.transitionTimingFunction = `${elements[2].dataset.timingFunction}`;
+            this.addShow(elements[4]);
+        })(`${parseFloat(elements[4].dataset.duration)*500}`)(() => {
+            if(!elements[5]) return;
+            console.log('processing Queue3...')
+
+            elements[5].style.transitionDuration = `${elements[2].dataset.duration}`;
+            elements[5].style.transitionTimingFunction = `${elements[2].dataset.timingFunction}`;
+            this.addShow(elements[5]);
         })();
     }
 

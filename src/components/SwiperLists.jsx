@@ -13,7 +13,7 @@ export default function SwiperLists({ works, slideNum, size }) {
     const itemsPerView = size/slideNum;
     const listRef = useRef(null);
 
-    console.log('works', works);
+    // console.log('works', works);
 
     const initSwiper = (swiper) => {
         fnMansory(swiper);
@@ -70,15 +70,15 @@ export default function SwiperLists({ works, slideNum, size }) {
         >
             {[...new Array(slideNum)].map((_, index) => (
               <SwiperSlide key={index} virtualIndex={index}>
-                <div ref={listRef} className="work-list" style={{ paddingTop: `${ratio}%`}}>
+                <div ref={listRef} className="work-list" style={{ paddingTop: `${ratio}%`}} data-sequence>
                   <ul>
                     {                      
                       works.map((work, i) => {
                         if(index === 0 && i < itemsPerView) {
-                          return <SlideItem work={work} index={i} />
+                          return <SlideItem work={work} key={i} />
                         }
                         if(index === 1 && i >= itemsPerView && i < (itemsPerView*slideNum)) {
-                          return <SlideItem work={work} index={i} />
+                          return <SlideItem work={work} key={i} />
                         }
                         return false;
                       })
