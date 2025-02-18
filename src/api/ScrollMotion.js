@@ -83,6 +83,12 @@ export default class ScrollMotion {
             // console.log('direction', this.defaults.yDirection);
             this.setActiveScene();
         });
+        // window.addEventListener('resize', (e) => {
+        //     getAllElements('[data-sequence]').length && [...getAllElements('[data-sequence]')].forEach((selector) => {
+        //         const elements = selector.querySelectorAll('.work-img > img');
+        //         [...elements].forEach(target => this.slideEffect(target));                
+        //     });
+        // });
     }
 
     detachEvents(){
@@ -241,8 +247,8 @@ export default class ScrollMotion {
     }
 
     playAniSequence(target){
-        const elements = target.querySelectorAll('.work-img');
-        console.log('elements', elements[0]);
+        const elements = target.querySelectorAll('.work-img > img');
+        console.log('elements', elements);
         this.setAnimationQueue()(() => {
             if(!elements[0]) return;
             console.log('processing Queue1...')
@@ -387,17 +393,15 @@ export default class ScrollMotion {
     }
 
     slideEffect(target){
-        const { slideWidth, slideHeight, slideDesktop, slideMobile} = target.dataset;
+        const { slideWidth, slideHeight, slideValue} = target.dataset;
+        const slideVal = setPxToVw(slideValue);
 
-        const desktopVal = setPxToVw(slideDesktop);
-        const mobileVal = setPxToVw(slideMobile);
-
-        if(!!slideWidth){
-            target.style.width = window.innerWidth > 768 ? `${desktopVal}vw` : `${mobileVal}vw`;
+        if(JSON.parse(slideWidth)){
+            target.style.width = `${slideVal}vw`;
         }
 
-        if(!!slideHeight){
-            target.style.height = window.innerWidth > 768 ? `${desktopVal}vw` : `${mobileVal}vw`;
+        if(JSON.parse(slideHeight)){
+            target.style.height = `${slideVal}vw`;
         }
 
         return target;

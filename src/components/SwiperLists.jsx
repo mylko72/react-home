@@ -74,11 +74,12 @@ export default function SwiperLists({ works, slideNum, size }) {
                   <ul>
                     {                      
                       works.map((work, i) => {
+                        const direction = i%2 === 0 ? 'width' : 'height';
                         if(index === 0 && i < itemsPerView) {
-                          return <SlideItem work={work} key={i} />
+                          return <SlideItem work={work} direction={direction} key={i} />
                         }
                         if(index === 1 && i >= itemsPerView && i < (itemsPerView*slideNum)) {
-                          return <SlideItem work={work} key={i} />
+                          return <SlideItem work={work} direction={direction} key={i} />
                         }
                         return false;
                       })
