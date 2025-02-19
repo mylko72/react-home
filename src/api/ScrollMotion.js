@@ -15,6 +15,7 @@ export default class ScrollMotion {
     currentIndex = 0;
     yOffset = 0;
     callCnt = 0;
+    xPosition = 0;
     queueElements = [];
     queueElementsSource = [];
     queueApi = () => {};
@@ -166,37 +167,34 @@ export default class ScrollMotion {
         if(!this.currentScene.classList.contains('active')){
             // 현재 섹션이 active될 때 한번 실행 
             if(this.currentIndex === '0'){
-                console.log(`Section 1 모션 시작...`);
+                console.log(`Section 0 모션 시작...`);
             }
             if(this.currentIndex === '1'){
-                console.log(`Section 2 모션 시작...`);
+                console.log(`Section 1 모션 시작...`);
             }
             if(this.currentIndex === '2'){
-                console.log(`Section 3 모션 시작...`);
+                console.log(`Section 2 모션 시작...`);
             }                
             if(this.currentIndex === '3'){
-                console.log(`Section 4 모션 시작...`);
+                console.log(`Section 3 모션 시작...`);
             }                
             if(this.currentIndex === '4'){
-                console.log(`Section 5 모션 시작...`);
+                console.log(`Section 4 모션 시작...`);
             }    
             if(this.currentIndex === '5'){
-                console.log(`Section 6 모션 시작...`);
+                console.log(`Section 5 모션 시작...`);
             }    
             if(this.currentIndex === '6'){
-                console.log(`Section 7 모션 시작...`);
+                console.log(`Section 6 모션 시작...`);
             }    
             if(this.currentIndex === '7'){
-                console.log(`Section 8 모션 시작...`);
+                console.log(`Section 7 모션 시작...`);
             }    
             if(this.currentIndex === '8'){
-                console.log(`Section 9 모션 시작...`);
+                console.log(`Section 8 모션 시작...`);
             }    
             if(this.currentIndex === '9'){
-                console.log(`Section 10 모션 시작...`);
-            }                
-            if(this.currentIndex === '11'){
-                console.log(`Section 12 모션 시작...`);
+                console.log(`Section 9 모션 시작...`);
             }                
         } else {
             // active된 현재 섹션의 모션 구현
@@ -347,6 +345,19 @@ export default class ScrollMotion {
         }else if(typeof item === 'string'){
             this.queueFlags[item] = arguments[1] || true;
         }
+    }
+
+    // 무한가로스크롤
+    infiniteXScroll(marquee) {
+        this.xPosition = this.xPosition - 2;
+        console.log('xPosition', this.xPosition);
+        if (this.xPosition <= marquee.children[0].offsetWidth) {
+          this.xPosition = 0;
+        }
+        marquee.style.transform = `translateX(${this.xPosition}px)`;
+        requestAnimationFrame(() => {
+            this.infiniteXScroll(marquee);
+        });
     }
 
     splitMessage(splitText){        

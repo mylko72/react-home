@@ -89,7 +89,7 @@ export default class ScrollIndex {
                 console.log(`Section 1 모션 진행중...`);
             
             }else if(currentIndex === 2){
-    
+                console.log(`Section 2 모션 진행중...`);
             }else if(currentIndex === 3){ 
     
             }else if(currentIndex === 4){             
