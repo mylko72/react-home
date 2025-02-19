@@ -53,11 +53,11 @@ export default function MyWork() {
           { error && <p>Something is wrong</p>}
           { works && <SwiperLists works={works} slideNum={2} size={_SIZE} />}
         </div>
-        <div className='my-20'>
+        <div className='mt-20'>
           { works && <WorkLists works={works} size={_SIZE} />}
-          <div className='text-center'>
+          {/* <div className='text-center'>
             <button className='lg:text-4xl font-bold'>More...</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

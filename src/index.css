@@ -80,9 +80,15 @@ body {
 #scroll-section-0 .app__cover-img {position: sticky; top: 0; width: 70%; height: 80vh; border-radius: 5vw; overflow: hidden; background-image: url(../public/images/img_top_visual.jpg); background-size: cover;}
 #scroll-section-0 .app__cover-img img {width:100%; height:100%; object-position:top; object-fit:cover; border-radius: 0;}
 
-#scroll-section-1 {position: relative; z-index: 20; max-width:100%; padding:15vw 0 0; background-color: #fff; box-sizing: initial;}
+#scroll-section-1 {position: relative; z-index: 20; max-width:100%; height: auto; padding:15vw 0 0; background-color: #fff; box-sizing: initial;}
 #scroll-section-1 .app__main-message {width: auto;}
 
+#scroll-section-2 {position: relative; z-index: 20; max-width:100%; height: auto; padding:5vw 0 0; background-color: #fff; box-sizing: initial;}
+#scroll-section-2 .app__main-message {width: auto;}
+#scroll-section-2 .app__main-marquee {position: relative; width: 100%; height: 215px; overflow: visible; white-space: nowrap; background: #fff; padding: 40px 40px; box-sizing: initial;}
+#scroll-section-2 .marquee-inner {display: flex; flex-wrap: wrap; position: relative; gap: 50px;}
+#scroll-section-2 .marquee-inner span {display: inline-block; flex: none;}
+#scroll-section-2 .marquee-inner img {width:215px; height: 215px;}
 
 .line-wave {
   position: fixed;
