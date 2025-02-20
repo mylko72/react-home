@@ -17,7 +17,7 @@
   --main-point-color: #FF6447;
   --main-text-size: 5vw;
   --desc-text-size: 3.7vw;
-  --desc-text-color: #E5E1E1;
+  --desc-text-color: #FEA594;
   --swier-item-pad: 16px;
   --swiper-pagination-bullet-width: 1vw;
   --swiper-pagination-bullet-height: 1vw;
@@ -92,7 +92,7 @@ body {
 #scroll-section-1 {position: relative; z-index: 20; max-width:100%; height: auto; padding:15vw 0 0; background-color: #fff; box-sizing: initial;}
 #scroll-section-1 .app__main-message {width: auto;}
 
-#scroll-section-2 {position: relative; z-index: 20; max-width:100%; height: auto; padding:5vw 0 0; background-color: #fff; box-sizing: initial;}
+#scroll-section-2 {position: relative; z-index: 20; max-width:100%; height: auto; min-height: auto; padding:5vw 0 0; background-color: #fff; box-sizing: initial;}
 #scroll-section-2 .app__main-message {width: auto;}
 #scroll-section-2 .app__main-marquee {position: relative; width: 100%; height: 465px; overflow: hidden; white-space: nowrap; background: #fff; padding: 40px 40px;}
 #scroll-section-2 .app__main-marquee .marquee-inner {display: flex; position: absolute; top:0; height: 215px;}
@@ -101,11 +101,16 @@ body {
 #scroll-section-2 .app__main-marquee .marquee-inner + .marquee-inner {top: 250px; justify-content: flex-end;}
 
 #scroll-section-3 {position: relative; z-index: 20; max-width:100%; height: auto; padding:5vw 0 0; background-color: #fff; box-sizing: initial;}
-#scroll-section-3 .app__main-message {width: auto;}
+#scroll-section-3 .app__main-message {position: sticky; top: 10vh; width: fit-content;}
 #scroll-section-3 .app__message-text {font-family: 'NanumMongDor';}
-#scroll-section-3 .app__message-text .app__sticky-elem {top: 50%; width: 50%; transform: translateY(-50%); opacity: 0;}
-/* #scroll-section-3 .app__message-text .app__sticky-elem.message-text-a {opacity: 1 !important;} */
-#scroll-section-3 .app__main-images .app__sticky-elem {top: 50%; width: 50%; left: initial; right: 0; transform: translateY(-50%); text-align: center}
+#scroll-section-3 .app__message-text .app__sticky-elem {top: 40%; width: 50%; transform: translateY(-50%); opacity: 0;}
+
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a {height: 400px; top: 50%; width: 50%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover {position: absolute; left: 0; top: 0; z-index: 10;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {position: absolute; left: 175px; top: 0; transform: translateX(0); z-index: 0; transition: all 1.5s 1s;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active {right: 0;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translateX(50%) rotate(360deg);}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active.move-in .img-lp-iu {transform: translateX(0) rotate(-360deg);}
 
 .line-wave {
   position: fixed;

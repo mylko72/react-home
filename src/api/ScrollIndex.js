@@ -97,6 +97,8 @@ export default class ScrollIndex {
                 let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop;
                 let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[this.scrollMotion.currentIndex].scrollHeight;
 
+                const mainImageA = this.scrollMotion.currentScene.querySelector('.main-image-a');
+
                 const messageA = this.scrollMotion.currentScene.querySelector('.message-text-a');
                 const messageB = this.scrollMotion.currentScene.querySelector('.message-text-b');
                 const messageC = this.scrollMotion.currentScene.querySelector('.message-text-c');
@@ -110,24 +112,87 @@ export default class ScrollIndex {
 
                 const messageB_opacityIn = JSON.parse(messageB.dataset.opacityIn);
                 const messageB_opacityOut = JSON.parse(messageB.dataset.opacityOut);
+                const messageB_translateyIn = JSON.parse(messageB.dataset.translateyIn);
+                const messageB_translateyOut = JSON.parse(messageB.dataset.translateyOut);
+
                 const messageC_opacityIn = JSON.parse(messageC.dataset.opacityIn);
                 const messageC_opacityOut = JSON.parse(messageC.dataset.opacityOut);
+                const messageC_translateyIn = JSON.parse(messageC.dataset.translateyIn);
+                const messageC_translateyOut = JSON.parse(messageC.dataset.translateyOut);
+
                 const messageD_opacityIn = JSON.parse(messageD.dataset.opacityIn);
                 const messageD_opacityOut = JSON.parse(messageD.dataset.opacityOut);
+                const messageD_translateyIn = JSON.parse(messageD.dataset.translateyIn);
+                const messageD_translateyOut = JSON.parse(messageD.dataset.translateyOut);
+
                 const messageE_opacityIn = JSON.parse(messageE.dataset.opacityIn);
                 const messageE_opacityOut = JSON.parse(messageE.dataset.opacityOut);
+                const messageE_translateyIn = JSON.parse(messageE.dataset.translateyIn);
+                const messageE_translateyOut = JSON.parse(messageE.dataset.translateyOut);
                 
                 // console.log('messageA_opacityIn', messageA_opacityIn);
                 console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
 
-                if (scrollRatio <= 0.15) {
+                if (scrollRatio <= 0.1) {
                     messageA.style.opacity = `${this.scrollMotion.calcValues(messageA_opacityIn, currentYOffset)}`;
-                    messageA.style.transform = `translateY(${this.scrollMotion.calcValues(messageA_translateyIn, currentYOffset)}px)`
+                    messageA.style.transform = `translateY(${this.scrollMotion.calcValues(messageA_translateyIn, currentYOffset)}vh)`;
+                    messageA.style.willChange = 'transform, width, height';
                     messageA.style.transformStyle = 'preserve-3d';
-                }else if(scrollRatio > 0.15 && scrollRatio <= 0.25){
+                } else if (scrollRatio > 0.17){
                     messageA.style.opacity = `${this.scrollMotion.calcValues(messageA_opacityOut, currentYOffset)}`;
-                    messageA.style.transform = `translateY(${this.scrollMotion.calcValues(messageA_translateyOut, currentYOffset)}px)`
+                    messageA.style.transform = `translateY(${this.scrollMotion.calcValues(messageA_translateyOut, currentYOffset)}vh)`;
+                } 
+                
+                if(scrollRatio >= 0.09){                    
+                    mainImageA.classList.add('active');
+                // } else if (scrollRatio < 0.085){
+                //     mainImageA.classList.add('move-in');
+                } else if (scrollRatio < 0.08) {
+                    mainImageA.classList.remove('active');
+                } else if (scrollRatio > 0.15) {
+                    mainImageA.classList.remove('active');
                 }
+                
+                if (scrollRatio <= 0.3){
+                    messageB.style.opacity = `${this.scrollMotion.calcValues(messageB_opacityIn, currentYOffset)}`;
+                    messageB.style.transform = `translateY(${this.scrollMotion.calcValues(messageB_translateyIn, currentYOffset)}vh)`;
+                    messageB.style.willChange = 'transform, width, height';
+                    messageB.style.transformStyle = 'preserve-3d';
+                } else if (scrollRatio > 0.32){
+                    messageB.style.opacity = `${this.scrollMotion.calcValues(messageB_opacityOut, currentYOffset)}`;
+                    messageB.style.transform = `translateY(${this.scrollMotion.calcValues(messageB_translateyOut, currentYOffset)}vh)`;
+                } 
+
+                if (scrollRatio <= 0.5){
+                    messageC.style.opacity = `${this.scrollMotion.calcValues(messageC_opacityIn, currentYOffset)}`;
+                    messageC.style.transform = `translateY(${this.scrollMotion.calcValues(messageC_translateyIn, currentYOffset)}vh)`;
+                    messageC.style.willChange = 'transform, width, height';
+                    messageC.style.transformStyle = 'preserve-3d';
+                } else if (scrollRatio > 0.52){
+                    messageC.style.opacity = `${this.scrollMotion.calcValues(messageC_opacityOut, currentYOffset)}`;
+                    messageC.style.transform = `translateY(${this.scrollMotion.calcValues(messageC_translateyOut, currentYOffset)}vh)`;
+                } 
+
+                if (scrollRatio <= 0.7){
+                    messageD.style.opacity = `${this.scrollMotion.calcValues(messageD_opacityIn, currentYOffset)}`;
+                    messageD.style.transform = `translateY(${this.scrollMotion.calcValues(messageD_translateyIn, currentYOffset)}vh)`;
+                    messageD.style.willChange = 'transform, width, height';
+                    messageD.style.transformStyle = 'preserve-3d';
+                } else if (scrollRatio > 0.72){
+                    messageD.style.opacity = `${this.scrollMotion.calcValues(messageD_opacityOut, currentYOffset)}`;
+                    messageD.style.transform = `translateY(${this.scrollMotion.calcValues(messageD_translateyOut, currentYOffset)}vh)`;
+                } 
+
+                if (scrollRatio <= 0.82){
+                    messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityIn, currentYOffset)}`;
+                    messageE.style.transform = `translateY(${this.scrollMotion.calcValues(messageE_translateyIn, currentYOffset)}vh)`;
+                    messageE.style.willChange = 'transform, width, height';
+                    messageE.style.transformStyle = 'preserve-3d';
+                } else if (scrollRatio > 0.85){
+                    console.log('call messageE...');
+                    messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityOut, currentYOffset)}`;
+                    messageE.style.transform = `translateY(${this.scrollMotion.calcValues(messageE_translateyOut, currentYOffset)}vh)`;
+                } 
             }else if(currentIndex === 4){             
     
             }else if(currentIndex === 5){             

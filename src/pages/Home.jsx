@@ -10,7 +10,7 @@ export default function Home() {
             <TopVisual type="sticky" heightNum="2" />
             <MyWork />
             <MySkill />
-            <MySelf type="sticky" heightNum="14" />
+            <MySelf type="sticky" heightNum="15" />
         </>
     );
 }
