@@ -91,7 +91,43 @@ export default class ScrollIndex {
             }else if(currentIndex === 2){
                 console.log(`Section 2 모션 진행중...`);
             }else if(currentIndex === 3){ 
-    
+                console.log(`Section 3 모션 진행중...`);
+
+                this.absTop = this.scrollMotion.yOffset + this.scrollMotion.currentScene.getBoundingClientRect().top;
+                let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop;
+                let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[this.scrollMotion.currentIndex].scrollHeight;
+
+                const messageA = this.scrollMotion.currentScene.querySelector('.message-text-a');
+                const messageB = this.scrollMotion.currentScene.querySelector('.message-text-b');
+                const messageC = this.scrollMotion.currentScene.querySelector('.message-text-c');
+                const messageD = this.scrollMotion.currentScene.querySelector('.message-text-d');
+                const messageE = this.scrollMotion.currentScene.querySelector('.message-text-e');
+
+                const messageA_opacityIn = JSON.parse(messageA.dataset.opacityIn);
+                const messageA_opacityOut = JSON.parse(messageA.dataset.opacityOut);
+                const messageA_translateyIn = JSON.parse(messageA.dataset.translateyIn);
+                const messageA_translateyOut = JSON.parse(messageA.dataset.translateyOut);
+
+                const messageB_opacityIn = JSON.parse(messageB.dataset.opacityIn);
+                const messageB_opacityOut = JSON.parse(messageB.dataset.opacityOut);
+                const messageC_opacityIn = JSON.parse(messageC.dataset.opacityIn);
+                const messageC_opacityOut = JSON.parse(messageC.dataset.opacityOut);
+                const messageD_opacityIn = JSON.parse(messageD.dataset.opacityIn);
+                const messageD_opacityOut = JSON.parse(messageD.dataset.opacityOut);
+                const messageE_opacityIn = JSON.parse(messageE.dataset.opacityIn);
+                const messageE_opacityOut = JSON.parse(messageE.dataset.opacityOut);
+                
+                // console.log('messageA_opacityIn', messageA_opacityIn);
+                console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
+
+                if (scrollRatio <= 0.15) {
+                    messageA.style.opacity = `${this.scrollMotion.calcValues(messageA_opacityIn, currentYOffset)}`;
+                    messageA.style.transform = `translateY(${this.scrollMotion.calcValues(messageA_translateyIn, currentYOffset)}px)`
+                    messageA.style.transformStyle = 'preserve-3d';
+                }else if(scrollRatio > 0.15 && scrollRatio <= 0.25){
+                    messageA.style.opacity = `${this.scrollMotion.calcValues(messageA_opacityOut, currentYOffset)}`;
+                    messageA.style.transform = `translateY(${this.scrollMotion.calcValues(messageA_translateyOut, currentYOffset)}px)`
+                }
             }else if(currentIndex === 4){             
     
             }else if(currentIndex === 5){             

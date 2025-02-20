@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'NanumMongDor';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumMongDor/NanumMongDor.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumMongDor/NanumMongDor.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumMongDor/NanumMongDor.ttf') format('truetype');
+}
+
 :root {
   --main-text-color: #000;
   --main-point-color: #FF6447;
@@ -89,6 +99,13 @@ body {
 #scroll-section-2 .app__main-marquee .marquee-inner span {display: flex; flex: none;}
 #scroll-section-2 .app__main-marquee .marquee-inner img {width:215px; height: 215px; margin:0 25px}
 #scroll-section-2 .app__main-marquee .marquee-inner + .marquee-inner {top: 250px; justify-content: flex-end;}
+
+#scroll-section-3 {position: relative; z-index: 20; max-width:100%; height: auto; padding:5vw 0 0; background-color: #fff; box-sizing: initial;}
+#scroll-section-3 .app__main-message {width: auto;}
+#scroll-section-3 .app__message-text {font-family: 'NanumMongDor';}
+#scroll-section-3 .app__message-text .app__sticky-elem {top: 50%; width: 50%; transform: translateY(-50%); opacity: 0;}
+/* #scroll-section-3 .app__message-text .app__sticky-elem.message-text-a {opacity: 1 !important;} */
+#scroll-section-3 .app__main-images .app__sticky-elem {top: 50%; width: 50%; left: initial; right: 0; transform: translateY(-50%); text-align: center}
 
 .line-wave {
   position: fixed;

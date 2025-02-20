@@ -444,22 +444,21 @@ export default class ScrollMotion {
 
         // values의 타이밍속성이 3번째 있는지 분기처리
         if (values.length === 3) {
-        // start ~ end 사이에 애니메이션 실행
-        const partScrollStart = JSON.parse(values[2].start) * scrollHeight;
-        const partScrollEnd = JSON.parse(values[2].end) * scrollHeight;
-        const partScrollHeight = partScrollEnd - partScrollStart;
+            // start ~ end 사이에 애니메이션 실행
+            const partScrollStart = JSON.parse(values[2].start) * scrollHeight;
+            const partScrollEnd = JSON.parse(values[2].end) * scrollHeight;
+            const partScrollHeight = partScrollEnd - partScrollStart;
 
-        if (currentYOffset >= partScrollStart && currentYOffset <= partScrollEnd) {
-            rv = (currentYOffset - partScrollStart) / partScrollHeight * (values[1] - values[0]) + values[0];
-        } else if (currentYOffset < partScrollStart) {
-            rv = values[0];
-        } else if (currentYOffset > partScrollEnd) {
-            rv = values[1];
+            if (currentYOffset >= partScrollStart && currentYOffset <= partScrollEnd) {
+                rv = (currentYOffset - partScrollStart) / partScrollHeight * (values[1] - values[0]) + values[0];
+            } else if (currentYOffset < partScrollStart) {
+                rv = values[0];
+            } else if (currentYOffset > partScrollEnd) {
+                rv = values[1];
+            } else {
+                rv = scrollRatio * (values[1] - values[0]) + values[0];
+            }                
+            return rv
         }
-        } else {
-        rv = scrollRatio * (values[1] - values[0]) + values[0];
-        }                
-
-        return rv;
     }
 }
