@@ -109,8 +109,18 @@ body {
 #scroll-section-3 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover {position: absolute; left: 0; top: 0; z-index: 10;}
 #scroll-section-3 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {position: absolute; left: 175px; top: 0; transform: translateX(0); z-index: 0; transition: all 1.5s 1s;}
 #scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active {right: 0;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translateX(50%) rotate(360deg);}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translateX(40%) rotate(360deg);}
 #scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active.move-in .img-lp-iu {transform: translateX(0) rotate(-360deg);}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-b {height: 400px; top: 50%; width: 40%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-b img {position: absolute; left: 0; top: 0; z-index: 10;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-b.active {right: 0;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-c {height: 400px; top: 50%; width: 40%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-c img {position: absolute; left: 0; top: 0; z-index: 10;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-c.active {right: 0;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-d {height: 400px; top: 50%; width: 40%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-d img {position: absolute; left: 0; top: 0; z-index: 10;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-d.active {right: 0;}
+#scroll-section-3 .app__main-images .app__sticky-elem.main-image-e {height: 400px; top: 50%; width: 40%; left: initial; right: 0%; transform: translateY(-40%); text-align: center; transition: all 1s;}
 
 .line-wave {
   position: fixed;

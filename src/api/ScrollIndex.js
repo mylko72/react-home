@@ -98,6 +98,9 @@ export default class ScrollIndex {
                 let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[this.scrollMotion.currentIndex].scrollHeight;
 
                 const mainImageA = this.scrollMotion.currentScene.querySelector('.main-image-a');
+                const mainImageB = this.scrollMotion.currentScene.querySelector('.main-image-b');
+                const mainImageC= this.scrollMotion.currentScene.querySelector('.main-image-c');
+                const mainImageD= this.scrollMotion.currentScene.querySelector('.main-image-d');
 
                 const messageA = this.scrollMotion.currentScene.querySelector('.message-text-a');
                 const messageB = this.scrollMotion.currentScene.querySelector('.message-text-b');
@@ -143,13 +146,11 @@ export default class ScrollIndex {
                     messageA.style.transform = `translateY(${this.scrollMotion.calcValues(messageA_translateyOut, currentYOffset)}vh)`;
                 } 
                 
-                if(scrollRatio >= 0.09){                    
+                if(scrollRatio >= 0.08 && scrollRatio < 0.2){                    
                     mainImageA.classList.add('active');
-                // } else if (scrollRatio < 0.085){
-                //     mainImageA.classList.add('move-in');
-                } else if (scrollRatio < 0.08) {
+                } else if (scrollRatio < 0.07) {
                     mainImageA.classList.remove('active');
-                } else if (scrollRatio > 0.15) {
+                } else if (scrollRatio > 0.22) {
                     mainImageA.classList.remove('active');
                 }
                 
@@ -163,6 +164,15 @@ export default class ScrollIndex {
                     messageB.style.transform = `translateY(${this.scrollMotion.calcValues(messageB_translateyOut, currentYOffset)}vh)`;
                 } 
 
+                if(scrollRatio >= 0.27 && scrollRatio < 0.36){                    
+                    mainImageB.classList.add('active');
+                } else if (scrollRatio < 0.26) {
+                    mainImageB.classList.remove('active');
+                } else if (scrollRatio > 0.38) {
+                    mainImageB.classList.remove('active');
+                }
+
+
                 if (scrollRatio <= 0.5){
                     messageC.style.opacity = `${this.scrollMotion.calcValues(messageC_opacityIn, currentYOffset)}`;
                     messageC.style.transform = `translateY(${this.scrollMotion.calcValues(messageC_translateyIn, currentYOffset)}vh)`;
@@ -173,6 +183,14 @@ export default class ScrollIndex {
                     messageC.style.transform = `translateY(${this.scrollMotion.calcValues(messageC_translateyOut, currentYOffset)}vh)`;
                 } 
 
+                if(scrollRatio >= 0.47 && scrollRatio < 0.56){                    
+                    mainImageC.classList.add('active');
+                } else if (scrollRatio < 0.46) {
+                    mainImageC.classList.remove('active');
+                } else if (scrollRatio > 0.6) {
+                    mainImageC.classList.remove('active');
+                }
+
                 if (scrollRatio <= 0.7){
                     messageD.style.opacity = `${this.scrollMotion.calcValues(messageD_opacityIn, currentYOffset)}`;
                     messageD.style.transform = `translateY(${this.scrollMotion.calcValues(messageD_translateyIn, currentYOffset)}vh)`;
@@ -182,6 +200,14 @@ export default class ScrollIndex {
                     messageD.style.opacity = `${this.scrollMotion.calcValues(messageD_opacityOut, currentYOffset)}`;
                     messageD.style.transform = `translateY(${this.scrollMotion.calcValues(messageD_translateyOut, currentYOffset)}vh)`;
                 } 
+
+                if(scrollRatio >= 0.67 && scrollRatio < 0.76){                    
+                    mainImageD.classList.add('active');
+                } else if (scrollRatio < 0.66) {
+                    mainImageD.classList.remove('active');
+                } else if (scrollRatio > 0.82) {
+                    mainImageD.classList.remove('active');
+                }
 
                 if (scrollRatio <= 0.82){
                     messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityIn, currentYOffset)}`;
