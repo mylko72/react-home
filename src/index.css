@@ -12,6 +12,20 @@
         url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumMongDor/NanumMongDor.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'PartialSansKR-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Paperlogy-8ExtraBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
 :root {
   --main-text-color: #000;
   --main-point-color: #FF6447;
@@ -101,26 +115,31 @@ body {
 #scroll-section-2 .app__main-marquee .marquee-inner + .marquee-inner {top: 250px; justify-content: flex-end;}
 
 #scroll-section-3 {position: relative; z-index: 20; max-width:100%; height: auto; padding:5vw 0 0; background-color: #fff; box-sizing: initial;}
-#scroll-section-3 .app__main-message {position: sticky; top: 10vh; width: fit-content;}
-#scroll-section-3 .app__message-text {font-family: 'NanumMongDor';}
+#scroll-section-3 .app__main-message {position: sticky; top: 10vh;}
+#scroll-section-3 .app__message-text {font-family: 'Paperlogy-8ExtraBold'; font-weight: 900;}
 #scroll-section-3 .app__message-text .app__sticky-elem {top: 40%; width: 50%; transform: translateY(-50%); opacity: 0;}
 
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a {height: 400px; top: 50%; width: 50%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover {position: absolute; left: 0; top: 0; z-index: 10;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {position: absolute; left: 175px; top: 0; transform: translateX(0); z-index: 0; transition: all 1.5s 1s;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active {right: 0;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translateX(40%) rotate(360deg);}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-a.active.move-in .img-lp-iu {transform: translateX(0) rotate(-360deg);}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-b {height: 400px; top: 50%; width: 40%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-b img {position: absolute; left: 0; top: 0; z-index: 10;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-b.active {right: 0;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-c {height: 400px; top: 50%; width: 40%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-c img {position: absolute; left: 0; top: 0; z-index: 10;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-c.active {right: 0;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-d {height: 400px; top: 50%; width: 40%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-d img {position: absolute; left: 0; top: 0; z-index: 10;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-d.active {right: 0;}
-#scroll-section-3 .app__main-images .app__sticky-elem.main-image-e {height: 400px; top: 50%; width: 40%; left: initial; right: 0%; transform: translateY(-40%); text-align: center; transition: all 1s;}
+#scroll-section-4 {position: relative; z-index: 20; max-width:100%; height: auto; padding:5vw 0 0; background-color: #fff; box-sizing: initial;}
+#scroll-section-4 .app__main-message {position: sticky; top: 10vh; width: fit-content;}
+#scroll-section-4 .app__message-text {font-family: 'NanumMongDor';}
+#scroll-section-4 .app__message-text .app__sticky-elem {top: 40%; width: 50%; transform: translateY(-50%); opacity: 0;}
+
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {height: 400px; top: 50%; width: 50%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover {position: absolute; left: 0; top: 0; z-index: 10;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {position: absolute; left: 175px; top: 0; transform: translateX(0); z-index: 0; transition: all 1.5s 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active {right: 0;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translateX(40%) rotate(360deg);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active.move-in .img-lp-iu {transform: translateX(0) rotate(-360deg);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-b {height: 400px; top: 50%; width: 40%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-b img {position: absolute; left: 0; top: 0; z-index: 10;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-b.active {right: 0;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-c {height: 400px; top: 50%; width: 40%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-c img {position: absolute; left: 0; top: 0; z-index: 10;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-c.active {right: 0;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-d {height: 400px; top: 50%; width: 40%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-d img {position: absolute; left: 0; top: 0; z-index: 10;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-d.active {right: 0;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-e {height: 400px; top: 50%; width: 40%; left: initial; right: 0%; transform: translateY(-40%); text-align: center; transition: all 1s;}
 
 .line-wave {
   position: fixed;

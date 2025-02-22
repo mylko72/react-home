@@ -90,8 +90,10 @@ export default class ScrollIndex {
             
             }else if(currentIndex === 2){
                 console.log(`Section 2 모션 진행중...`);
-            }else if(currentIndex === 3){ 
-                console.log(`Section 3 모션 진행중...`);
+            }else if(currentIndex === 3){
+                console.log(`Section '3 모션 진행중...`);
+            }else if(currentIndex === 4){ 
+                console.log(`Section '4 모션 진행중...`);
 
                 this.absTop = this.scrollMotion.yOffset + this.scrollMotion.currentScene.getBoundingClientRect().top;
                 let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop;
@@ -172,7 +174,6 @@ export default class ScrollIndex {
                     mainImageB.classList.remove('active');
                 }
 
-
                 if (scrollRatio <= 0.5){
                     messageC.style.opacity = `${this.scrollMotion.calcValues(messageC_opacityIn, currentYOffset)}`;
                     messageC.style.transform = `translateY(${this.scrollMotion.calcValues(messageC_translateyIn, currentYOffset)}vh)`;
@@ -219,8 +220,6 @@ export default class ScrollIndex {
                     messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityOut, currentYOffset)}`;
                     messageE.style.transform = `translateY(${this.scrollMotion.calcValues(messageE_translateyOut, currentYOffset)}vh)`;
                 } 
-            }else if(currentIndex === 4){             
-    
             }else if(currentIndex === 5){             
             }else if(currentIndex === 7){
             }else if(currentIndex === 8){
