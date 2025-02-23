@@ -13,8 +13,8 @@ export default function MyFavorite({ type, heightNum }) {
 
     return (
         <div ref={sectionRef} id="scroll-section-4" className='app__scroll-section'>
-            <div className="app__main-message flex flex-row justify-between 2xl:ml-40">
-                <div className='flex flex-col items-end'>
+            <div className="app__main-message !w-full flex flex-col">
+                <div className='flex flex-col items-center'>
                     <div className="app__mask" data-effect>
                         <p className="app__message-tit text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">무엇을 좋아하나요</p>
                     </div>

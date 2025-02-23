@@ -53,7 +53,7 @@ export default function MySelf({ type, heightNum }) {
 
     return (
         <div ref={sectionRef} id="scroll-section-3" className='app__scroll-section'>
-            <div className="app__main-message !w-full flex flex-col 2xl:flex-row 2xl:ml-40">
+            <div className="app__main-message !w-full flex flex-col">
                 <div className='flex flex-col items-center'>
                     <div className="app__mask" data-effect>
                         <p className="app__message-tit text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">나는 누구인가요</p>
@@ -69,7 +69,7 @@ export default function MySelf({ type, heightNum }) {
                     <span className='text-item'>UI/UX에 기반한 동적 스크립트 구현과</span>
                     <span className='text-item'>패럴렉스 애니메이션에 관심이 많다.</span>
                 </div>
-                <div ref={msgRef} className='app__message-text my-28 text-7xl text-slate-700'>
+                <div ref={msgRef} className='app__message-text flex justify-center items-center my-28 text-7xl 2xl:text-8xl text-slate-700 text-center'>
                 </div>
             </div>
         </div>
