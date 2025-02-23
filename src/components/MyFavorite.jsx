@@ -32,11 +32,11 @@ export default function MyFavorite({ type, heightNum }) {
             </div>  
             <div className='app__main-images'>
                 <div className='app__sticky-elem main-image-a'>
-                    <img src="/images/img_lp_cover.jpg" className='img-lp-cover xl:w-80 2xl:w-auto' alt="" />
-                    <img src="/images/img_lp_iu.jpg" className='img-lp-iu xl:w-80 2xl:w-auto' alt="" />
+                    <img src="/images/img_lp_cover.jpg" className='img-lp-cover xl:w-96 2xl:w-auto' alt="" />
+                    <img src="/images/img_lp_iu.jpg" className='img-lp-iu xl:w-96 2xl:w-auto' alt="" />
                 </div>
                 <div className='app__sticky-elem main-image-b'>
-                    <img src="/images/img_lalaland_bluray.jpg" className='xl:w-80 2xl:w-auto' alt='' />
+                    <img src="/images/img_lalaland_poster.jpg" className='xl:w-96 2xl:w-auto' alt='' />
                 </div>
                 <div className='app__sticky-elem main-image-c'>
                     <img src="/images/img_bicycle_cover.jpg" className='xl:w-auto' alt='' />

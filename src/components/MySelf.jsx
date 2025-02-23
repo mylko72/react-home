@@ -24,7 +24,11 @@ export default function MySelf({ type, heightNum }) {
                 }, Math.floor(Math.random(10) * 100));
             } else {
                 count = 0;
-                index = index + 1 < textItems.length ? index + 1 : 0;
+                // index = index + 1 < textItems.length ? index + 1 : 0;
+                if(index + 1 >= textItems.length ){
+                    return false;
+                }
+                index++;
                 timer = setTimeout(function () {
                     msgRef.current.innerHTML = '';
                     typingEffect();
@@ -33,6 +37,7 @@ export default function MySelf({ type, heightNum }) {
         };
         const typingStop = () => {
             console.log('stop typingEffect...');
+            index = 0;
             clearTimeout(timer);            
         }  
     
@@ -64,7 +69,7 @@ export default function MySelf({ type, heightNum }) {
                     <span className='text-item'>UI/UX에 기반한 동적 스크립트 구현과</span>
                     <span className='text-item'>패럴렉스 애니메이션에 관심이 많다.</span>
                 </div>
-                <div ref={msgRef} className='app__message-text mt-28 text-7xl text-slate-700'>
+                <div ref={msgRef} className='app__message-text my-28 text-7xl text-slate-700'>
                 </div>
             </div>
         </div>
