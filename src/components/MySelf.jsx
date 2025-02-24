@@ -12,10 +12,11 @@ export default function MySelf({ type, heightNum }) {
         let count = 0;
         let index = 0;
         let timer = null;
-        const textItems = textRef.current.querySelectorAll('.text-item');
+        const textItems = textRef.current.querySelectorAll('.text-item');        
         const typingEffect = function typingEffect() {
             console.log('call typingEffect...');
             let text = textItems[index].textContent;
+            
             if (count < text.length) {
                 setTimeout(function () {
                     msgRef.current.innerHTML += text[count];
@@ -38,6 +39,7 @@ export default function MySelf({ type, heightNum }) {
         const typingStop = () => {
             console.log('stop typingEffect...');
             index = 0;
+            msgRef.current.innerHTML = '';
             clearTimeout(timer);            
         }  
     
@@ -45,7 +47,7 @@ export default function MySelf({ type, heightNum }) {
             rootMargin: `0px 0px -${window.innerHeight/2}px 0px`, 
             threshold: 0                
         };
-        callByObserver({target: sectionRef.current, showCallback: typingEffect, hideCallback: typingStop, keepObserver:false, options:config });
+        callByObserver({target: sectionRef.current, showCallback: typingEffect, hideCallback: typingStop, keepObserver:true, options:config });
 
         scrollIndex.setLayout(sectionRef.current, heightNum);
         window.scrollBy(0, 10);

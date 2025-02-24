@@ -99,6 +99,7 @@ export default class ScrollIndex {
                 let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop;
                 let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[this.scrollMotion.currentIndex].scrollHeight;
 
+                const appMessage = this.scrollMotion.currentScene.querySelector('.app__main-message');
                 const mainImageA = this.scrollMotion.currentScene.querySelector('.main-image-a');
                 const mainImageB = this.scrollMotion.currentScene.querySelector('.main-image-b');
                 const mainImageC= this.scrollMotion.currentScene.querySelector('.main-image-c');
@@ -148,9 +149,17 @@ export default class ScrollIndex {
                     messageA.style.transform = `translateY(${this.scrollMotion.calcValues(messageA_translateyOut, currentYOffset)}vh)`;
                 } 
                 
-                if(scrollRatio >= 0.08 && scrollRatio < 0.2){                    
+                if(scrollRatio >= 0.08 && scrollRatio < 0.2){    
+                    appMessage.classList.add('!left-0');
+                    appMessage.classList.add('!text-left');
+                    appMessage.classList.add('!translate-x-0');
+
                     mainImageA.classList.add('active');
                 } else if (scrollRatio < 0.07) {
+                    appMessage.classList.remove('!left-0');
+                    appMessage.classList.remove('!text-left');
+                    appMessage.classList.remove('!translate-x-0');
+
                     mainImageA.classList.remove('active');
                 } else if (scrollRatio > 0.22) {
                     mainImageA.classList.remove('active');
