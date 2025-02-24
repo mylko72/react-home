@@ -150,13 +150,13 @@ export default class ScrollIndex {
                 } 
                 
                 if(scrollRatio >= 0.08 && scrollRatio < 0.2){    
-                    appMessage.classList.add('!left-0');
+                    appMessage.classList.add('!left-20');
                     appMessage.classList.add('!text-left');
                     appMessage.classList.add('!translate-x-0');
 
                     mainImageA.classList.add('active');
                 } else if (scrollRatio < 0.07) {
-                    appMessage.classList.remove('!left-0');
+                    appMessage.classList.remove('!left-20');
                     appMessage.classList.remove('!text-left');
                     appMessage.classList.remove('!translate-x-0');
 

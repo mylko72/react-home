@@ -1,8 +1,15 @@
 import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useParallaxApiContext } from '../context/ParallaxApiContext';
+
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function TopVisual({type, heightNum}) {
     const sectionRef = useRef(null);
+    const msgRef = useRef(null);
     const { scrollIndex } = useParallaxApiContext();  
     
     useEffect(() => {
@@ -10,8 +17,34 @@ export default function TopVisual({type, heightNum}) {
         window.scrollBy(0, 10);
     });
 
+    // useGSAP(() => {
+    //     let textString = msgRef.current.textContent;
+    //     let split = textString.split("");
+    //     msgRef.current.textContent = "";
+    //     for(let i=0; i<split.length; i++){
+    //         msgRef.current.innerHTML += "<span>"+split[i]+"</span>";
+    //     }
+    //     let tl = gsap.timeline();
+    //     console.log('tl', tl);
+    //     tl.from("span", {
+    //         y: -500,
+    //         opacity: 0,
+    //         scrollTrigger: {
+    //             pin: false,
+    //             scrub: 1,
+    //             trigger: '',
+    //         },
+    //         stagger: {
+    //             amount: 2
+    //         }
+    //     })        
+    // },{ scope: sectionRef });
+
     return (
-        <div ref={sectionRef} id="scroll-section-0" className='app__scroll-section'>
+        <section ref={sectionRef} id="scroll-section-0" className='app__scroll-section'>
+            {/* <div className="app__main-message flex flex-wrap justify-start">
+                <p ref={msgRef} className="app__message-tit text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl">Scroll To See My Portfolio</p>
+            </div> */}
             <div className="app__sticky-elem app__main-message flex flex-wrap justify-start">
                 <div className='flex w-full flex-100 text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl'>
                     <div className="app__mask flex-none" data-effect>
@@ -52,7 +85,7 @@ export default function TopVisual({type, heightNum}) {
                     <path d="M0 80  C 30 10, 55 10, 85 80 S 140 150, 170 80 C 200 10, 225 10, 255 80 S 310 150, 340 80" />
                 </g>
             </svg>            
-        </div>       
+        </section>       
     );
 }
 

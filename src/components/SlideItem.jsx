@@ -4,12 +4,14 @@ export default function SlideItem({ work, direction }) {
     const [slideWidth, setSlideWidth] = useState(0);
     const [slideHeight, setSlideHeight] = useState(0);
     const itemRef = useRef(null);
+    const imgRef = useRef(null);
 
     const getSlideValue = () => {
         return direction === 'width' ? slideWidth : slideHeight
     }
 
     const onHandleOver = () => {
+        if(!imgRef.current.classList.contains('show-in')) return false;
         itemRef.current.classList.add('hover');
     }
 
@@ -36,7 +38,7 @@ export default function SlideItem({ work, direction }) {
     return (
         <li className="work-item cursor-pointer" onMouseEnter={onHandleOver} onMouseLeave={onHandleOut}>
             <div ref={itemRef} className="work-img">
-                <img className="object-cover" src={work.thumbnail} alt={work.project} data-slide-width={ direction === 'width' } data-slide-height={ direction === 'height' } data-slide-value={ getSlideValue() } data-duration="1s" data-timing-function="cubic-bezier(0.83, 0, 0.17, 1)" />
+                <img ref={imgRef} className="object-cover" src={work.thumbnail} alt={work.project} data-slide-width={ direction === 'width' } data-slide-height={ direction === 'height' } data-slide-value={ getSlideValue() } data-duration="1s" data-timing-function="cubic-bezier(0.83, 0, 0.17, 1)" />
                 <div className='desc divide-y divide-dashed'>
                     <p className='mb-4 text-lg font-bold'>{ work.task }</p>
                     <p className='pt-4'>{ work.desc }</p>

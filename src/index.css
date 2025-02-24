@@ -126,12 +126,12 @@ body {
 #scroll-section-4 .app__message-text {font-family: 'NanumMongDor'; font-weight: 400;}
 #scroll-section-4 .app__message-text .app__sticky-elem {top: 40%; z-index: 10; width: 50%; transform: translateY(-50%); opacity: 0;}
 
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {height: 400px; top: 50%; width: 50%; left: initial; right: -50%; transform: translateY(-40%); text-align: center; transition: all 1s;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover {position: absolute; left: 0; top: 0; z-index: 10;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {position: absolute; left: 175px; top: 0; transform: translateX(0); z-index: 0; transition: all 1.5s 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {height: 100vh; top: 0; width: 60%; left: initial; right: -60%; text-align: center; transition: all 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover {position: absolute; left: 0; top: 50%; z-index: 10; transform: translateY(-50%);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {position: absolute; left: 25%; top: 50%; transform: translate(0, -50%); z-index: 0; transition: all 1.5s 1s;}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active {right: 0;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translateX(40%) rotate(360deg);}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active.move-in .img-lp-iu {transform: translateX(0) rotate(-360deg);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translate(50%, -50%) rotate(360deg);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active.move-in .img-lp-iu {transform: translate(40%, -50%) rotate(-360deg);}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-b {height: 100vh; top: 0; width: 60%; left: initial; right: -50%; text-align: center; transition: all 1s;}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-b img {position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 10; object-fit: cover; object-position: center; clip-path: circle(250px at center); transition: all .5s 1s;}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-b.active {right: 0;}
@@ -486,10 +486,6 @@ body {
   font-weight: normal;
 }
 
-@media only all and (max-width:1440px) {
-  /* .app__main-swiper .work-list {padding-top:100%} */
-}
-
 .more-list > ul .work-item {
   @apply flex flex-col
 }
@@ -733,3 +729,33 @@ body {
 }
 
 /* swiper 공통 (e) *****************************************************/
+
+@media (min-width: 640px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1024px) {
+
+}
+
+@media (min-width: 1280px) { 
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 425px; height: 425px;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: 400px; height: 400px}
+}
+
+@media (min-width: 1536px) {
+  #scroll-section-1 .app__main-message {position: sticky; top: 10vh; left: 0;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {width: 50%;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 500px; height: 500px;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: 480px; height: 480px}
+}
+
+@media (min-width: 1920px) {
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {width: 60%;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: auto; height: auto;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: auto; height: auto}
+}
