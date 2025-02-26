@@ -43,13 +43,23 @@ export default class ScrollIndex {
             let currentYOffset = this.scrollMotion.yOffset - this.scrollMotion.defaults.prevScrollHeight;
             let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[currentIndex].scrollHeight;
 
-            // console.log('scrollRatio', scrollRatio);
+            console.log('render', scrollRatio);
     
             if(currentIndex === 0){
                 const stickyEl = this.scrollMotion.currentScene.querySelector('.app__cover-img');
                 const stickyScaleWidth = JSON.parse(stickyEl.dataset.scaleWidth);
                 const stickyScaleHeight = JSON.parse(stickyEl.dataset.scaleHeight);
                 const stickyBorderRadius = JSON.parse(stickyEl.dataset.borderRadius);
+
+                setTimeout(() => {
+                    const messageTitA = this.scrollMotion.currentScene.querySelectorAll('.app__main-message .app__message-tit')[0];
+                    const messageTitA_opacityIn = messageTitA.dataset.opacityIn && JSON.parse(messageTitA.dataset.opacityIn);
+                    const messageTitA_opacityOut = messageTitA.dataset.opacityIn && JSON.parse(messageTitA.dataset.opacityOut);
+                    const messageTitA_translateyIn = messageTitA.dataset.opacityIn && JSON.parse(messageTitA.dataset.translateyIn);
+                    const messageTitA_translateyOut = messageTitA.dataset.translateyOut && JSON.parse(messageTitA.dataset.translateyOut);
+    
+                    console.log('messageTitA_opacityIn', messageTitA.dataset.opacityIn);    
+                }, 100)
 
                 console.log(`Section 0 모션 진행중...`);
 

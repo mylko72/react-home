@@ -364,7 +364,7 @@ export default class ScrollMotion {
         [...splitText].forEach((el) => {
             let sec = 0.15;
             const splitArr = el.textContent.split('');
-            const { effect, duration } = el.dataset;
+            const { effect, callback, duration } = el.dataset;
 
             !!duration && (sec = duration);
 
@@ -373,14 +373,24 @@ export default class ScrollMotion {
                 spanEl.setAttribute('data-effect', '');
                 spanEl.className = 'app__mask';
                 spanEl.ariaHidden = 'true';
-                spanEl.innerHTML = `<span class="app__message-tit ${el.tagName.toLowerCase()}-txt ${effect}" data-effect style="display:inline-block; transition-duration:.8s; transition-delay: ${sec*i}s">${char}</span>`;
+                if(char === '-'){
+                    console.log('char', char);
+                    spanEl.innerHTML = `<span class="app__message-tit" style="display:inline-block;">&nbsp;</span>`;
+                }else{                    
+                    spanEl.innerHTML = `<span class="app__message-tit ${el.tagName.toLowerCase()}-txt ${effect}" data-effect style="display:inline-block; transition-duration:.5s; transition-delay: ${sec*i}s">${char}</span>`;
+                }
                 el.parentElement.append(spanEl);
             });
 
-            [...el.parentElement.querySelectorAll('.span-txt')].forEach((span) => {
+            const callbackInfo =  JSON.parse(callback);
+
+            [...el.parentElement.querySelectorAll(`.${el.tagName.toLowerCase()}-txt`)].forEach((span, i) => {
                 span.addEventListener('transitionend', () => {
                     console.log('transition end...');
-                    span.closest('.app__mask').style.overflow = 'visible';
+                    for(let key in callbackInfo[i]){
+                        span.setAttribute(`data-${key}`, JSON.stringify(callbackInfo[i][key]));
+                    }
+                    // span.closest('.app__mask').style.overflow = 'visible';
                 });
             });
         });

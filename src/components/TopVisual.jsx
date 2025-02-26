@@ -1,16 +1,19 @@
 import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useParallaxApiContext } from '../context/ParallaxApiContext';
-
-gsap.registerPlugin(useGSAP);
-gsap.registerPlugin(ScrollTrigger);
 
 export default function TopVisual({type, heightNum}) {
     const sectionRef = useRef(null);
     const msgRef = useRef(null);
     const { scrollIndex } = useParallaxApiContext();  
+
+    const dataInfo = [
+        {
+            'opacity-in': [0, 1, { start: 0.1, end: 0.2 }],
+            'translatey-in': [20, 0, { start: 0.1, end: 0.2 }],
+            'opacity-out': [1, 0, { start: 0.25, end: 0.3 }],
+            'translatey-out': [0, -20, { start: 0.25, end: 0.3 }],
+        }
+    ]
     
     useEffect(() => {
         scrollIndex.setLayout(sectionRef.current, heightNum);
@@ -42,10 +45,10 @@ export default function TopVisual({type, heightNum}) {
 
     return (
         <section ref={sectionRef} id="scroll-section-0" className='app__scroll-section'>
-            {/* <div className="app__main-message flex flex-wrap justify-start">
-                <p ref={msgRef} className="app__message-tit text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl">Scroll To See My Portfolio</p>
-            </div> */}
-            <div className="app__sticky-elem app__main-message flex flex-wrap justify-start">
+            <div className="app__main-message !left-1/2 !-translate-x-1/2 !-translate-y-1/2 text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl">
+                <p ref={msgRef} className="app__message-tit" data-split-txt data-effect="slide-right" data-callback={JSON.stringify(dataInfo)}>Scroll-To-See-Portfolio</p>
+            </div>
+            <div className="app__sticky-elem app__main-message flex flex-wrap justify-start !hidden">
                 <div className='flex w-full flex-100 text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl'>
                     <div className="app__mask flex-none" data-effect>
                         <p className="app__message-tit" data-effect="slide-right">인연</p>
