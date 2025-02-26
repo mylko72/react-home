@@ -131,7 +131,7 @@ export default class ScrollMotion {
             let opt = !!selector.dataset.options && JSON.parse(selector.dataset.options);
             let marginGap = window.innerWidth > 768 ? window.innerHeight * 0 : window.innerHeight * 0;
             let config = {...{ rootMargin: `0px 0px -${marginGap}px 0px`, threshold: 0.2 }, ...opt}            
-            callByObserver({target: selector, showCallback: this.addShow.bind(this), keepObserver:false, options: config });
+            callByObserver({target: selector, showCallback: this.addShow.bind(this), keepObserver:true, options: config });
         });  
         getAllElements('[data-sequence]').length && [...getAllElements('[data-sequence]')].forEach((selector) => {
             let opt = !!selector.dataset.options && JSON.parse(selector.dataset.options);

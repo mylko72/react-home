@@ -3,17 +3,17 @@ import { useParallaxApiContext } from '../context/ParallaxApiContext';
 
 export default function TopVisual({type, heightNum}) {
     const sectionRef = useRef(null);
-    const msgRef = useRef(null);
+    // const msgRef = useRef(null);
     const { scrollIndex } = useParallaxApiContext();  
 
-    const dataInfo = [
-        {
-            'opacity-in': [0, 1, { start: 0.1, end: 0.2 }],
-            'translatey-in': [20, 0, { start: 0.1, end: 0.2 }],
-            'opacity-out': [1, 0, { start: 0.25, end: 0.3 }],
-            'translatey-out': [0, -20, { start: 0.25, end: 0.3 }],
-        }
-    ]
+    // const dataInfo = [
+    //     {
+    //         'opacity-in': [0, 1, { start: 0.1, end: 0.2 }],
+    //         'translatey-in': [20, 0, { start: 0.1, end: 0.2 }],
+    //         'opacity-out': [1, 0, { start: 0.25, end: 0.3 }],
+    //         'translatey-out': [0, -20, { start: 0.25, end: 0.3 }],
+    //     }
+    // ]
     
     useEffect(() => {
         scrollIndex.setLayout(sectionRef.current, heightNum);

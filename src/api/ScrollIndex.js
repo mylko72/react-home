@@ -82,6 +82,11 @@ export default class ScrollIndex {
 
                 if(scrollRatio >= 0.6){
                     stikcyMessage.classList.remove('!hidden');
+                }else if(scrollRatio < 0.6 && scrollRatio > 0.2){
+                    // stikcyMessage.classList.add('!hidden');
+                    [...stikcyMessage.querySelectorAll('[data-effect]')].forEach((el) => {
+                        el.classList.remove('show-in');
+                    });
                 }else{
                     stikcyMessage.classList.add('!hidden');
                 }
@@ -99,7 +104,9 @@ export default class ScrollIndex {
                         messageTit.style.transformStyle = 'preserve-3d';
                     }else{
                         messageTit.style.transform = `translateY(0px)`;
-                    }                            
+                    }
+                    
+                    return null;
                 })
 
                 if(stickyEl.style.height === '100vh'){
@@ -108,14 +115,12 @@ export default class ScrollIndex {
                     stickyEl.classList.remove('!fixed');
                 }
             }else if(currentIndex === 1){
-                const stickyEl = this.scrollMotion.scrollSection[currentIndex-1].querySelector('.app__cover-img');
-                stickyEl.style.width = '100%';
-                stickyEl.style.height = '100vh';
-                stickyEl.style.borderRadius = '0';
-                stickyEl.style.transform = 'translate(-50%, -80vh)';
-
-                console.log(`Section 1 모션 진행중...`);
-            
+                console.log(`Section 1 모션 진행중...`);            
+                // const stickyEl = this.scrollMotion.scrollSection[currentIndex - 1].querySelector('.app__cover-img');
+                // stickyEl.style.width = '100%';
+                // stickyEl.style.height = '100vh';
+                // stickyEl.style.borderRadius = '0';
+                // stickyEl.style.transform = 'translate(-50%, -80vh)';
             }else if(currentIndex === 2){
                 console.log(`Section 2 모션 진행중...`);
             }else if(currentIndex === 3){
@@ -123,8 +128,8 @@ export default class ScrollIndex {
             }else if(currentIndex === 4){ 
                 console.log(`Section '4 모션 진행중...`);
 
-                this.absTop = this.scrollMotion.yOffset + this.scrollMotion.currentScene.getBoundingClientRect().top;
-                let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop;
+                this.absTop2 = this.scrollMotion.yOffset + this.scrollMotion.currentScene.getBoundingClientRect().top;
+                let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop2;
                 let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[this.scrollMotion.currentIndex].scrollHeight;
 
                 const appMessage = this.scrollMotion.currentScene.querySelector('.app__main-message');
@@ -261,6 +266,14 @@ export default class ScrollIndex {
             }else if(currentIndex === 7){
             }else if(currentIndex === 8){
             }else if(currentIndex === 9){
+            }
+
+            if(currentIndex > 0) {
+                const stickyElem = this.scrollMotion.scrollSection[0].querySelector('.app__cover-img');
+                stickyElem.style.width = '100%';
+                stickyElem.style.height = '100vh';
+                stickyElem.style.borderRadius = '0';
+                stickyElem.style.transform = 'translate(-50%, -80vh)';
             }
         });
     }
