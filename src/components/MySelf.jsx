@@ -50,7 +50,7 @@ export default function MySelf({ type, heightNum }) {
         callByObserver({target: sectionRef.current, showCallback: typingEffect, hideCallback: typingStop, keepObserver:true, options:config });
 
         scrollIndex.setLayout(sectionRef.current, heightNum);
-        window.scrollBy(0, 10);
+        // window.scrollBy(0, 10);
     });
 
     return (

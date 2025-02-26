@@ -46,20 +46,12 @@ export default class ScrollIndex {
             console.log('render', scrollRatio);
     
             if(currentIndex === 0){
+                const stikcyMessage = this.scrollMotion.currentScene.querySelector('.app__sticky-message');
                 const stickyEl = this.scrollMotion.currentScene.querySelector('.app__cover-img');
                 const stickyScaleWidth = JSON.parse(stickyEl.dataset.scaleWidth);
                 const stickyScaleHeight = JSON.parse(stickyEl.dataset.scaleHeight);
                 const stickyBorderRadius = JSON.parse(stickyEl.dataset.borderRadius);
-
-                setTimeout(() => {
-                    const messageTitA = this.scrollMotion.currentScene.querySelectorAll('.app__main-message .app__message-tit')[0];
-                    const messageTitA_opacityIn = messageTitA.dataset.opacityIn && JSON.parse(messageTitA.dataset.opacityIn);
-                    const messageTitA_opacityOut = messageTitA.dataset.opacityIn && JSON.parse(messageTitA.dataset.opacityOut);
-                    const messageTitA_translateyIn = messageTitA.dataset.opacityIn && JSON.parse(messageTitA.dataset.translateyIn);
-                    const messageTitA_translateyOut = messageTitA.dataset.translateyOut && JSON.parse(messageTitA.dataset.translateyOut);
-    
-                    console.log('messageTitA_opacityIn', messageTitA.dataset.opacityIn);    
-                }, 100)
+                const stickyTranslate = JSON.parse(stickyEl.dataset.translate);
 
                 console.log(`Section 0 모션 진행중...`);
 
@@ -67,23 +59,48 @@ export default class ScrollIndex {
                     this.absTop = this.scrollMotion.yOffset + this.scrollMotion.currentScene.getBoundingClientRect().top;
                 }
 
-                let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop;
+                // let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop;
+                let currentYOffset = this.scrollMotion.yOffset - this.absTop;
                 let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[this.scrollMotion.currentIndex].scrollHeight;
                 console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
 
                 stickyEl.parentElement.style.alignItems = 'flex-start';
 
-                if (scrollRatio <= 0.82) {
+                if (scrollRatio >= 0.05) {
                     stickyEl.style.width = `${this.scrollMotion.calcValues(stickyScaleWidth, currentYOffset)}%`;
                     stickyEl.style.height = `${this.scrollMotion.calcValues(stickyScaleHeight, currentYOffset)}vh`;
                     stickyEl.style.borderRadius = `${this.scrollMotion.calcValues(stickyBorderRadius, currentYOffset)}vw`
+                    stickyEl.style.transform = `translate(-50%, ${this.scrollMotion.calcValues(stickyTranslate, currentYOffset)}vh)`;
                     stickyEl.style.willChange = 'transform, width, height';
                     stickyEl.style.transformStyle = 'preserve-3d';
                 }else{
-                    stickyEl.style.width = '100%';
-                    stickyEl.style.height = '100vh';
-                    stickyEl.style.borderRadius = '0';
+                    // stickyEl.style.width = '100%';
+                    // stickyEl.style.height = '100vh';
+                    stickyEl.style.borderRadius = '5';
+                    stickyEl.style.transform = 'translate(-50%, 0)';
                 }
+
+                if(scrollRatio >= 0.6){
+                    stikcyMessage.classList.remove('!hidden');
+                }else{
+                    stikcyMessage.classList.add('!hidden');
+                }
+
+                const alphabet = Array(20).fill().map((v, i) => String.fromCharCode(i + 97));
+                alphabet.map(ch => {
+                    const messageTit = this.scrollMotion.currentScene.querySelector(`.message-tit-${ch}`); 
+                    const messageTit_opacityOut = JSON.parse(messageTit.dataset.opacityOut);
+                    const messageTit_translateyOut = JSON.parse(messageTit.dataset.translateyOut);
+
+                    if (scrollRatio >= 0.01) {
+                        messageTit.style.opacity = `${this.scrollMotion.calcValues(messageTit_opacityOut, currentYOffset)}`;
+                        messageTit.style.transform = `translateY(${this.scrollMotion.calcValues(messageTit_translateyOut, currentYOffset)}px)`;
+                        messageTit.style.willChange = 'transform, width, height';
+                        messageTit.style.transformStyle = 'preserve-3d';
+                    }else{
+                        messageTit.style.transform = `translateY(0px)`;
+                    }                            
+                })
 
                 if(stickyEl.style.height === '100vh'){
                     stickyEl.classList.add('!fixed');
@@ -95,6 +112,7 @@ export default class ScrollIndex {
                 stickyEl.style.width = '100%';
                 stickyEl.style.height = '100vh';
                 stickyEl.style.borderRadius = '0';
+                stickyEl.style.transform = 'translate(-50%, -80vh)';
 
                 console.log(`Section 1 모션 진행중...`);
             

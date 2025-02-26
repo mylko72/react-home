@@ -8,7 +8,7 @@ export default function MyFavorite({ type, heightNum }) {
     useEffect(() => {
         scrollIndex.setLayout(sectionRef.current, heightNum);
         // scrollIndex.scrollMotion.updateHeight();
-        window.scrollBy(0, 10);
+        // window.scrollBy(0, 10);
     });
 
     return (

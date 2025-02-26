@@ -73,7 +73,7 @@ export default class ScrollMotion {
               break;
            }
         }
-        console.log('totalScrollHeight', totalScrollHeight);
+        console.log('scrollY', window.scrollY);
     }
 
     attachEvents(){

@@ -98,10 +98,11 @@ body {
 .txt-point {color: var(--main-point-color);}
 
 #scroll-section-0 {max-width:100%; padding:80vh 0 0}
-#scroll-section-0 .app__main-message {position:fixed; left: 7vw; top: 50%; z-index: 10; width: max-content; transform: translateY(-50%); padding: 0; text-align:center;}
+#scroll-section-0 .app__main-message {position:fixed; left: 7vw; top: 50%; z-index: 10; width: max-content; transform: translateY(-50%); padding: 0; text-align:center; -webkit-box-reflect: below -48px linear-gradient(transparent, #0002);}
+#scroll-section-0 .app__main-message [class*='message-tit-'] {font-size: inherit; transition-duration: 0.5s; transition-timing-function: ease-in;}
 #scroll-section-0 .app__message-tit {text-align: left;}
 #scroll-section-0 .app__cover-sticky {position: relative; display:flex; justify-content: center; align-items: flex-start; height: 150vh;}
-#scroll-section-0 .app__cover-img {position: sticky; top: 0; width: 70%; height: 80vh; border-radius: 5vw; overflow: hidden; background-image: url(../public/images/img_top_visual.jpg); background-size: cover;}
+#scroll-section-0 .app__cover-img {position: fixed; top: 80vh; left: 50%; width: 70%; height: 80vh; transform: translateX(-50%); border-radius: 5vw; overflow: hidden; background-image: url(../public/images/img_top_visual.jpg); background-size: cover; transition: all .3s}
 #scroll-section-0 .app__cover-img img {width:100%; height:100%; object-position:top; object-fit:cover; border-radius: 0;}
 
 #scroll-section-1 {position: relative; z-index: 20; max-width:100%; height: auto; padding:15vw 0 0; background-color: #fff; box-sizing: initial;}

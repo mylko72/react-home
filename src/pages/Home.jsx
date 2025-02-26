@@ -8,7 +8,7 @@ import MyFavorite from '../components/MyFavorite';
 export default function Home() {
     return (
         <>
-            <TopVisual type="sticky" heightNum="2" />
+            <TopVisual type="sticky" heightNum="4" />
             <MyWork />
             <MySkill />
             <MySelf type="sticky" heightNum="2" />
