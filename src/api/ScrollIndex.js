@@ -165,9 +165,9 @@ export default class ScrollIndex {
                 const messageD_translateyOut = JSON.parse(messageD.dataset.translateyOut);
 
                 const messageE_opacityIn = JSON.parse(messageE.dataset.opacityIn);
-                const messageE_opacityOut = JSON.parse(messageE.dataset.opacityOut);
+                // const messageE_opacityOut = JSON.parse(messageE.dataset.opacityOut);
                 const messageE_translateyIn = JSON.parse(messageE.dataset.translateyIn);
-                const messageE_translateyOut = JSON.parse(messageE.dataset.translateyOut);
+                // const messageE_translateyOut = JSON.parse(messageE.dataset.translateyOut);
                 
                 // console.log('messageA_opacityIn', messageA_opacityIn);
                 console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
@@ -252,18 +252,20 @@ export default class ScrollIndex {
                     mainImageD.classList.remove('active');
                 }
 
-                if (scrollRatio <= 0.82){                    
+                if (scrollRatio >= 0.76){                    
                     messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityIn, currentYOffset)}`;
                     messageE.style.transform = `translate(-50%, ${this.scrollMotion.calcValues(messageE_translateyIn, currentYOffset)}vh)`;
                     messageE.style.willChange = 'transform, width, height';
                     messageE.style.transformStyle = 'preserve-3d';
-                } else if (scrollRatio > 0.85){
-                    console.log('call messageE...');
-                    messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityOut, currentYOffset)}`;
-                    messageE.style.transform = `translate(-50%, ${this.scrollMotion.calcValues(messageE_translateyOut, currentYOffset)}vh)`;
                 } 
+                
+                // else if (scrollRatio > 0.85){
+                //     console.log('call messageE...');
+                //     messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityOut, currentYOffset)}`;
+                //     messageE.style.transform = `translate(-50%, ${this.scrollMotion.calcValues(messageE_translateyOut, currentYOffset)}vh)`;
+                // } 
 
-                if (scrollRatio < 0.82){ 
+                if (scrollRatio < 0.8){ 
                     appMessage.classList.add('!left-20');
                     appMessage.classList.add('!text-left');
                     appMessage.classList.add('!translate-x-0');

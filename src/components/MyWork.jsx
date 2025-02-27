@@ -24,7 +24,7 @@ export default function MyWork() {
   })
 
   return (
-    <div id="scroll-section-1" className='app__scroll-section flex flex-col items-center 2xl:flex-row 2xl:justify-between 2xl:items-start'>
+    <section id="scroll-section-1" className='app__scroll-section flex flex-col items-center 2xl:flex-row 2xl:justify-between 2xl:items-start'>
       <div>
         <svg className="line-curved">
           <linearGradient id="grad-red" x1="0" y1="100" x2="100%" y2="100">
@@ -61,7 +61,7 @@ export default function MyWork() {
           </div> */}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -8,7 +8,7 @@ export default function MySkill() {
     // scrollIndex.scrollMotion.infiniteXScroll(marqueeRef.current);
 
     return (
-        <div id="scroll-section-2" className='app__scroll-section flex flex-col items-center'>
+        <section id="scroll-section-2" className='app__scroll-section flex flex-col items-center'>
     
             <div className="app__main-message flex flex-col items-center gap-y-3">
                 <div className="app__mask" data-effect>
@@ -23,7 +23,7 @@ export default function MySkill() {
                 <SkillItem direction="left" />
                 <SkillItem direction="right" csName="top-64 justify-end" />
             </div>
-        </div>
+        </section>
     );
 }
 

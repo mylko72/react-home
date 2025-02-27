@@ -54,7 +54,7 @@ export default function MySelf({ type, heightNum }) {
     });
 
     return (
-        <div ref={sectionRef} id="scroll-section-3" className='app__scroll-section'>
+        <section ref={sectionRef} id="scroll-section-3" className='app__scroll-section'>
             <div className="app__main-message !w-full flex flex-col">
                 <div className='flex flex-col items-center'>
                     <div className="app__mask" data-effect>
@@ -74,7 +74,7 @@ export default function MySelf({ type, heightNum }) {
                 <div ref={msgRef} className='app__message-text flex justify-center items-center my-28 text-7xl 2xl:text-8xl text-slate-700 text-center'>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 
