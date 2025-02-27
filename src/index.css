@@ -28,13 +28,15 @@
 
 :root {
   --main-text-color: #000;
-  --main-point-color: #FF6447;
+  --main-point-500: #FC5131;
+  --main-point-700: #F52B05;
   --main-text-size: 5vw;
   --desc-text-size: 3.7vw;
   --desc-text-color: #FEA594;
   --swier-item-pad: 16px;
-  --swiper-pagination-bullet-width: 1vw;
-  --swiper-pagination-bullet-height: 1vw;
+  --swiper-theme-color: var(--main-point-700) !important;
+  --swiper-pagination-bullet-width: 1.5vw;
+  --swiper-pagination-bullet-height: 1.5vw;
   --swiper-pagination-bottom: 0;
 }
 
@@ -95,7 +97,9 @@ body {
 .app__scroll-section.active ~ .app__scroll-section .app__sticky-elem {display: none}
 /* 공통 (e) */
 
-.txt-point {color: var(--main-point-color);}
+/* 포인트 칼라 */
+.normal-point {color: var(--main-point-500);}
+.accent-point {color: var(--main-point-700);}
 
 #scroll-section-0 {max-width:100%; padding:80vh 0 0}
 #scroll-section-0 .app__main-message {position:fixed; left: 7vw; top: 50%; z-index: 10; width: max-content; transform: translateY(-50%); padding: 0; text-align:center; -webkit-box-reflect: below -48px linear-gradient(transparent, #0002);}
@@ -126,6 +130,7 @@ body {
 #scroll-section-4 .app__main-message .app__message-tit {text-shadow: 1px 4px 9px rgba(255,255,255,0.67)}
 #scroll-section-4 .app__message-text {font-family: 'NanumMongDor', "Pretendard Variable", 'Pretendard'; font-weight: 400;}
 #scroll-section-4 .app__message-text .app__sticky-elem {top: 40%; z-index: 10; width: 50%; transform: translateY(-50%); opacity: 0;}
+#scroll-section-4 .app__message-text .app__sticky-elem.message-text-e {left: 50%;}
 
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {height: 100vh; top: 0; width: 60%; left: initial; right: -60%; text-align: center; transition: all 1s;}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover {position: absolute; left: 0; top: 50%; z-index: 10; transform: translateY(-50%);}
@@ -268,9 +273,10 @@ body {
   top: 50%;
   left: 10px;
   z-index: 20;
-  transform: translate(20px, -50%);
+  transform: translate(50%, -50%);
   background-color: var(--swiper-theme-color);
-  @apply flex justify-center items-center w-24 h-24 text-5xl rounded-lg opacity-60 hover:opacity-90;
+  transition: all .5s;
+  @apply flex justify-center items-center w-24 h-24 text-5xl rounded-lg opacity-0 hover:opacity-90;
 }
 
 .app__main-swiper .swiper .swiper-button-next {
@@ -279,9 +285,10 @@ body {
   top: 50%;
   right: 10px;
   z-index: 20;
-  transform: translate(-20px, -50%);
+  transform: translate(-50%, -50%);
   background-color: var(--swiper-theme-color);
-  @apply flex justify-center items-center w-24 h-24 text-5xl rounded-lg opacity-60 hover:opacity-90;
+  transition: all .5s;
+  @apply flex justify-center items-center w-24 h-24 text-5xl rounded-lg opacity-0 hover:opacity-90;
 }
 
 .app__main-swiper .swiper .swiper-button-prev.hover.fade-in,
@@ -492,7 +499,54 @@ body {
 }
 
 .more-list > ul .work-img {
+  position: relative;
   border: 1px solid #eee;
+}
+
+.more-list > ul .work-img .desc {
+  position:absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  width: 100%;
+  padding: 20px;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all .5s;
+}
+
+
+.more-list > ul .work-img::before {
+  content: '';
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all .5s;
+}
+
+.more-list > ul .work-img.hover::before {
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.more-list > ul .work-img.hover img {
+  transition-duration: .5s !important;
+  transition-timing-function: ease-out !important;
+  transform: scale(1.2) !important;
+}
+
+.more-list > ul .work-img.hover .desc {
+  transition-duration: .5s !important;
+  transition-timing-function: ease-out !important;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .more-list > ul .work-desc {
@@ -636,7 +690,7 @@ body {
 
 .swiper-button-next.swiper-button-disabled,
 .swiper-button-prev.swiper-button-disabled {
-  opacity: .35;
+  opacity: .35 !important;
   cursor: auto;
   /*pointer-events:none*/
 }
@@ -654,31 +708,20 @@ body {
 }
 
 .swiper > .swiper-button-prev.hover {
-  display: none;
-  opacity: 0;
-  transform: translate(20px, -50%);
-  transition: all .2s ease-out;
+  opacity: .8;
+  transform: translate(10px, -50%);
   z-index: 50;
-  width: 64px;
-  height: 64px;
   border-radius: 12px;
-  /* background: rgba(0,0,0,.4) url("./images/chevron-left-44-white.svg") no-repeat center/44px auto; */
 }
 
 .swiper > .swiper-button-next.hover {
-  display: none;
-  opacity: 0;
-  transform: translate(-20px, -50%);
-  transition: all .2s ease-out;
+  opacity: .8;
+  transform: translate(-10px, -50%);
   z-index: 50;
-  width: 64px;
-  height: 64px;
   border-radius: 12px;
-  /* background: rgba(0,0,0,.4) url("./images/chevron-right-44-white.svg") no-repeat center/44px auto; */
 }
 
 .swiper-button-next:after, .swiper-button-prev:after {display:none}
-
 
 .swiper > .swiper-button-prev.hover.show-in,
 .swiper > .swiper-button-next.hover.show-in {

@@ -252,16 +252,27 @@ export default class ScrollIndex {
                     mainImageD.classList.remove('active');
                 }
 
-                if (scrollRatio <= 0.82){
+                if (scrollRatio <= 0.82){                    
                     messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityIn, currentYOffset)}`;
-                    messageE.style.transform = `translateY(${this.scrollMotion.calcValues(messageE_translateyIn, currentYOffset)}vh)`;
+                    messageE.style.transform = `translate(-50%, ${this.scrollMotion.calcValues(messageE_translateyIn, currentYOffset)}vh)`;
                     messageE.style.willChange = 'transform, width, height';
                     messageE.style.transformStyle = 'preserve-3d';
                 } else if (scrollRatio > 0.85){
                     console.log('call messageE...');
                     messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityOut, currentYOffset)}`;
-                    messageE.style.transform = `translateY(${this.scrollMotion.calcValues(messageE_translateyOut, currentYOffset)}vh)`;
+                    messageE.style.transform = `translate(-50%, ${this.scrollMotion.calcValues(messageE_translateyOut, currentYOffset)}vh)`;
                 } 
+
+                if (scrollRatio < 0.82){ 
+                    appMessage.classList.add('!left-20');
+                    appMessage.classList.add('!text-left');
+                    appMessage.classList.add('!translate-x-0');
+                }else{
+                    appMessage.classList.remove('!left-20');
+                    appMessage.classList.remove('!text-left');
+                    appMessage.classList.remove('!translate-x-0');
+                }
+
             }else if(currentIndex === 5){             
             }else if(currentIndex === 7){
             }else if(currentIndex === 8){

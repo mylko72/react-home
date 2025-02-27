@@ -3,10 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 import { useParallaxApiContext } from '../context/ParallaxApiContext';
 import SwiperLists from "./SwiperLists";
 import WorkLists from './WorkLists';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function MyWork() {
   const _SIZE = 12;
+  const [hover, setHover] = useState(false);  
   const { scrollIndex } = useParallaxApiContext();
   const {isLoading, error, data: works} = useQuery({
     queryKey: ['works', _SIZE],
@@ -47,11 +48,11 @@ export default function MyWork() {
             <p className="app__message-desc text-4l md:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">My Works</p>
         </div>
       </div>
-      <div className="app__main-swiper size-3/4 lg:size-3/4 2xl:size-3/5 2xl:mr-24">
+      <div className="app__main-swiper size-3/4 lg:size-3/4 2xl:size-3/5 2xl:mr-24" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         <div>
           { isLoading && <p>Loading...</p>}
           { error && <p>Something is wrong</p>}
-          { works && <SwiperLists works={works} slideNum={2} size={_SIZE} />}
+          { works && <SwiperLists works={works} slideNum={2} size={_SIZE} hover={hover} />}
         </div>
         <div className='mt-20'>
           { works && <WorkLists works={works} size={_SIZE} />}

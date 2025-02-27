@@ -246,7 +246,7 @@ export default class ScrollMotion {
 
     playAniSequence(target){
         const elements = target.querySelectorAll('.work-img > img');
-        console.log('elements', elements);
+        // console.log('elements', elements);
         this.setAnimationQueue()(() => {
             if(!elements[0]) return;
             console.log('processing Queue1...')

@@ -7,9 +7,10 @@ import SlidePrevButton from './SlidePrevButton';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-export default function SwiperLists({ works, slideNum, size }) {
-    const [hover, setHover] = useState(false);
+export default function SwiperLists({ works, slideNum, size, hover }) {
     const [ratio, setRatio] = useState(null);
+    const [isBeginning, setIsBeginning] = useState(false);
+    const [isEnd, setIsEnd] = useState(false);
     const itemsPerView = size/slideNum;
     const listRef = useRef(null);
 
@@ -17,11 +18,28 @@ export default function SwiperLists({ works, slideNum, size }) {
 
     const initSwiper = (swiper) => {
         fnMansory(swiper);
+
+        if(swiper.isBeginning){
+          setIsBeginning(true);
+        }
     
         window.addEventListener('resize', function(){
           fnMansory(swiper);
           setRatio(paddingRatio());
         });
+    }
+
+    const onHandleChange = (swiper) => {
+      if(swiper.isBeginning){
+        setIsBeginning(true);
+        setIsEnd(false);
+      } else if(swiper.isEnd){
+        setIsBeginning(false);
+        setIsEnd(true);
+      }else{
+        setIsBeginning(false);
+        setIsEnd(false);
+      }
     }
       
     const fnMansory = (swiper) => {
@@ -63,10 +81,8 @@ export default function SwiperLists({ works, slideNum, size }) {
             // install Swiper modules
             modules={[Pagination]}
             pagination={{ clickable: true }}
-            onSlideChange={() => console.log('slide change')}
+            onSlideChange={(swiper) => onHandleChange(swiper)}
             onSwiper={(swiper) => initSwiper(swiper)}
-            onMouseOver={() => (setHover(true))}
-            className={ hover ? 'active' : '' }
         >
             {[...new Array(slideNum)].map((_, index) => (
               <SwiperSlide key={index} virtualIndex={index}>
@@ -88,8 +104,8 @@ export default function SwiperLists({ works, slideNum, size }) {
                 </div>
               </SwiperSlide>  
             ))}
-          <SlidePrevButton />
-          <SlideNextButton />
+          <SlidePrevButton isBeginning={isBeginning} hover={hover} />
+          <SlideNextButton isEnd={isEnd} hover={hover} />
         </Swiper>
     );
 }

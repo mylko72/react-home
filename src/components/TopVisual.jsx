@@ -86,31 +86,31 @@ export default function TopVisual({type, heightNum}) {
                 </div>
                 <div className="app__mask flex-none" data-effect>&nbsp;</div>
                 <div className="app__mask flex-none message-tit-l" data-opacity-out='[1, 0, { "start": "0.17", "end": "0.27" }]' data-translatey-out='[0, -500, { "start": "0.17", "end": "0.27" }]'>
-                    <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="1.1s">P</p>
+                    <p className="app__message-tit accent-point" data-effect="slide-right" data-delay="1.1s">P</p>
                 </div>
                 <div className="app__mask flex-none message-tit-m" data-opacity-out='[1, 0, { "start": "0.15", "end": "0.25" }]' data-translatey-out='[0, -500, { "start": "0.15", "end": "0.25" }]'>
-                    <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="1.2s">o</p>
+                    <p className="app__message-tit accent-point" data-effect="slide-right" data-delay="1.2s">o</p>
                 </div>
                 <div className="app__mask flex-none message-tit-n" data-opacity-out='[1, 0, { "start": "0.13", "end": "0.23" }]' data-translatey-out='[0, -500, { "start": "0.13", "end": "0.23" }]'>
-                    <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="1.3s">r</p>
+                    <p className="app__message-tit accent-point" data-effect="slide-right" data-delay="1.3s">r</p>
                 </div>
                 <div className="app__mask flex-none message-tit-o" data-opacity-out='[1, 0, { "start": "0.11", "end": "0.21" }]' data-translatey-out='[0, -500, { "start": "0.11", "end": "0.21" }]'>
-                    <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="1.4s">t</p>
+                    <p className="app__message-tit accent-point" data-effect="slide-right" data-delay="1.4s">t</p>
                 </div>
                 <div className="app__mask flex-none message-tit-p" data-opacity-out='[1, 0, { "start": "0.09", "end": "0.19" }]' data-translatey-out='[0, -500, { "start": "0.09", "end": "0.19" }]'>
-                    <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="1.5s">f</p>
+                    <p className="app__message-tit accent-point" data-effect="slide-right" data-delay="1.5s">f</p>
                 </div>
                 <div className="app__mask flex-none message-tit-q" data-opacity-out='[1, 0, { "start": "0.07", "end": "0.17" }]' data-translatey-out='[0, -500, { "start": "0.07", "end": "0.17" }]'>
-                    <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="1.6s">o</p>
+                    <p className="app__message-tit accent-point" data-effect="slide-right" data-delay="1.6s">o</p>
                 </div>
                 <div className="app__mask flex-none message-tit-r" data-opacity-out='[1, 0, { "start": "0.05", "end": "0.15" }]' data-translatey-out='[0, -500, { "start": "0.05", "end": "0.15" }]'>
-                    <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="1.7s">l</p>
+                    <p className="app__message-tit accent-point" data-effect="slide-right" data-delay="1.7s">l</p>
                 </div>
                 <div className="app__mask flex-none message-tit-s" data-opacity-out='[1, 0, { "start": "0.03", "end": "0.13" }]' data-translatey-out='[0, -500, { "start": "0.03", "end": "0.13" }]'>
-                    <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="1.8s">i</p>
+                    <p className="app__message-tit accent-point" data-effect="slide-right" data-delay="1.8s">i</p>
                 </div>
                 <div className="app__mask flex-none message-tit-t" data-opacity-out='[1, 0, { "start": "0.01", "end": "0.11" }]' data-translatey-out='[0, -500, { "start": "0.01", "end": "0.11" }]'>
-                    <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="1.9s">o</p>
+                    <p className="app__message-tit accent-point" data-effect="slide-right" data-delay="1.9s">o</p>
                 </div>
             </div>
             <div className="app__sticky-message app__main-message flex flex-wrap justify-start !hidden">
@@ -120,15 +120,15 @@ export default function TopVisual({type, heightNum}) {
                     </div>
                     <p className="app__message-tit"data-effect="text-blur" data-delay="1s">을</p>
                     <div className="app__mask flex-none ml-4" data-effect>
-                        <p className="app__message-tit txt-point" data-effect="slide-right" data-delay="0.5s" data-sec="0.5" >기회</p>
+                        <p className="app__message-tit normal-point" data-effect="slide-right" data-delay="0.5s" data-sec="0.5" >기회</p>
                     </div>
                     <p className="app__message-tit"data-effect="text-blur" data-delay="1s">로,</p>
                 </div>
                 <div className="app__mask flex-auto md:flex-none text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl" data-effect>
-                    <p className="app__message-tit" data-effect="slide-up" data-delay="1s" data-sec="1">노력을 <span className='txt-point'>실력</span>으로, </p>
+                    <p className="app__message-tit" data-effect="slide-up" data-delay="1s" data-sec="1">노력을 <span className='normal-point'>실력</span>으로, </p>
                 </div>
                 <div className="app__mask w-full flex-auto md:flex-none md:w-auto text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl" data-effect>
-                    <p className="app__message-tit" data-effect="slide-down" data-delay="1s" data-sec="1">최선을 <span className='txt-point'>결과</span>로!</p>
+                    <p className="app__message-tit" data-effect="slide-down" data-delay="1s" data-sec="1">최선을 <span className='normal-point'>결과</span>로!</p>
                 </div>
             </div>
             <div className="app__cover-sticky">

@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export default function WorkLists({ works, size }) {
+    const itemRef = useRef([]);
+    const imgRef = useRef([]);
+
+    const onHandleOver = (index) => {
+        if(works[index].desc.length < 1) return false;
+        if(!imgRef.current[index].classList.contains('show-in')) return false;
+        itemRef.current[index].classList.add('hover');
+    }
+    
+    const onHandleOut = (index) => {
+        itemRef.current[index].classList.remove('hover');
+    }
+
+    useEffect(() => {
+        // console.log('itemRef', itemRef.current);
+    });
+    
     return (
         <div className='more-list'>
             <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-6 sm:gap-y-2 lg:gap-y-4 2xl:gap-y-8'>
@@ -8,9 +25,13 @@ export default function WorkLists({ works, size }) {
                     works.map((work, index) => {
                         if(index >= size){
                             return (
-                                <li className="work-item flex flex-col cursor-pointer" key={index}>
-                                    <div className='work-img flex items-start w-full h-80 lg:h-64 xl:h-72 2xl:h-80 overflow-hidden'>
-                                        <img className="object-cover w-full h-full" data-src={work.thumbnail} alt={work.project} data-transform="translate(0, 30px)" data-duration="1s" data-effect="slide-up" />
+                                <li className="work-item flex flex-col cursor-pointer" key={index}  onMouseEnter={() => onHandleOver(index)} onMouseLeave={() => onHandleOut(index)}>
+                                    <div ref={el => itemRef.current[index] = el} className='work-img flex items-start w-full h-80 lg:h-64 xl:h-72 2xl:h-80 overflow-hidden'>
+                                        <img ref={el => imgRef.current[index] = el} className="object-cover w-full h-full" data-src={work.thumbnail} alt={work.project} data-transform="translate(0, 30px)" data-duration="1s" data-effect="slide-up" />
+                                        <div className='desc divide-y divide-dashed'>
+                                            <p className='mb-4 text-lg font-bold'>{ work.task }</p>
+                                            <p className='pt-4'>{ work.desc }</p>
+                                        </div>
                                     </div>
                                     <div className="work-desc">
                                         <p className="tit text-md md:text-base 2xl:text-xl line-clamp-2">{ work.project }</p>
