@@ -107,7 +107,7 @@ body {
 .app__main-footer .footer-etc {padding: 0 0 70px; border-bottom: 1px solid #333333; }
 .app__main-footer .footer-etc .app__main-tit {color: var(--main-point-500); font-weight: 600;}
 .app__main-footer .footer-etc .app__btn-top {color: #fff; font-weight: 600;}
-.app__main-footer .footer-con {padding: 100px 0;}
+.app__main-footer .footer-con {padding: 100px 0 20px;}
 .app__main-footer .footer-con a {font-weight: 700}
 
 

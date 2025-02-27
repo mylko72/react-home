@@ -19,12 +19,13 @@ export default function Footer({ target }) {
         <Link to="#" className='flex items-center app__btn-top text-base' onClick={(e) => onHandleTop(e)}>Go To Top <BiSolidToTop className='ml-4 text-lg' /></Link>
       </div>
       <div className='footer-con'>
-        <div className='flex justify-center'>
+        <div className='flex flex-col justify-center items-center'>
           <ul className='flex flex-col gap-y-16'>
             <li><Link to="#" className='2xl:text-8xl text-slate-500 hover:text-white' onClick={(e) => onHandleTop(e, 1)}>My Work</Link></li>
             <li><Link to="#" className='2xl:text-8xl text-slate-500 hover:text-white' onClick={(e) => onHandleTop(e, 2)}>My Skill</Link></li>
             <li><Link to="#" className='2xl:text-8xl text-slate-500 hover:text-white' onClick={(e) => onHandleTop(e, 3)}>About Me</Link></li>
           </ul>  
+          <p className='text-lg text-slate-700 mt-20'>This site was implemented with React, tailwindcss, and parallax animation.</p>
         </div>
       </div>
     </div>
