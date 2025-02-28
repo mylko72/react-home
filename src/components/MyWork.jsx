@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { useParallaxApiContext } from '../context/ParallaxApiContext';
+import ScreenSize from '../api/ScreenSize';
 import SwiperLists from "./SwiperLists";
 import WorkLists from './WorkLists';
 import { useEffect, useState } from 'react';
@@ -16,6 +17,9 @@ export default function MyWork() {
       return axios.get('/data/works.json').then(res => res.data.works)
     },
   });
+
+
+  console.log('width', ScreenSize().screenWidth);
 
   useEffect(() => {
     scrollIndex.setObserver();

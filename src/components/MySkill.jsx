@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParallaxApiContext } from '../context/ParallaxApiContext';
+// import { useParallaxApiContext } from '../context/ParallaxApiContext';
 import SkillItem from './SkillItem';
 
 export default function MySkill() {

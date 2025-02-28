@@ -43,7 +43,7 @@ export default class ScrollIndex {
             let currentYOffset = this.scrollMotion.yOffset - this.scrollMotion.defaults.prevScrollHeight;
             let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[currentIndex].scrollHeight;
 
-            console.log('render', scrollRatio);
+            // console.log('scrollRatio', scrollRatio);
     
             if(currentIndex === 0){
                 const stikcyMessage = this.scrollMotion.currentScene.querySelector('.app__sticky-message');
@@ -62,7 +62,7 @@ export default class ScrollIndex {
                 // let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop;
                 let currentYOffset = this.scrollMotion.yOffset - this.absTop;
                 let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[this.scrollMotion.currentIndex].scrollHeight;
-                console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
+                console.log(`Section ${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
 
                 stickyEl.parentElement.style.alignItems = 'flex-start';
 
@@ -73,10 +73,11 @@ export default class ScrollIndex {
                     stickyEl.style.transform = `translate(-50%, ${this.scrollMotion.calcValues(stickyTranslate, currentYOffset)}vh)`;
                     stickyEl.style.willChange = 'transform, width, height';
                     stickyEl.style.transformStyle = 'preserve-3d';
-                }else{
-                    // stickyEl.style.width = '100%';
-                    // stickyEl.style.height = '100vh';
-                    stickyEl.style.borderRadius = '5';
+                }
+                if (scrollRatio < 0.04) {
+                    stickyEl.style.width = `${stickyScaleWidth[0]}%`;
+                    stickyEl.style.height = `${stickyScaleHeight[0]}vh`;
+                    stickyEl.style.borderRadius = '5vw';
                     stickyEl.style.transform = 'translate(-50%, 0)';
                 }
 
@@ -170,7 +171,7 @@ export default class ScrollIndex {
                 // const messageE_translateyOut = JSON.parse(messageE.dataset.translateyOut);
                 
                 // console.log('messageA_opacityIn', messageA_opacityIn);
-                console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
+                // console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
 
                 if (scrollRatio <= 0.1) {
                     messageA.style.opacity = `${this.scrollMotion.calcValues(messageA_opacityIn, currentYOffset)}`;
@@ -183,16 +184,8 @@ export default class ScrollIndex {
                 } 
                 
                 if(scrollRatio >= 0.08 && scrollRatio < 0.2){    
-                    appMessage.classList.add('!left-20');
-                    appMessage.classList.add('!text-left');
-                    appMessage.classList.add('!translate-x-0');
-
                     mainImageA.classList.add('active');
                 } else if (scrollRatio < 0.07) {
-                    appMessage.classList.remove('!left-20');
-                    appMessage.classList.remove('!text-left');
-                    appMessage.classList.remove('!translate-x-0');
-
                     mainImageA.classList.remove('active');
                 } else if (scrollRatio > 0.22) {
                     mainImageA.classList.remove('active');
@@ -265,15 +258,15 @@ export default class ScrollIndex {
                 //     messageE.style.transform = `translate(-50%, ${this.scrollMotion.calcValues(messageE_translateyOut, currentYOffset)}vh)`;
                 // } 
 
-                if (scrollRatio < 0.8){ 
-                    appMessage.classList.add('!left-20');
-                    appMessage.classList.add('!text-left');
-                    appMessage.classList.add('!translate-x-0');
-                }else{
-                    appMessage.classList.remove('!left-20');
-                    appMessage.classList.remove('!text-left');
-                    appMessage.classList.remove('!translate-x-0');
-                }
+                // if (scrollRatio < 0.8){ 
+                //     appMessage.classList.add('!left-20');
+                //     appMessage.classList.add('!text-left');
+                //     appMessage.classList.add('!translate-x-0');
+                // }else{
+                //     appMessage.classList.remove('!left-20');
+                //     appMessage.classList.remove('!text-left');
+                //     appMessage.classList.remove('!translate-x-0');
+                // }
 
             }else if(currentIndex === 5){             
             }else if(currentIndex === 7){
@@ -281,12 +274,14 @@ export default class ScrollIndex {
             }else if(currentIndex === 9){
             }
 
+            const stickyElem = this.scrollMotion.scrollSection[0].querySelector('.app__cover-img');
             if(currentIndex > 0) {
-                const stickyElem = this.scrollMotion.scrollSection[0].querySelector('.app__cover-img');
                 stickyElem.style.width = '100%';
                 stickyElem.style.height = '100vh';
                 stickyElem.style.borderRadius = '0';
                 stickyElem.style.transform = 'translate(-50%, -80vh)';
+            }else{
+                stickyElem.style.borderRadius = '5';
             }
         });
     }

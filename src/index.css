@@ -101,6 +101,9 @@ body {
 .normal-point {color: var(--main-point-500);}
 .accent-point {color: var(--main-point-700);}
 
+.app__main-header {position: fixed; top:0; width: 100%; z-index: 50; background: rgba(255,255,255,0); backdrop-filter: blur(0px)}
+.app__main-header .header-inner {position: relative; z-index: 20; max-width: 1700px; margin: 0 auto; padding: 20px 0;}
+.app__main-header .app__main-tit {color: var(--main-point-700); font-weight: 800;}
 
 .app__main-footer {position: relative; z-index: 20; background-color: #000;}
 .app__main-footer .footer-inner {position: relative; z-index: 20; max-width: 1700px; margin: 0 auto; padding: 100px 0 0;}
@@ -109,7 +112,6 @@ body {
 .app__main-footer .footer-etc .app__btn-top {color: #fff; font-weight: 600;}
 .app__main-footer .footer-con {padding: 100px 0 20px;}
 .app__main-footer .footer-con a {font-weight: 700}
-
 
 #scroll-section-0 {max-width:100%; padding:80vh 0 0}
 #scroll-section-0 .app__main-message {position:fixed; left: 7vw; top: 50%; z-index: 10; width: max-content; transform: translateY(-50%); padding: 0; text-align:center; -webkit-box-reflect: below -48px linear-gradient(transparent, #0002);}
@@ -510,6 +512,9 @@ body {
 
 .more-list > ul .work-img {
   position: relative;
+}
+
+.more-list > ul .work-img img {
   border: 1px solid #eee;
 }
 
@@ -783,17 +788,35 @@ body {
 }
 
 /* swiper 공통 (e) *****************************************************/
+@media (max-width: 1280px) {
+  .app__main-header .header-inner {padding: 20px 50px}
+  .app__main-footer .footer-inner {padding: 50px 50px 0}
+  .app__main-footer .footer-etc {padding-bottom: 50px}
+  .app__main-footer .footer-con {padding-top: 50px;}
+}
 
 @media (min-width: 640px) {
-
+  .app__main-swiper .swiper .swiper-button-prev, 
+  .app__main-swiper .swiper .swiper-button-next {
+    @apply w-16 h-16 text-4xl
+  }
 }
 
 @media (min-width: 768px) {
+  #scroll-section-0 .app__main-message {left: 3vw}
 
+  .app__main-swiper .swiper .swiper-button-prev, 
+  .app__main-swiper .swiper .swiper-button-next {
+    @apply w-16 h-16 text-4xl
+  }
 }
 
 @media (min-width: 1024px) {
-
+  #scroll-section-0 .app__main-message {left: 7vw} 
+  .app__main-swiper .swiper .swiper-button-prev, 
+  .app__main-swiper .swiper .swiper-button-next {
+    @apply w-20 h-20
+  }
 }
 
 @media (min-width: 1280px) { 

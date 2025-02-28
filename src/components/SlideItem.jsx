@@ -45,7 +45,7 @@ export default function SlideItem({ work, direction }) {
                 </div>
             </div>
             <div className="work-desc">
-                <p className="tit text-xs sm:text-sm md:text-base 2xl:text-xl line-clamp-2">{ work.project }</p>
+                <p className="tit text-xs sm:text-sm md:text-base 2xl:text-xl line-clamp-1 xl:line-clamp-2">{ work.project }</p>
                 <p className="desc text-xs sm:text-sm md:text-base 2xl:text-xl">{ work.date }</p>
             </div>
         </li>
