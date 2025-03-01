@@ -8,9 +8,11 @@ import { useEffect, useState } from 'react';
 
 export default function MyWork() {
   const _SIZE = 12;
-  const [hover, setHover] = useState(false);  
+  const [hover, setHover] = useState(false);
+  const [device, setDevice] = useState('Desktop');
+  const [slideNum, setSlideNum] = useState(2);
   const { scrollIndex } = useParallaxApiContext();
-  const {isLoading, error, data: works} = useQuery({
+  const {isLoading, isSuccess, error, data: works} = useQuery({
     queryKey: ['works', _SIZE],
     queryFn: async () => {
       console.log('fetching....');
@@ -18,14 +20,27 @@ export default function MyWork() {
     },
   });
 
+  const screenWidth = ScreenSize().width;
+  if(device === 'Desktop' && screenWidth <= 768) {
+    setDevice('Mobile');
+    setSlideNum(12);
+  } 
+  if(device === 'Mobile' && screenWidth > 768) {
+    setDevice('Desktop');
+    setSlideNum(2);
+  } 
 
-  console.log('width', ScreenSize().screenWidth);
+  if(isSuccess){
+    console.log('success...');
+    console.log('screenWidth', screenWidth);
+  }
+
 
   useEffect(() => {
     scrollIndex.setObserver();
     scrollIndex.scrollMotion.setDataSet(); 
     scrollIndex.scrollMotion.setObserver();
-  })
+  });
 
   return (
     <section id="scroll-section-1" className='app__scroll-section flex flex-col items-center 2xl:flex-row 2xl:justify-between 2xl:items-start'>
@@ -56,7 +71,8 @@ export default function MyWork() {
         <div>
           { isLoading && <p>Loading...</p>}
           { error && <p>Something is wrong</p>}
-          { works && <SwiperLists works={works} slideNum={2} size={_SIZE} hover={hover} />}
+          { works && <SwiperLists works={works} device={device} slideNum={slideNum} size={_SIZE} hover={hover} />}
+          {/* { works && <SwiperMo works={works} slideNum={12} hover={hover} />} */}
         </div>
         <div className='mt-20'>
           { works && <WorkLists works={works} size={_SIZE} />}

@@ -320,11 +320,6 @@ body {
   pointer-events: none;
 }
 
-.app__main-swiper .work-list {
-  /* padding-top: 105.2%; */
-  /* padding-top: calc(100% * 1.052); */
-}
-
 .app__main-swiper .work-list > ul {
   position: absolute;
   left: -8px;
@@ -504,6 +499,35 @@ body {
   overflow: hidden;
   word-wrap: break-word;
   font-weight: normal;
+}
+
+.app__main-swiper .swiper.app__mobile .work-img {
+  position: relative;
+  padding-top: 100%;
+}
+
+.app__main-swiper .swiper.app__mobile .work-img > img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+.app__main-swiper .swiper.app__mobile .swiper-button-prev {
+  top: 30%;
+  transform: translate(10px, 0);
+  opacity: 1;
+}
+
+.app__main-swiper .swiper.app__mobile .swiper-button-next {
+  top: 30%;
+  transform: translate(-10px, 0);
+  opacity: 1;
 }
 
 .more-list > ul .work-item {
@@ -793,6 +817,13 @@ body {
   .app__main-footer .footer-inner {padding: 50px 50px 0}
   .app__main-footer .footer-etc {padding-bottom: 50px}
   .app__main-footer .footer-con {padding-top: 50px;}
+}
+
+@media (max-width: 639px) {
+  .app__main-swiper .swiper .swiper-button-prev, 
+  .app__main-swiper .swiper .swiper-button-next {
+    @apply w-16 h-16 text-4xl
+  }
 }
 
 @media (min-width: 640px) {

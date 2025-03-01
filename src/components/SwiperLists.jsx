@@ -7,10 +7,11 @@ import SlidePrevButton from './SlidePrevButton';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-export default function SwiperLists({ works, slideNum, size, hover }) {
+export default function SwiperLists({ works, device, slideNum, size, hover }) {
     const [ratio, setRatio] = useState(null);
     const [isBeginning, setIsBeginning] = useState(false);
     const [isEnd, setIsEnd] = useState(false);
+    const [swiperIst, setSwiperIst] = useState(null);
     const itemsPerView = size/slideNum;
     const listRef = useRef(null);
 
@@ -18,14 +19,17 @@ export default function SwiperLists({ works, slideNum, size, hover }) {
 
     const initSwiper = (swiper) => {
         fnMansory(swiper);
+        setSwiperIst(prev => swiper);
 
         if(swiper.isBeginning){
           setIsBeginning(true);
         }
     
         window.addEventListener('resize', function(){
-          fnMansory(swiper);
-          setRatio(paddingRatio());
+          if(device === 'Desktop'){
+            fnMansory(swiper);
+            setRatio(paddingRatio());
+          }
         });
     }
 
@@ -43,12 +47,12 @@ export default function SwiperLists({ works, slideNum, size, hover }) {
     }
       
     const fnMansory = (swiper) => {
-          Array.prototype.slice.call(swiper.slides).forEach(function(slide){
-              const photoItemLists = slide.querySelectorAll('.work-item');
-              if(photoItemLists.length < 4) return false;
-            //   console.log('photoItemLists', photoItemLists);
-              Masonry(photoItemLists)
-          });
+      console.log('call fnMansory...');
+      swiper && Array.prototype.slice.call(swiper.slides).forEach(function(slide){
+          const photoItemLists = slide.querySelectorAll('.work-item');
+          if(photoItemLists.length < 4) return false;
+          Masonry(photoItemLists)
+      });
     }
     
     const Masonry = (photoItemLists) => {
@@ -68,13 +72,18 @@ export default function SwiperLists({ works, slideNum, size, hover }) {
     }
 
     const paddingRatio = () => {
-      const listNode = listRef.current.querySelectorAll('ul');
+      if(listRef.current === null) return false;
+      const listNode = listRef.current?.querySelectorAll('ul');
       return 100 * (listNode[0].clientHeight/listNode[0].clientWidth);
     }
 
     useEffect(() => {
-      setRatio(paddingRatio());
-    }, []);
+      console.log('device', device);
+      if(device === 'Desktop'){
+        fnMansory(swiperIst);
+        setRatio(paddingRatio());
+      }
+    }, [device]);
     
     return (
         <Swiper
@@ -83,8 +92,9 @@ export default function SwiperLists({ works, slideNum, size, hover }) {
             pagination={{ clickable: true }}
             onSlideChange={(swiper) => onHandleChange(swiper)}
             onSwiper={(swiper) => initSwiper(swiper)}
+            className={device === 'Desktop' ? 'app__desktop' : 'app__mobile'}
         >
-            {[...new Array(slideNum)].map((_, index) => (
+            {device === 'Desktop' && [...new Array(slideNum)].map((_, index) => (
               <SwiperSlide key={index} virtualIndex={index}>
                 <div ref={listRef} className="work-list" style={{ paddingTop: `${ratio}%`}} data-sequence>
                   <ul>
@@ -92,10 +102,10 @@ export default function SwiperLists({ works, slideNum, size, hover }) {
                       works.map((work, i) => {
                         const direction = i%2 === 0 ? 'width' : 'height';
                         if(index === 0 && i < itemsPerView) {
-                          return <SlideItem work={work} direction={direction} key={i} />
+                          return <SlideItem work={work} device={device} direction={direction} key={i} />
                         }
                         if(index === 1 && i >= itemsPerView && i < (itemsPerView*slideNum)) {
-                          return <SlideItem work={work} direction={direction} key={i} />
+                          return <SlideItem work={work} device={device} direction={direction} key={i} />
                         }
                         return false;
                       })
@@ -104,6 +114,17 @@ export default function SwiperLists({ works, slideNum, size, hover }) {
                 </div>
               </SwiperSlide>  
             ))}
+            {device === 'Mobile' && works.map((work, index) => {
+                if(index < slideNum){
+                  return (
+                    <SwiperSlide key={index} virtualIndex={index}>
+                      <SlideItem work={work} device={device} />
+                    </SwiperSlide>  
+                  )
+                }
+                return false;
+              })
+            }
           <SlidePrevButton isBeginning={isBeginning} hover={hover} />
           <SlideNextButton isEnd={isEnd} hover={hover} />
         </Swiper>

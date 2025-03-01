@@ -1,8 +1,8 @@
 import useWindowDimensions from '../hook/useWindowDimensions';
 
 const ScreenSize = () => {
-    const { width: screenWidth, height: screenHeight } = useWindowDimensions();
-    return { screenWidth, screenHeight }
+    const { width, height } = useWindowDimensions();
+    return { width, height } 
 }
 
 export default ScreenSize;
