@@ -49,7 +49,7 @@ export default function SlideItem({ work, device, direction }) {
                 <p className="tit font-bold text-md md:text-base 2xl:text-xl line-clamp-1 xl:line-clamp-2">{ work.project }</p>
                 <p className="desc text-md md:text-base 2xl:text-xl">{ work.date }</p>
             </div>
-            { device === 'Mobile' && <div className='bg-slate-100 rounded-lg p-4'>
+            { device === 'Mobile' && <div className='bg-slate-100 rounded-lg py-4 p-6'>
                     <p className='mb-2 text-sm font-bold'>{ work.task }</p>
                     <p className='text-sm'>{ work.desc }</p>
                 </div>

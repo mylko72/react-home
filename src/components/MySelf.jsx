@@ -71,7 +71,7 @@ export default function MySelf({ type, heightNum }) {
                     <span className='text-item'>UI/UX에 기반한 동적 스크립트 구현과</span>
                     <span className='text-item'>패럴렉스 애니메이션에 관심이 많다.</span>
                 </div>
-                <div ref={msgRef} className='app__message-text flex justify-center items-center my-28 text-7xl 2xl:text-8xl text-slate-700 text-center'>
+                <div ref={msgRef} className='app__message-text flex justify-center items-center my-28 text-5xl 2xl:text-8xl text-slate-700 text-center'>
                 </div>
             </div>
         </section>

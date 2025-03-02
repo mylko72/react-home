@@ -6,6 +6,6 @@ export default function SlideNextButton({ isEnd, hover }) {
   const swiper = useSwiper();
 
   return (
-    <button className={'swiper-button-next ' + (isEnd && 'swiper-button-disabled') + (hover && ' hover')} onClick={() => swiper.slideNext()}><GrNext className='text-white' /></button>
+    <button className={'swiper-button-next ' + (isEnd ? 'swiper-button-disabled' : '') + (hover ? ' hover' : '')} onClick={() => swiper.slideNext()}><GrNext className='text-white' /></button>
   );
 }

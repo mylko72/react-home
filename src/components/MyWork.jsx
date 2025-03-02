@@ -67,18 +67,14 @@ export default function MyWork() {
             <p className="app__message-desc text-4l md:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">My Works</p>
         </div>
       </div>
-      <div className="app__main-swiper size-3/4 lg:size-3/4 2xl:size-3/5 2xl:mr-24" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-        <div>
+      <div className="size-4/5 lg:size-3/4 2xl:size-3/5 2xl:mr-24" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+        <div className='app__main-swiper'>
           { isLoading && <p>Loading...</p>}
           { error && <p>Something is wrong</p>}
           { works && <SwiperLists works={works} device={device} slideNum={slideNum} size={_SIZE} hover={hover} />}
-          {/* { works && <SwiperMo works={works} slideNum={12} hover={hover} />} */}
         </div>
-        <div className='mt-20'>
-          { works && <WorkLists works={works} size={_SIZE} />}
-          {/* <div className='text-center'>
-            <button className='lg:text-4xl font-bold'>More...</button>
-          </div> */}
+        <div className='mt-10 md:mt-20'>
+          { works && <WorkLists works={works} device={device} size={_SIZE} />}
         </div>
       </div>
     </section>

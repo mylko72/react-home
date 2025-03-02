@@ -38,6 +38,11 @@
   --swiper-pagination-bullet-width: 1.5vw;
   --swiper-pagination-bullet-height: 1.5vw;
   --swiper-pagination-bottom: 0;
+
+  @media (max-width: 768px) {
+    --swiper-pagination-bullet-width: 3vw;
+    --swiper-pagination-bullet-height: 3vw;  
+  }
 }
 
 html.lenis {height: auto}
@@ -102,11 +107,11 @@ body {
 .accent-point {color: var(--main-point-700);}
 
 .app__main-header {position: fixed; top:0; width: 100%; z-index: 50; background: rgba(255,255,255,0); backdrop-filter: blur(0px)}
-.app__main-header .header-inner {position: relative; z-index: 20; max-width: 1700px; margin: 0 auto; padding: 20px 0;}
+.app__main-header .header-inner {position: relative; z-index: 20; max-width: 1700px; margin: 0 auto; padding: 20px 50px;}
 .app__main-header .app__main-tit {color: var(--main-point-700); font-weight: 800;}
 
 .app__main-footer {position: relative; z-index: 20; background-color: #000;}
-.app__main-footer .footer-inner {position: relative; z-index: 20; max-width: 1700px; margin: 0 auto; padding: 100px 0 0;}
+.app__main-footer .footer-inner {position: relative; z-index: 20; max-width: 1700px; margin: 0 auto; padding: 100px 50px 0;}
 .app__main-footer .footer-etc {padding: 0 0 70px; border-bottom: 1px solid #333333; }
 .app__main-footer .footer-etc .app__main-tit {color: var(--main-point-500); font-weight: 600;}
 .app__main-footer .footer-etc .app__btn-top {color: #fff; font-weight: 600;}
@@ -519,13 +524,13 @@ body {
 }
 
 .app__main-swiper .swiper.app__mobile .swiper-button-prev {
-  top: 30%;
+  /* top: 30%; */
   transform: translate(10px, 0);
   opacity: 1;
 }
 
 .app__main-swiper .swiper.app__mobile .swiper-button-next {
-  top: 30%;
+  /* top: 30%; */
   transform: translate(-10px, 0);
   opacity: 1;
 }
@@ -819,17 +824,26 @@ body {
   .app__main-footer .footer-con {padding-top: 50px;}
 }
 
-@media (max-width: 639px) {
+@media (max-width: 767px) {
+  .app__main-header .header-inner {padding: 20px}
+  .app__main-swiper .swiper {padding-bottom: 5vw;}
   .app__main-swiper .swiper .swiper-button-prev, 
   .app__main-swiper .swiper .swiper-button-next {
+    top: 30%;
     @apply w-16 h-16 text-4xl
+  }
+
+  .more-list > ul .work-desc {
+    height: auto;
   }
 }
 
-@media (min-width: 640px) {
+@media (max-width: 640px) {
+  .app__main-swiper .swiper {padding-bottom: 7vw;}
   .app__main-swiper .swiper .swiper-button-prev, 
   .app__main-swiper .swiper .swiper-button-next {
-    @apply w-16 h-16 text-4xl
+    top: 23%;
+    @apply w-10 h-10 text-2xl
   }
 }
 
