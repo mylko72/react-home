@@ -58,10 +58,10 @@ export default function MySelf({ type, heightNum }) {
             <div className="app__main-message !w-full flex flex-col">
                 <div className='flex flex-col items-center'>
                     <div className="app__mask" data-effect>
-                        <p className="app__message-tit text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">나는 누구인가요</p>
+                        <p className="app__message-tit text-4xl sm:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">나는 누구인가요</p>
                     </div>
                     <div className="app__mask" data-effect>
-                        <p className="app__message-desc text-4l md:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">About Me</p>
+                        <p className="app__message-desc text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">About Me</p>
                     </div>
                 </div>
                 <div ref={textRef} className='app__text-items hidden'>
@@ -71,7 +71,7 @@ export default function MySelf({ type, heightNum }) {
                     <span className='text-item'>UI/UX에 기반한 동적 스크립트 구현과</span>
                     <span className='text-item'>패럴렉스 애니메이션에 관심이 많다.</span>
                 </div>
-                <div ref={msgRef} className='app__message-text flex justify-center items-center my-28 text-5xl 2xl:text-8xl text-slate-700 text-center'>
+                <div ref={msgRef} className='app__message-text flex justify-center items-center my-28 text-5xl lg:text-6xl 2xl:text-8xl text-slate-700 text-center'>
                 </div>
             </div>
         </section>

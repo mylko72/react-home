@@ -36,7 +36,7 @@ export default function WorkLists({ works, device, size }) {
                                             </div>
                                         }
                                     </div>
-                                    <div className="work-desc pl-2 md:p-0">
+                                    <div className="work-desc py-5 px-2 md:py-3 md:px-0">
                                         <p className="tit text-md md:text-base 2xl:text-xl line-clamp-2">{ work.project }</p>
                                         <p className="desc text-md md:text-base 2xl:text-xl">{ work.date }</p>
                                     </div>

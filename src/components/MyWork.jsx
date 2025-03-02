@@ -24,10 +24,14 @@ export default function MyWork() {
   if(device === 'Desktop' && screenWidth <= 768) {
     setDevice('Mobile');
     setSlideNum(12);
+    document.documentElement.classList.remove('app__desktop');
+    document.documentElement.classList.add('app__mobile');
   } 
   if(device === 'Mobile' && screenWidth > 768) {
     setDevice('Desktop');
     setSlideNum(2);
+    document.documentElement.classList.remove('app__mobile');
+    document.documentElement.classList.add('app__desktop');
   } 
 
   if(isSuccess){
@@ -59,12 +63,12 @@ export default function MyWork() {
         </svg>
       </div>      
 
-      <div className="app__main-message flex flex-row items-center gap-3 mb-5 2xl:flex-col 2xl:justify-end 2xl:items-end 2xl:ml-10">
+      <div className="app__main-message flex flex-col md:flex-row 2xl:flex-col items-center gap-3 mb-5 2xl:justify-end 2xl:items-end 2xl:ml-10">
         <div className="app__mask" data-effect>
-            <p className="app__message-tit text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">무엇을 했나요</p>
+            <p className="app__message-tit text-4xl sm:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">무엇을 했나요</p>
         </div>
         <div className="app__mask" data-effect>
-            <p className="app__message-desc text-4l md:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">My Works</p>
+            <p className="app__message-desc text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">My Works</p>
         </div>
       </div>
       <div className="size-4/5 lg:size-3/4 2xl:size-3/5 2xl:mr-24" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
@@ -73,7 +77,7 @@ export default function MyWork() {
           { error && <p>Something is wrong</p>}
           { works && <SwiperLists works={works} device={device} slideNum={slideNum} size={_SIZE} hover={hover} />}
         </div>
-        <div className='mt-10 md:mt-20'>
+        <div className='mt-20 md:mt-20'>
           { works && <WorkLists works={works} device={device} size={_SIZE} />}
         </div>
       </div>

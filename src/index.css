@@ -597,8 +597,8 @@ body {
   flex: none;
   width: 100%;
   height: 82px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
   overflow: hidden;
   box-sizing: initial;
 }
@@ -836,16 +836,52 @@ body {
   .more-list > ul .work-desc {
     height: auto;
   }
+
+  #scroll-section-2 .app__main-marquee {
+    height: 330px;
+  }  
+  #scroll-section-2 .app__main-marquee .marquee-inner {
+    height: 150px;
+  }  
+  #scroll-section-2 .app__main-marquee .marquee-inner + .marquee-inner {
+    top: 170px;
+  }  
+  #scroll-section-2 .app__main-marquee .marquee-inner img {
+    width: 150px;
+    height: 150px;
+  }  
+  #scroll-section-4 .app__main-message {
+    left: 0;
+    right: 0;
+    width: 100%;
+    @apply !text-center;
+  }
+  #scroll-section-3 .app__message-text {
+    height: auto;
+    line-height: 1.2;
+  }  
+  #scroll-section-4 .app__message-text .app__sticky-elem {
+    width: 100%;
+    left: 0;
+    right: 0;
+    line-height: 1.2;
+    @apply px-10
+  }
 }
 
 @media (max-width: 640px) {
   .app__main-swiper .swiper {padding-bottom: 7vw;}
   .app__main-swiper .swiper .swiper-button-prev, 
   .app__main-swiper .swiper .swiper-button-next {
-    top: 23%;
+    top: 25%;
     @apply w-10 h-10 text-2xl
   }
 }
+
+@media (max-width: 414px) {
+  #scroll-section-0 .app__main-message {@apply text-3xl}
+}
+
 
 @media (min-width: 768px) {
   #scroll-section-0 .app__main-message {left: 3vw}

@@ -12,10 +12,10 @@ export default function MySkill() {
     
             <div className="app__main-message flex flex-col items-center gap-y-3">
                 <div className="app__mask" data-effect>
-                    <p className="app__message-tit text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">무엇을 할 수 있나요</p>
+                    <p className="app__message-tit text-4xl sm:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">무엇을 할 수 있나요</p>
                 </div>
                 <div className="app__mask" data-effect>
-                    <p className="app__message-desc text-4l md:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">My Skills</p>
+                    <p className="app__message-desc text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">My Skills</p>
                 </div>
             </div>
 

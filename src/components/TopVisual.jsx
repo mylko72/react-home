@@ -48,7 +48,7 @@ export default function TopVisual({type, heightNum}) {
             {/* <div className="app__main-message !left-1/2 !-translate-x-1/2 !-translate-y-1/2 text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl">
                 <p ref={msgRef} className="app__message-tit" data-split-txt data-effect="slide-right" data-callback={JSON.stringify(dataInfo)}>Scroll-To-See-Portfolio</p>
             </div> */}
-            <div className="app__main-message !left-1/2 !-translate-x-1/2 !-translate-y-1/2 text-3xl sm:text-5xl md:text-7xl xl:text-8xl 2xl:text-9xl">
+            <div className="app__main-message !left-1/2 !-translate-x-1/2 !-translate-y-1/2 text-4xl sm:text-5xl md:text-7xl xl:text-8xl 2xl:text-9xl">
                 <div className="app__mask flex-none message-tit-a" data-opacity-out='[1, 0, { "start": "0.39", "end": "0.49" }]' data-translatey-out='[0, -500, { "start": "0.39", "end": "0.49" }]'>
                     <p className="app__message-tit" data-effect="slide-right">S</p>
                 </div>
