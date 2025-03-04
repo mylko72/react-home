@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SlideItem from './SlideItem';
@@ -46,29 +46,29 @@ export default function SwiperLists({ works, device, slideNum, size, hover }) {
       }
     }
       
-    const fnMansory = (swiper) => {
+    const Masonry = useCallback((photoItemLists) => {
+      const diffValue = getDiff([photoItemLists[0].querySelector('.work-img').clientHeight, photoItemLists[1].querySelector('.work-img').clientHeight]);
+      const idxArr = [3, 5];
+      photoItemLists.forEach(function(item, i){
+          if(i === idxArr[0] || i === idxArr[1]){
+              item.style.marginTop = '-' + diffValue + 'px';
+          }
+      });
+    }, []);
+
+    const fnMansory = useCallback((swiper) => {
       console.log('call fnMansory...');
       swiper && Array.prototype.slice.call(swiper.slides).forEach(function(slide){
           const photoItemLists = slide.querySelectorAll('.work-item');
           if(photoItemLists.length < 4) return false;
           Masonry(photoItemLists)
       });
-    }
-    
-    const Masonry = (photoItemLists) => {
-          const diffValue = getDiff([photoItemLists[0].querySelector('.work-img').clientHeight, photoItemLists[1].querySelector('.work-img').clientHeight]);
-          const idxArr = [3, 5];
-          photoItemLists.forEach(function(item, i){
-              if(i === idxArr[0] || i === idxArr[1]){
-                  item.style.marginTop = '-' + diffValue + 'px';
-              }
-          });
-    }
-    
+    }, [Masonry]);
+        
     const getDiff = (arr) => {
-          return arr.reduce(function (a, b) {
-              return a > b ? a - b : b - a;
-          });
+      return arr.reduce(function (a, b) {
+          return a > b ? a - b : b - a;
+      });
     }
 
     const paddingRatio = () => {
@@ -83,7 +83,7 @@ export default function SwiperLists({ works, device, slideNum, size, hover }) {
         fnMansory(swiperIst);
         setRatio(paddingRatio());
       }
-    }, [device]);
+    }, [device, fnMansory, swiperIst]);
     
     return (
         <Swiper
