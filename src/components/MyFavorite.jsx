@@ -27,7 +27,7 @@ export default function MyFavorite({ type, heightNum }) {
                 <p className='app__sticky-elem message-text-c text-6xl sm:text-7xl md:text-8xl 2xl:text-9xl font-semibold md:ml-20 2xl:ml-20' data-opacity-in='[0, 1, { "start": "0.45", "end": "0.5" }]' data-translatey-in='[10, 0, { "start": "0.45", "end": "0.5" }]' data-opacity-out='[1, 0, { "start": "0.58", "end": "0.68" }]' data-translatey-out='[0, -10, { "start": "0.58", "end": "0.68" }]'>해질녁 시원한 바람을<br className='hidden md:block' /> 맞으며 타는 자전거를<br className='hidden md:block' /> 제일 좋아한다.</p>                
                 <p className='app__sticky-elem message-text-d text-6xl sm:text-7xl md:text-8xl 2xl:text-9xl font-semibold md:ml-20 2xl:ml-20' data-opacity-in='[0, 1, { "start": "0.65", "end": "0.7" }]' data-translatey-in='[10, 0, { "start": "0.65", "end": "0.7" }]' data-opacity-out='[1, 0, { "start": "0.79", "end": "0.88" }]' data-translatey-out='[0, -10, { "start": "0.79", "end": "0.88" }]'>그리고 시원한 맥주<br className='hidden md:block' /> 한 잔을 마시며</p>                
                 <p className='app__sticky-elem message-text-e text-6xl sm:text-7xl md:text-8xl 2xl:text-9xl font-semibold text-center' data-opacity-in='[0, 1, { "start": "0.9", "end": "0.98" }]' data-translatey-in='[10, 5, { "start": "0.9", "end": "0.98" }]'>마무리 하는 보통의<br className='hidden md:block' /> 하루가 더 좋다<span className='inline-block align-middle'>❤️</span>!</p>
-            </div>  
+            </div>
             <div className='app__main-images hidden sm:block'>
                 <div className='app__sticky-elem main-image-a relative z-10'>
                     <img src="/images/img_iu_cover.jpg" className='img-lp-cover w-auto hidden lg:block' alt="" />

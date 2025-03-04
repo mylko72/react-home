@@ -1,5 +1,5 @@
 // import ScrollMotion from "./ScrollMotion.js";
-import { isMobile, isDesktop, getAllElements, callByObserver } from "./ScrollFunction.js";
+import { isMobile, isDesktop, callByObserver } from "./ScrollFunction.js";
 
 export default class ScrollIndex {
     defaults = {
@@ -40,10 +40,8 @@ export default class ScrollIndex {
 
     render(){
         this.scrollMotion.setAnimationListener((currentIndex) => {
-            let currentYOffset = this.scrollMotion.yOffset - this.scrollMotion.defaults.prevScrollHeight;
-            let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[currentIndex].scrollHeight;
-
-            // console.log('scrollRatio', scrollRatio);
+            // let currentYOffset = this.scrollMotion.yOffset - this.scrollMotion.defaults.prevScrollHeight;
+            // let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[currentIndex].scrollHeight;
     
             if(currentIndex === 0){
                 const stikcyMessage = this.scrollMotion.currentScene.querySelector('.app__sticky-message');
@@ -53,7 +51,7 @@ export default class ScrollIndex {
                 const stickyBorderRadius = JSON.parse(stickyEl.dataset.borderRadius);
                 const stickyTranslate = JSON.parse(stickyEl.dataset.translate);
 
-                console.log(`Section 0 모션 진행중...`);
+                // console.log(`Section 0 모션 진행중...`);
 
                 if(!this.absTop){
                     this.absTop = this.scrollMotion.yOffset + this.scrollMotion.currentScene.getBoundingClientRect().top;
@@ -62,7 +60,7 @@ export default class ScrollIndex {
                 // let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop;
                 let currentYOffset = this.scrollMotion.yOffset - this.absTop;
                 let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[this.scrollMotion.currentIndex].scrollHeight;
-                console.log(`Section ${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
+                // console.log(`Section ${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
 
                 stickyEl.parentElement.style.alignItems = 'flex-start';
 
@@ -117,11 +115,6 @@ export default class ScrollIndex {
                 }
             }else if(currentIndex === 1){
                 console.log(`Section 1 모션 진행중...`);            
-                // const stickyEl = this.scrollMotion.scrollSection[currentIndex - 1].querySelector('.app__cover-img');
-                // stickyEl.style.width = '100%';
-                // stickyEl.style.height = '100vh';
-                // stickyEl.style.borderRadius = '0';
-                // stickyEl.style.transform = 'translate(-50%, -80vh)';
             }else if(currentIndex === 2){
                 console.log(`Section 2 모션 진행중...`);
             }else if(currentIndex === 3){
@@ -172,7 +165,7 @@ export default class ScrollIndex {
                 const messageE_opacityIn = JSON.parse(messageE.dataset.opacityIn);
                 const messageE_translateyIn = JSON.parse(messageE.dataset.translateyIn);
                 
-                console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
+                // console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
 
                 if (scrollRatio <= 0.03){
                     appScene.style.backgroundColor = `#${appBackgroundColor[0]}`;
@@ -317,7 +310,6 @@ export default class ScrollIndex {
     }
 
     attachEvents(){
-        let that = this;
         window.addEventListener('resize', this.resize.bind(this));
     }
 
