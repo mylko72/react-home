@@ -927,11 +927,17 @@ body {
   .app__main-swiper .swiper .swiper-button-next {
     @apply w-20 h-20
   }
+  #scroll-section-4 .app__message-text .app__sticky-elem.message-text-a {width: 30%}  
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 300px; height: auto; transform: translate(-100%, -20%);}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {width: 280px; height: auto; transform: translate(-75%, -20%);}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translate(-5%, -20%) rotate(360deg);}
 }
 
 @media (min-width: 1280px) { 
-  /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 425px; height: 425px;}
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: 400px; height: 400px} */
+  #scroll-section-4 .app__message-text .app__sticky-elem.message-text-a {width: 30%}  
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 375px; height: auto; transform: translate(-100%, -30%);}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {width: 350px; height: auto; transform: translate(-75%, -30%);}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translate(-5%, -30%) rotate(360deg);}
 }
 
 @media (min-width: 1536px) {
