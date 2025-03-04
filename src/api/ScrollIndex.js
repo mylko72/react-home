@@ -133,8 +133,12 @@ export default class ScrollIndex {
                 let currentYOffset = (this.scrollMotion.yOffset + this.scrollMotion.defaults.threshold) - this.absTop2;
                 let scrollRatio = currentYOffset / this.scrollMotion.scrollSection[this.scrollMotion.currentIndex].scrollHeight;
 
-                const appMessage = this.scrollMotion.currentScene.querySelector('.app__main-message');
+                const appScene = this.scrollMotion.currentScene;
+                const appMaindesc = this.scrollMotion.currentScene.querySelector('.app__message-desc');
+                const appBackgroundColor = JSON.parse(appScene.dataset.backgroundColor);
+
                 const mainImageA = this.scrollMotion.currentScene.querySelector('.main-image-a');
+                const mainImageA2 = this.scrollMotion.currentScene.querySelector('.main-image-a2');
                 const mainImageB = this.scrollMotion.currentScene.querySelector('.main-image-b');
                 const mainImageC= this.scrollMotion.currentScene.querySelector('.main-image-c');
                 const mainImageD= this.scrollMotion.currentScene.querySelector('.main-image-d');
@@ -166,12 +170,40 @@ export default class ScrollIndex {
                 const messageD_translateyOut = JSON.parse(messageD.dataset.translateyOut);
 
                 const messageE_opacityIn = JSON.parse(messageE.dataset.opacityIn);
-                // const messageE_opacityOut = JSON.parse(messageE.dataset.opacityOut);
                 const messageE_translateyIn = JSON.parse(messageE.dataset.translateyIn);
-                // const messageE_translateyOut = JSON.parse(messageE.dataset.translateyOut);
                 
-                // console.log('messageA_opacityIn', messageA_opacityIn);
-                // console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
+                console.log(`${this.scrollMotion.currentIndex} scrollRatio`, scrollRatio);
+
+                if (scrollRatio <= 0.03){
+                    appScene.style.backgroundColor = `#${appBackgroundColor[0]}`;
+                }
+                if (scrollRatio > 0.03 && scrollRatio <= 0.25){
+                    appScene.style.backgroundColor = `#${appBackgroundColor[1]}`;
+                }
+                if (scrollRatio > 0.25 && scrollRatio <= 0.45){
+                    appScene.style.backgroundColor = `#${appBackgroundColor[2]}`;
+                }
+                if (scrollRatio > 0.45 && scrollRatio <= 0.65){
+                    appScene.style.backgroundColor = `#${appBackgroundColor[3]}`;
+                }
+                if (scrollRatio > 0.65 && scrollRatio <= 0.85){
+                    appScene.style.backgroundColor = `#${appBackgroundColor[4]}`;
+                    appMaindesc.style.color = '#fff';
+                }
+                if (scrollRatio > 0.85){
+                    appMaindesc.style.color = 'var(--desc-text-color)';
+                    appScene.style.backgroundColor = `#${appBackgroundColor[5]}`;
+                }
+
+                if (appScene.getBoundingClientRect().top < 0){
+                    mainImageA2.classList.add('active');
+                }else if(appScene.getBoundingClientRect().top > 0 && appScene.getBoundingClientRect().top < window.innerHeight/2){
+                    mainImageA2.classList.contains('active') && mainImageA2.querySelector('img').classList.add('fade-out');
+                    setTimeout(() => {
+                        mainImageA2.classList.remove('active');
+                        mainImageA2.querySelector('img').classList.remove('fade-out');
+                    }, 500)
+                }
 
                 if (scrollRatio <= 0.1) {
                     messageA.style.opacity = `${this.scrollMotion.calcValues(messageA_opacityIn, currentYOffset)}`;
@@ -190,6 +222,13 @@ export default class ScrollIndex {
                 } else if (scrollRatio > 0.22) {
                     mainImageA.classList.remove('active');
                 }
+
+                if(scrollRatio > 0.22 && scrollRatio < 0.25){
+                    // mainImageA2.classList.add('fade-out');
+                }else if (scrollRatio > 0.26){
+                    mainImageA2.classList.remove('active');
+                    // mainImageA2.classList.remove('fade-out');
+                }
                 
                 if (scrollRatio <= 0.3){
                     messageB.style.opacity = `${this.scrollMotion.calcValues(messageB_opacityIn, currentYOffset)}`;
@@ -197,6 +236,7 @@ export default class ScrollIndex {
                     messageB.style.willChange = 'transform, width, height';
                     messageB.style.transformStyle = 'preserve-3d';
                 } else if (scrollRatio > 0.32){
+                    mainImageA2.classList.remove('fade-out');
                     messageB.style.opacity = `${this.scrollMotion.calcValues(messageB_opacityOut, currentYOffset)}`;
                     messageB.style.transform = `translateY(${this.scrollMotion.calcValues(messageB_translateyOut, currentYOffset)}vh)`;
                 } 
@@ -252,21 +292,6 @@ export default class ScrollIndex {
                     messageE.style.transformStyle = 'preserve-3d';
                 } 
                 
-                // else if (scrollRatio > 0.85){
-                //     console.log('call messageE...');
-                //     messageE.style.opacity = `${this.scrollMotion.calcValues(messageE_opacityOut, currentYOffset)}`;
-                //     messageE.style.transform = `translate(-50%, ${this.scrollMotion.calcValues(messageE_translateyOut, currentYOffset)}vh)`;
-                // } 
-
-                // if (scrollRatio < 0.8){ 
-                //     appMessage.classList.add('!left-20');
-                //     appMessage.classList.add('!text-left');
-                //     appMessage.classList.add('!translate-x-0');
-                // }else{
-                //     appMessage.classList.remove('!left-20');
-                //     appMessage.classList.remove('!text-left');
-                //     appMessage.classList.remove('!translate-x-0');
-                // }
 
             }else if(currentIndex === 5){             
             }else if(currentIndex === 7){

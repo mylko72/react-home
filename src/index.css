@@ -142,31 +142,50 @@ body {
 #scroll-section-3 .app__message-text {height: 30vh; font-family: 'Paperlogy-8ExtraBold'; font-weight: 900;}
 #scroll-section-3 .app__message-text .app__sticky-elem {top: 40%; width: 50%; transform: translateY(-50%); opacity: 0;}
 
-#scroll-section-4 {position: relative; z-index: 20; max-width:100%; height: auto; padding:5vw 0 0; background-color: #F3EDDD; box-sizing: initial;}
+#scroll-section-4 {position: relative; z-index: 20; max-width:100%; height: auto; padding:5vw 0 0; background-color: #F3EDDD; box-sizing: initial; transition: background-color 2s ease-out;}
 #scroll-section-4 .app__main-message {position: sticky; top: 10vh; left: 50%; z-index: 10; width: fit-content; padding: 50px 0; transform: translateX(-50%); text-align: center; transition: all .5s}
 #scroll-section-4 .app__main-message .app__message-tit {text-shadow: 1px 4px 9px rgba(255,255,255,0.67)}
+#scroll-section-4 .app__main-message .app__message-desc {color:#fff}
+#scroll-section-4 .app__main-message .app__message-desc.shadow {
+  text-shadow:
+  0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff,
+  0 0 42px #ffc800,
+  0 0 82px #ffc800,
+  0 0 92px #ffc800,
+  0 0 102px #ffc800,
+  0 0 151px #ffc800; 
+  transition: all .5s;
+}
 #scroll-section-4 .app__message-text {font-family: 'NanumMongDor', "Pretendard Variable", 'Pretendard'; font-weight: 400;}
-#scroll-section-4 .app__message-text .app__sticky-elem {top: 40%; z-index: 10; width: 50%; transform: translateY(-50%); opacity: 0;}
-#scroll-section-4 .app__message-text .app__sticky-elem.message-text-e {left: 50%; width: 100%;}
+#scroll-section-4 .app__message-text .app__sticky-elem {top: 40%; z-index: 20; transform: translateY(-50%); opacity: 0;}
+#scroll-section-4 .app__message-text .app__sticky-elem.message-text-e {left: 50%; width: 100%; color: #000;}
 
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {height: 100vh; top: 0; width: 60%; left: initial; right: -60%; text-align: center; transition: all 1s;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover {position: absolute; left: 0; top: 50%; z-index: 10; transform: translateY(-50%);}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {position: absolute; left: 25%; top: 50%; transform: translate(0, -50%); z-index: 0; transition: all 1.5s 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {height: 100vh; top: 0; left: initial; right: -100%; text-align: center; transition: all 1.5s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover {position: absolute; right: 0; top: 50%; z-index: 10; transform: translate(-100%, -50%);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-iu {position: absolute; right: 0; top: 50%; transform: translate(-75%, -50%); z-index: 0; transition: all 2s 1.5s;}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active {right: 0;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translate(50%, -50%) rotate(360deg);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {transform: translate(-5%, -50%) rotate(360deg);}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active.move-in .img-lp-iu {transform: translate(40%, -50%) rotate(-360deg);}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-b {height: 100vh; top: 0; width: 60%; left: initial; right: -50%; text-align: center; transition: all 1s;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-b img {position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 10; object-fit: cover; object-position: center; clip-path: circle(250px at center); transition: all .5s 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2 {width: fit-content; height: 100vh; top: 0; left: initial; right: -100%; transition: all 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2 img {height: 100vh; object-fit:cover; clip-path: circle(250px at center); transition: all 1s 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2.active {right: 0}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2.active img {clip-path: circle(100% at center);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2.active img.fade-out {clip-path: circle(250px at center); transition: all .5s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2.fade-out {opacity: 0;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-b {width: fit-content; height: 100vh; top: 0; left: initial; right: -100%; transition: all 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-b img {height: 100vh; object-fit:cover; clip-path: circle(250px at center); transition: all 1s 1s;}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-b.active {right: 0;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-b.active img {clip-path: circle(400px at 60% center);}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-c {height: 100vh; top: 0; width: 60%; left: initial; right: -50%; text-align: center; transition: all 1s;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-c img {position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 10; object-fit: cover; object-position: center; clip-path: circle(250px at center); transition: all .5s 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-b.active img {clip-path: circle(100% at center);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-c {width: fit-content; height: 100vh; top: 0; left: initial; right: -100%; transition: all 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-c img {height: 100vh; object-fit:cover; clip-path: circle(250px at center); transition: all 1s 1s;}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-c.active {right: 0;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-c.active img {clip-path: circle(400px at 60% center); transition: all .5s 1s;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-d {height: 100vh; top:0; width: 60%; left: initial; right: -100%; text-align: center; transition: all 1s;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-d img {position: absolute; left: 0vw; top: 0; width: auto; height: 100%; z-index: 10; object-fit: cover; object-position: center; clip-path: circle(250px at center); transition: all .5s 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-c.active img {clip-path: circle(100% at center);}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-d {width: fit-content; height: 100vh; top:0; left: initial; right: -100%; transition: all 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-d img {height: 100vh; object-fit:cover; clip-path: circle(250px at center); transition: all 1s 1s;}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-d.active {right: 0;}
-#scroll-section-4 .app__main-images .app__sticky-elem.main-image-d.active img {clip-path: circle(400px at 60% center); transition: all .5s 1s;}
+#scroll-section-4 .app__main-images .app__sticky-elem.main-image-d.active img {clip-path: circle(100% at center);}
 #scroll-section-4 .app__main-images .app__sticky-elem.main-image-e {height: 400px; top: 50%; width: 40%; left: initial; right: 0%; transform: translateY(-40%); text-align: center; transition: all 1s;}
 
 .line-wave {
@@ -867,6 +886,11 @@ body {
     line-height: 1.2;
     @apply px-10
   }
+
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2,
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-b,
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-c,
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-d {right: -150%}
 }
 
 @media (max-width: 640px) {
@@ -880,6 +904,11 @@ body {
 
 @media (max-width: 414px) {
   #scroll-section-0 .app__main-message {@apply text-3xl}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2,
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-b,
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-c,
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-d {right: -200%}
+
 }
 
 
@@ -901,19 +930,19 @@ body {
 }
 
 @media (min-width: 1280px) { 
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 425px; height: 425px;}
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: 400px; height: 400px}
+  /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 425px; height: 425px;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: 400px; height: 400px} */
 }
 
 @media (min-width: 1536px) {
   #scroll-section-1 .app__main-message {position: sticky; top: 10vh; left: 0;}
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {width: 50%;}
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 500px; height: 500px;}
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: 480px; height: 480px}
+  /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {width: 50%;} */
+  /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 500px; height: 500px;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: 480px; height: 480px} */
 }
 
 @media (min-width: 1920px) {
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {width: 60%;}
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: auto; height: auto;}
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: auto; height: auto}
+  /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {width: 60%;} */
+  /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: auto; height: auto;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: auto; height: auto} */
 }
