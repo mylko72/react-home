@@ -29,6 +29,7 @@
 :root {
   --main-text-color: #000;
   --main-point-500: #FC5131;
+  --main-point-600: #FB3C18;
   --main-point-700: #F52B05;
   --main-text-size: 5vw;
   --desc-text-size: 3.7vw;
@@ -110,13 +111,22 @@ body {
 .app__main-header .header-inner {position: relative; z-index: 20; max-width: 1700px; margin: 0 auto; padding: 20px 50px;}
 .app__main-header .app__main-tit {color: var(--main-point-700); font-weight: 800;}
 
-.app__main-footer {position: relative; z-index: 20; background-color: #000;}
+.app__main-footer {position: relative; z-index: 70; background-color: #000;}
 .app__main-footer .footer-inner {position: relative; z-index: 20; max-width: 1700px; margin: 0 auto; padding: 100px 50px 0;}
 .app__main-footer .footer-etc {padding: 0 0 70px; border-bottom: 1px solid #333333; }
 .app__main-footer .footer-etc .app__main-tit {color: var(--main-point-500); font-weight: 600;}
 .app__main-footer .footer-etc .app__btn-top {color: #fff; font-weight: 600;}
 .app__main-footer .footer-con {padding: 100px 0 20px;}
 .app__main-footer .footer-con a {font-weight: 700}
+
+.app__my-menu {position:fixed; left:0; top:50%; z-index: 60; width: 100%; height: 0px; background-color: var(--main-point-500); transform: translateY(-50%); transition: all .3s .3s; overflow: hidden;}
+.app__my-menu.active {height: 100vh; transition: all .3s;}
+.app__my-menu .relative {transition: all .5s;}
+.app__my-menu .app__btn-top {position: absolute; top: 30px; right: 60px; color: #fff; font-weight: 600;}
+.app__my-menu .my-menu-inner {padding: 70px 50px;}
+.app__my-menu .my-menu-inner .app__main-tit {color: #fff; font-weight: 600;}
+.app__my-menu .my-menu-con {position: absolute; top: 50%; left: 0; width: 100%; transform: translateY(-50%); padding: 100px 0 20px;}
+.app__my-menu .my-menu-con button {padding-bottom: 10px; font-weight: 700}
 
 #scroll-section-0 {max-width:100%; padding:80vh 0 0}
 #scroll-section-0 .app__main-message {position:fixed; left: 7vw; top: 50%; z-index: 10; width: max-content; transform: translateY(-50%); padding: 0; text-align:center; -webkit-box-reflect: below -48px linear-gradient(transparent, #0002);}
@@ -841,6 +851,10 @@ body {
   .app__main-footer .footer-inner {padding: 50px 50px 0}
   .app__main-footer .footer-etc {padding-bottom: 50px}
   .app__main-footer .footer-con {padding-top: 50px;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2,
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-b,
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-c,
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-d {right: -150%}
 }
 
 @media (max-width: 767px) {
@@ -886,11 +900,6 @@ body {
     line-height: 1.2;
     @apply px-10
   }
-
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a2,
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-b,
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-c,
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-d {right: -150%}
 }
 
 @media (max-width: 640px) {
@@ -919,6 +928,7 @@ body {
   .app__main-swiper .swiper .swiper-button-next {
     @apply w-16 h-16 text-4xl
   }
+  #scroll-section-4 .app__message-text .app__sticky-elem.message-text-a {width: 80%}
 }
 
 @media (min-width: 1024px) {
@@ -942,13 +952,13 @@ body {
 
 @media (min-width: 1536px) {
   #scroll-section-1 .app__main-message {position: sticky; top: 10vh; left: 0;}
-  /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {width: 50%;} */
-  /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 500px; height: 500px;}
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: 480px; height: 480px} */
+  #scroll-section-4 .app__message-text .app__sticky-elem.message-text-a {width: 100%;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: 500px; height: auto;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: 480px; height: auto}
 }
 
 @media (min-width: 1920px) {
   /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a {width: 60%;} */
-  /* #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: auto; height: auto;}
-  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: auto; height: auto} */
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a .img-lp-cover { width: auto; height: auto;}
+  #scroll-section-4 .app__main-images .app__sticky-elem.main-image-a.active .img-lp-iu {width: auto; height: auto}
 }

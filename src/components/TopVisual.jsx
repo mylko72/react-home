@@ -118,11 +118,11 @@ export default function TopVisual({type, heightNum}) {
                     <div className="app__mask flex-none" data-effect>
                         <p className="app__message-tit" data-effect="slide-right">인연</p>
                     </div>
-                    <p className="app__message-tit"data-effect="text-blur" data-delay="1s">을</p>
+                    <p className="app__message-tit" data-effect="text-blur" data-delay="1s">을</p>
                     <div className="app__mask flex-none ml-4" data-effect>
                         <p className="app__message-tit normal-point" data-effect="slide-right" data-delay="0.5s" data-sec="0.5" >기회</p>
                     </div>
-                    <p className="app__message-tit"data-effect="text-blur" data-delay="1s">로,</p>
+                    <p className="app__message-tit" data-effect="text-blur" data-delay="1s">로,</p>
                 </div>
                 <div className="app__mask flex-auto md:flex-none text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl" data-effect>
                     <p className="app__message-tit" data-effect="slide-up" data-delay="1s" data-sec="1">노력을 <span className='normal-point'>실력</span>으로, </p>

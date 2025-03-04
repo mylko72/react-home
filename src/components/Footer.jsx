@@ -25,6 +25,7 @@ export default function Footer({ target }) {
               <li><Link to="#" className='text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl text-slate-500 hover:text-white' onClick={(e) => onGoToTop(e, 1)}>My Work</Link></li>
               <li><Link to="#" className='text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl text-slate-500 hover:text-white' onClick={(e) => onGoToTop(e, 2)}>My Skill</Link></li>
               <li><Link to="#" className='text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl text-slate-500 hover:text-white' onClick={(e) => onGoToTop(e, 3)}>About Me</Link></li>
+              <li><Link to="#" className='text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl text-slate-500 hover:text-white' onClick={(e) => onGoToTop(e, 4)}>My Favorite</Link></li>
             </ul>  
             <p className='text-lg text-slate-700 mt-10 xl:mt-16 2xl:mt-20'>This site was implemented with React, tailwindcss, and parallax animation.</p>
           </div>

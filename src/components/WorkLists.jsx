@@ -16,6 +16,11 @@ export default function WorkLists({ works, device, size }) {
         itemRef.current[index].classList.remove('hover');
     }
 
+    const goToSite = (url) => {
+        if(url === undefined) return false;
+        window.open(url);
+    }
+
     useEffect(() => {
         // console.log('itemRef', itemRef.current);
     });
@@ -27,7 +32,7 @@ export default function WorkLists({ works, device, size }) {
                     works.map((work, index) => {
                         if(index >= size){
                             return (
-                                <li className="work-item flex flex-col cursor-pointer" key={index}  onMouseEnter={() => onHandleOver(index)} onMouseLeave={() => onHandleOut(index)}>
+                                <li className="work-item flex flex-col cursor-pointer" key={index} onClick={() => goToSite(work.url[0])}  onMouseEnter={() => onHandleOver(index)} onMouseLeave={() => onHandleOut(index)}>
                                     <div ref={el => itemRef.current[index] = el} className='work-img flex items-start w-full h-80 lg:h-64 xl:h-72 2xl:h-80 overflow-hidden'>
                                         <img ref={el => imgRef.current[index] = el} className="object-cover w-full h-full" data-src={work.thumbnail} alt={work.project} data-transform="translate(0, 30px)" data-duration="1s" data-effect="slide-up" />
                                         { device === 'Desktop' && <div className='desc divide-y divide-dashed'>
