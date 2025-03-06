@@ -565,7 +565,7 @@ body {
 }
 
 .more-list > ul .work-item {
-  @apply flex flex-col
+  @apply flex
 }
 
 .more-list > ul .work-img {
@@ -623,9 +623,9 @@ body {
 }
 
 .more-list > ul .work-desc {
-  flex: none;
-  width: 100%;
-  height: 82px;
+  /* flex: none;
+  width: 100%; */
+  /* height: 82px; */
   /* padding-top: 10px;
   padding-bottom: 10px; */
   overflow: hidden;
