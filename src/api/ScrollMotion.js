@@ -269,21 +269,21 @@ export default class ScrollMotion {
             this.addShow(elements[2]);
         })(`${parseFloat(elements[2].dataset.duration)*500}`)(() => {
             if(!elements[3]) return;
-            console.log('processing Queue3...')
+            console.log('processing Queue4...')
 
             elements[3].style.transitionDuration = `${elements[2].dataset.duration}`;
             elements[3].style.transitionTimingFunction = `${elements[2].dataset.timingFunction}`;
             this.addShow(elements[3]);
         })(`${parseFloat(elements[3].dataset.duration)*500}`)(() => {
             if(!elements[4]) return;
-            console.log('processing Queue3...')
+            console.log('processing Queue5...')
 
             elements[4].style.transitionDuration = `${elements[2].dataset.duration}`;
             elements[4].style.transitionTimingFunction = `${elements[2].dataset.timingFunction}`;
             this.addShow(elements[4]);
         })(`${parseFloat(elements[4].dataset.duration)*500}`)(() => {
             if(!elements[5]) return;
-            console.log('processing Queue3...')
+            console.log('processing Queue6...')
 
             elements[5].style.transitionDuration = `${elements[2].dataset.duration}`;
             elements[5].style.transitionTimingFunction = `${elements[2].dataset.timingFunction}`;

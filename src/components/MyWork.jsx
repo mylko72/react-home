@@ -77,7 +77,7 @@ export default function MyWork() {
           { error && <p>Something is wrong</p>}
           { works && <SwiperLists works={works} device={device} slideNum={slideNum} size={_SIZE} hover={hover} />}
         </div>
-        <div className='mt-20 md:mt-20'>
+        <div className='mt-20 md:mt-32'>
           { works && <WorkLists works={works} device={device} size={_SIZE} />}
         </div>
       </div>

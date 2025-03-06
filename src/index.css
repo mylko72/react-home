@@ -139,7 +139,7 @@ body {
 #scroll-section-1 {position: relative; z-index: 20; max-width:100%; height: auto; padding:15vw 0 0; background-color: #fff; box-sizing: initial;}
 #scroll-section-1 .app__main-message {width: auto;}
 
-#scroll-section-2 {position: relative; z-index: 20; max-width:100%; height: auto; min-height: auto; padding:5vw 0 0; background-color: #fff; box-sizing: initial;}
+#scroll-section-2 {position: relative; z-index: 20; max-width:100%; height: auto; min-height: auto; padding:10vw 0 0; background-color: #fff; box-sizing: initial;}
 #scroll-section-2 .app__main-message {width: auto;}
 #scroll-section-2 .app__main-marquee {position: relative; width: 100%; height: 465px; overflow: hidden; white-space: nowrap; background: #fff; padding: 40px 40px;}
 #scroll-section-2 .app__main-marquee .marquee-inner {display: flex; position: absolute; top:0; height: 215px;}
@@ -147,7 +147,7 @@ body {
 #scroll-section-2 .app__main-marquee .marquee-inner img {width:215px; height: 215px; margin:0 25px}
 #scroll-section-2 .app__main-marquee .marquee-inner + .marquee-inner {top: 250px; justify-content: flex-end;}
 
-#scroll-section-3 {position: relative; z-index: 20; max-width:100%; height: auto; padding:8vw 0 0; background-color: #fff; box-sizing: initial;}
+#scroll-section-3 {position: relative; z-index: 20; max-width:100%; height: auto; padding:10vw 0 0; background-color: #fff; box-sizing: initial;}
 #scroll-section-3 .app__main-message {position: sticky; top: 10vh; justify-content: space-between;}
 #scroll-section-3 .app__message-text {height: 30vh; font-family: 'Paperlogy-8ExtraBold'; font-weight: 900;}
 #scroll-section-3 .app__message-text .app__sticky-elem {top: 40%; width: 50%; transform: translateY(-50%); opacity: 0;}
