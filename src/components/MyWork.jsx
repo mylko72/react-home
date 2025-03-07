@@ -71,7 +71,7 @@ export default function MyWork() {
             <p className="app__message-desc text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl" data-effect="slide-down">My Works</p>
         </div>
       </div>
-      <div className="size-4/5 lg:size-3/4 2xl:size-3/5 2xl:mr-24" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      <div className="size-full px-10 sm:px-5 lg:px-10 2xl:size-3/5 2xl:px-0 2xl:mr-24" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         <div className='app__main-swiper'>
           { isLoading && <p>Loading...</p>}
           { error && <p>Something is wrong</p>}
