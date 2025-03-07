@@ -564,6 +564,10 @@ body {
   opacity: 1;
 }
 
+.more-list > ul li:first-child {
+  @apply !mt-0
+}
+
 .more-list > ul .work-item {
   @apply flex
 }

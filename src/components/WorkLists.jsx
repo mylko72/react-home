@@ -36,7 +36,7 @@ export default function WorkLists({ works, device, size }) {
                     works.map((work, index) => {
                         if(index >= size){
                             return (
-                                <li className={`work-item flex gap-x-10 mb-20 ` + (oddRow(index) ? 'flex-row' : 'flex-row-reverse py-16 px-10 bg-slate-50')} key={index}>
+                                <li className={`work-item flex gap-x-10 mb-20 -mt-48 ` + (oddRow(index) ? 'flex-row' : 'flex-row-reverse py-16 px-10')} key={index}>
                                     <div ref={el => itemRef.current[index] = el} className='work-img flex-none w-1/3 overflow-hidden cursor-pointer' onClick={() => goToSite(work.url[0])}  onMouseEnter={() => onHandleOver(index)} onMouseLeave={() => onHandleOut(index)}>
                                         <img ref={el => imgRef.current[index] = el} className="object-cover w-full h-full" data-src={work.thumbnail} alt={work.project} data-transform="translate(0, 30px)" data-duration="1s" data-effect="slide-up" />
                                     </div>
