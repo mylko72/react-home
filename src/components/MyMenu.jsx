@@ -32,7 +32,7 @@ export default function MyMenu({ target, closeMenu, csName }) {
   return (
     <div className={'app__my-menu ' + csName}>
       <div ref={divRef} className='relative h-screen'>
-        <button className='app__btn-top' onClick={handleClick}><TfiClose  className='text-6xl' /></button>
+        <button className='app__btn-top' onClick={handleClick}><TfiClose  className='text-4xl lg:text-5xl 2xl:text-6xl' /></button>
         <div className='my-menu-inner flex justify-between'>
           <h1 className='app__main-tit text-3xl'>Portfolio</h1>
         </div>
