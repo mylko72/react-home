@@ -931,8 +931,12 @@ body {
     @apply w-full mt-5
   }
 
-  .more-list > ul .work-desc, .more-list > ul .work-etc {
-    @apply text-left
+  .more-list > ul .work-desc {
+    @apply px-2 box-border text-left
+  }
+  
+  .more-list > ul .work-etc {
+    @apply py-4 p-6 bg-slate-100 rounded-lg text-left
   }
 }
 
