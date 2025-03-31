@@ -15,14 +15,17 @@ const queryClient = new QueryClient()
 function App() {
   const { scrollIndex } = useParallaxApiContext();
   const [active, setActive] = useState(null);
+  const [focusedElement, setFocusedElement] = useState(null);
   const appRef = useRef(null);
 
   const openMenu = () => {
     setActive('active');
+    setFocusedElement(document.activeElement);
   }
 
   const closeMenu = () => {
     setActive(null);
+    focusedElement.focus();
   }
 
   useEffect(() => {
