@@ -41,7 +41,7 @@ export default function SlideItem({ work, device, direction }) {
     }, [itemRef]);
 
     return (
-        <li className="work-item cursor-pointer" onClick={() => goToSite(work.url[0])} onMouseEnter={onHandleOver} onMouseLeave={onHandleOut}>
+        <li className={`work-item ` + (work.url[0] ? 'cursor-pointer' : '')} onClick={() => goToSite(work.url[0])} onMouseEnter={onHandleOver} onMouseLeave={onHandleOut}>
             <div ref={itemRef} className="work-img">
                 <img ref={imgRef} className="object-cover" src={work.thumbnail} alt={work.project} data-slide-width={ direction === 'width' } data-slide-height={ direction === 'height' } data-slide-value={ getSlideValue() } data-duration="1s" data-timing-function="cubic-bezier(0.83, 0, 0.17, 1)" />
                 { device === 'Desktop' && <div className='desc divide-y divide-dashed'>

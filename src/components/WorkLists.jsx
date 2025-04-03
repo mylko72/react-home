@@ -41,7 +41,7 @@ export default function WorkLists({ works, device, size }) {
                         if(index >= size){
                             return (
                                 <li className={`work-item flex gap-x-10 ` + (!oddRow(index) ? 'flex-row pl-5 mt-20 md:mt-36' : 'flex-row-reverse pt-20 md:pt-10 pr-5')} key={index}>
-                                    <div ref={el => itemRef.current[index] = el} className='work-img flex-none w-1/2 overflow-hidden cursor-pointer' data-transform={`translate(${oddRow(index) ? '30px' : '-30px'}, 0)`} data-duration="1s" data-effect={slideEffect(index)} onClick={() => goToSite(work.url[0])}  onMouseEnter={() => onHandleOver(index)} onMouseLeave={() => onHandleOut(index)}>
+                                    <div ref={el => itemRef.current[index] = el} className={`work-img flex-none w-1/2 overflow-hidden ` + (work.url[0] ? 'cursor-pointer' : '')} data-transform={`translate(${oddRow(index) ? '30px' : '-30px'}, 0)`} data-duration="1s" data-effect={slideEffect(index)} onClick={() => goToSite(work.url[0])}  onMouseEnter={() => onHandleOver(index)} onMouseLeave={() => onHandleOut(index)}>
                                         <img ref={el => imgRef.current[index] = el} className="object-contain w-full h-auto" data-src={work.thumbnail} alt={work.project} />
                                     </div>
                                     <div className={`work-info flex flex-col w-1/2 ` + (oddRow(index) && 'items-end')}>

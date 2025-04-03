@@ -35,7 +35,7 @@ export default function MyMenu({ target, closeMenu, csName }) {
   return (
     <div id="modal" className={'app__my-menu ' + csName} role="dialog" aria-labelledby='modalTitle' aria-hidden='true'>
       <div ref={divRef} className='relative h-screen'>
-        <button id="closeModal" className='app__btn-top' onClick={handleClick}><TfiClose  className='text-4xl lg:text-5xl 2xl:text-6xl' /><span className="hidden">close</span></button>
+        <button id="closeModal" className='app__btn-top' aria-label="close" onClick={handleClick}><TfiClose  className='text-4xl lg:text-5xl 2xl:text-6xl' /></button>
         <div className='my-menu-inner flex justify-between'>
           <h2 id="modalTitle" className='app__main-tit text-3xl'>Portfolio</h2>
         </div>

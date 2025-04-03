@@ -86,7 +86,7 @@ body {
 .scale-move {transform: translate3d(-10%, -10%, 0) scale3d(1.2, 1.2, 1) !important}
 .clip-down {height:100%}
 
-.hidden {position: absolute; overflow: hidden; height: 1px; width: 1px; border: 0; clip:rect(1px, 1px, 1px, 1px); clip-path: inset(50%); word-break: initial; word-wrap: initial;}
+/* .hidden {position: absolute; overflow: hidden; height: 1px; width: 1px; border: 0; clip:rect(1px, 1px, 1px, 1px); clip-path: inset(50%); word-break: initial; word-wrap: initial;} */
 .show-in {opacity:1; transform:none !important;}
 .show-in [class*="slide"], .show-in [class*="scale"] {opacity:1; transform:none;}
 .show-in.text-blur {animation: text-blur 1.6s cubic-bezier(.3,0,.1,1) .5s alternate both;}
@@ -130,7 +130,8 @@ body {
 .app__my-menu .my-menu-con button {padding-bottom: 10px; font-weight: 700}
 
 #scroll-section-0 {max-width:100%; padding:80vh 0 0}
-#scroll-section-0 .app__main-message {position:fixed; left: 7vw; top: 50%; z-index: 10; width: max-content; transform: translateY(-50%); padding: 0; text-align:center; -webkit-box-reflect: below -48px linear-gradient(transparent, #0002);}
+#scroll-section-0 .app__main-message {position:fixed; left: 7vw; top: 50%; z-index: 10; width: max-content; transform: translateY(-50%); padding: 0; text-align:center; -webkit-box-reflect: below -2.5vw linear-gradient(transparent, #0002);}
+#scroll-section-0 .app__main-message.app__sticky-message {-webkit-box-reflect: initial;}
 #scroll-section-0 .app__main-message [class*='message-tit-'] {font-size: inherit; transition-duration: 0.5s; transition-timing-function: ease-in;}
 #scroll-section-0 .app__message-tit {text-align: left;}
 #scroll-section-0 .app__cover-sticky {position: relative; display:flex; justify-content: center; align-items: flex-start; height: 150vh;}
@@ -851,6 +852,10 @@ body {
 }
 
 /* swiper 공통 (e) *****************************************************/
+@media (max-width: 1920px) {
+  #scroll-section-0 .app__main-message {-webkit-box-reflect: below -3.3vw linear-gradient(transparent, #0002);}
+}
+
 @media (max-width: 1280px) {
   .app__main-header .header-inner {padding: 20px 50px}
   .app__main-footer .footer-inner {padding: 50px 50px 0}
@@ -908,6 +913,7 @@ body {
 }
 
 @media (max-width: 640px) {
+  #scroll-section-0 .app__cover-img {background-position: 12%}
   .app__main-swiper .swiper {padding-bottom: 7vw;}
   .app__main-swiper .swiper .swiper-button-prev, 
   .app__main-swiper .swiper .swiper-button-next {
@@ -947,7 +953,6 @@ body {
   #scroll-section-4 .app__main-images .app__sticky-elem.main-image-b,
   #scroll-section-4 .app__main-images .app__sticky-elem.main-image-c,
   #scroll-section-4 .app__main-images .app__sticky-elem.main-image-d {right: -200%}
-
 }
 
 
