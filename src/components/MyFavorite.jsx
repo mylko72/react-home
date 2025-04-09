@@ -12,7 +12,7 @@ export default function MyFavorite({ type, heightNum }) {
     });
 
     return (
-        <section ref={sectionRef} id="scroll-section-4" className='app__scroll-section' data-background-color='["fff", "ffc800", "0074d9", "ff851b", "ffd14d", "fff"]' style={{backgroundColor: '#fff'}}>
+        <section ref={sectionRef} id="scroll-section-4" className='app__scroll-section' data-background-color='["fff", "ffc800", "0074d9", "ff851b", "ffd14d", "fff"]' style={{backgroundColor: '#fff'}} aria-label='좋아하는 것들'>
             <div className="app__main-message flex flex-col md:!left-20 !text-left !translate-x-0">
                 <div className="app__mask" data-effect>
                     <p className="app__message-tit text-4xl sm:text-5xl xl:text-6xl 2xl:text-7xl" data-effect="slide-up">무엇을 좋아하나요</p>

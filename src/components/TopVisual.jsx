@@ -44,7 +44,7 @@ export default function TopVisual({type, heightNum}) {
     // },{ scope: sectionRef });
 
     return (
-        <section ref={sectionRef} id="scroll-section-0" className='app__scroll-section'>
+        <section ref={sectionRef} id="scroll-section-0" className='app__scroll-section' aria-label='인트로'>
             {/* <div className="app__main-message !left-1/2 !-translate-x-1/2 !-translate-y-1/2 text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl">
                 <p ref={msgRef} className="app__message-tit" data-split-txt data-effect="slide-right" data-callback={JSON.stringify(dataInfo)}>Scroll-To-See-Portfolio</p>
             </div> */}

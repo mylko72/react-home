@@ -36,12 +36,12 @@ function App() {
     <>
       <Header openMenu={() => openMenu()} />
       <MyMenu target={appRef} closeMenu={() => closeMenu()} csName={active} />
-      <div ref={appRef} className='app__main-container'>
+      <main ref={appRef} className='app__main-container'>
         <LenisAPI />
         <QueryClientProvider client={queryClient}>
           <Outlet />
         </QueryClientProvider>
-      </div>
+      </main>
       <Footer target={appRef} />
     </>
   );

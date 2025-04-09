@@ -54,7 +54,7 @@ export default function MySelf({ type, heightNum }) {
     });
 
     return (
-        <section ref={sectionRef} id="scroll-section-3" className='app__scroll-section'>
+        <section ref={sectionRef} id="scroll-section-3" className='app__scroll-section' aria-label="자기 소개">
             <div className="app__main-message !w-full flex flex-col">
                 <div className='flex flex-col items-center'>
                     <div className="app__mask" data-effect>
