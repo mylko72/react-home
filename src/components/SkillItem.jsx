@@ -16,6 +16,9 @@ export default function SkillItem({ direction }) {
     }
 
     useEffect(() => {
+        const marqueeChild = marqueeRef.current.querySelector('span');
+        const cloneChild = marqueeChild.cloneNode(true);
+        marqueeRef.current.appendChild(cloneChild);
         infiniteXScroll();
     })
 
@@ -36,7 +39,7 @@ export default function SkillItem({ direction }) {
                 <img src="/images/img_html5_logo.jpg" alt='Html5' />
                 <img src="/images/img_css3_logo.jpg" alt='Css3' />
             </span>
-            <span>
+            {/* <span>
                 <img src="/images/img_vue_logo.jpg" alt='Vue' />
                 <img src="/images/img_react_logo.svg" alt='React' />
                 <img src="/images/img_react_query_logo.jpg" alt='React Query' />
@@ -50,7 +53,7 @@ export default function SkillItem({ direction }) {
                 <img src="/images/img_webpack_logo.jpg" alt='Webpack' />
                 <img src="/images/img_html5_logo.jpg" alt='Html5' />
                 <img src="/images/img_css3_logo.jpg" alt='Css3' />
-            </span>
+            </span> */}
         </div>                
     );
 }
