@@ -1,6 +1,17 @@
 {
   "works":[
     {
+      "project":"KB차차차 중고차플랫폼 고도화",
+      "thumbnail":"/images/thumb_chachacha_img.png",
+      "images":[],
+      "company":"더크림유니언",
+      "client":"KB캐피탈",
+      "date":"2026.04 ~ 2026.11",
+      "task":"중고차플랫폼 고도화",
+      "desc":"사용자 경험을 우선한 UI/UX 개선 및 고도화",
+      "url": ["https://m.kbchachacha.com/"]
+    },  
+    {
       "project":"KB저축은행 모바일웹/앱 고도화",
       "thumbnail":"/images/thumb_kb_img.png",
       "images":[],
